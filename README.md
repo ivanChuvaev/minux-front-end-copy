@@ -1,2 +1,1 @@
-# Web-Mining
-Minux
+# WEB-Application
