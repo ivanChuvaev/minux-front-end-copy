@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-redeclare */
 import * as rt from 'runtypes';
 
-const Shared = rt.Record({
+const Shares = rt.Record({
   accepted: rt.Union(rt.Number, rt.Null),
   rejected: rt.Union(rt.Number, rt.Null),
 });
-export type Shared = typeof Shared;
+export type Shared = rt.Static<typeof Shares>;
 
 export const MemoryMb = rt.Record({
   reserved: rt.Union(rt.Number, rt.Null),
@@ -35,7 +35,7 @@ export const GpuDynamic = rt.Record({
   powerUsage: rt.Union(rt.Number, rt.Null),
   algorithm: rt.Union(rt.String, rt.Null),
   cryptocurrency: rt.Union(rt.String, rt.Null),
-  shared: Shared,
+  shared: Shares,
   memoryMb: MemoryMb,
   clocksMhz: ClocksMhz,
   voltageMv: VoltageMv,

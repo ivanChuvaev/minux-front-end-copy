@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'; 
-import gpuDynamicReducer from 'entities/gpu/dynamic/gpuSlice'
-import gpuStaticReducer from 'entities/gpu/static/gpuSlice'
+import { gpuDynamicReducer, gpuStaticReducer } from 'entities/gpu' 
+import { cpuDynamicReducer, cpuStaticReducer } from 'entities/cpu' 
 
 const rootReducer = { 
   gpuDynamicReducer,
-  gpuStaticReducer
+  gpuStaticReducer,
+  cpuDynamicReducer,
+  cpuStaticReducer
 };
 
 const store = configureStore({

@@ -9,15 +9,15 @@ const initialState: GpuState = {
   data: [],
 };
 
-const gpuSlice = createSlice({
+const gpuDynamicSlice = createSlice({
   name: 'gpuDinamic',
   initialState,
   reducers: {
-    addGpus: (state, action: PayloadAction<GpuDynamic[]>) => {
+    addGpusDynamic: (state, action: PayloadAction<GpuDynamic[]>) => {
       state.data = action.payload;
     }, 
   }
 });
 
-export const { addGpus } = gpuSlice.actions;
-export default gpuSlice.reducer;
+export const gpuDynamicAction = gpuDynamicSlice.actions;
+export const gpuDynamicReducer = gpuDynamicSlice.reducer;
