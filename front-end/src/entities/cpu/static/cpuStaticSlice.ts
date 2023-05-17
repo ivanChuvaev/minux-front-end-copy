@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { CpuStatic } from "./types";
 
-interface CpuState {
+interface CpuStaticState {
     data: CpuStatic | null
 };
 
-const initialState: CpuState = {
+const initialState: CpuStaticState = {
     data: null
 };
 

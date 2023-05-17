@@ -1,12 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { CpuDynamic } from "./types";
-import { stat } from "fs";
+import { CpuDynamic } from "./types"; 
 
-interface CpuState {
+interface CpuDynamicState {
     data: CpuDynamic[]
 }
 
-export const initialState: CpuState = {
+export const initialState: CpuDynamicState = {
     data: []
 }
 

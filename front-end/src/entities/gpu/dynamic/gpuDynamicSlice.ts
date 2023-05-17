@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { GpuDynamic } from './types';
 
-interface GpuState {
+interface GpuDynamicState {
   data: GpuDynamic[],
 }
 
-const initialState: GpuState = {
+const initialState: GpuDynamicState = {
   data: [],
 };
 

@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { GpuStatic } from './types';
 
-interface GpuState {
+interface GpuStaticState {
   data: GpuStatic[],
 };
 
-const initialState: GpuState = {
+const initialState: GpuStaticState = {
   data: [],
 };
 
@@ -20,4 +20,4 @@ const gpuStaticSlice = createSlice({
 });
 
 export const gpuStaticAction = gpuStaticSlice.actions;
-export const gpuStaticReducer =  gpuStaticSlice.reducer;
+export const gpuStaticReducer =  gpuStaticSlice.reducer; 
