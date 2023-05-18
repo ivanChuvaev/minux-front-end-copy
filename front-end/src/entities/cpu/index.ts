@@ -6,5 +6,7 @@ export const cpuReducers = {
     cpuStaticReducer
 }
 
+export { cpuDynamicAction } from "./dynamic/cpuDynamicSlice";
+export { cpuStaticAction } from "./static/cpuStaticSlice";
 export { CpuDynamic } from "./dynamic/types"
 export { CpuStatic } from "./static/types"
