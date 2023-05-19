@@ -1,0 +1,27 @@
+@import 'app/values.scss';
+
+.flex-conteiner-horizontal {
+    margin-left: $size-bar;
+
+    display: flex; 
+    
+    height: $size-bar;
+
+    font-size: $text-size32;
+
+    justify-content: center;
+    align-items: center; 
+
+    border-bottom: 1px solid $line-color; 
+
+    gap: 10rem; 
+
+    .flex-conteiner-horizontal_element { 
+
+    }
+}
+
+.nav_link {
+    background-image: linear-gradient(to top, #594125B2, #3b3e3f00);  
+    border-bottom: 1px solid #FC8800;        
+}

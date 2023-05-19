@@ -1,0 +1,28 @@
+@import 'app/values.scss';
+
+.flex-conteiner-vertical { 
+    position: absolute;
+
+    display: flex; 
+    flex-direction: column;
+
+    width: $size-bar; 
+    height: 100vh;
+
+    font-size: $text-size12;
+    font-weight: $text-weight-light;
+    
+    justify-content: center;
+    align-items: center; 
+    text-align: center; 
+    
+    border-right: 1px solid $line-color; 
+
+    gap: 10rem; 
+
+    .flex-conteiner-vertical_element { 
+        font-weight: $text-weight-light;
+
+    }
+}
+

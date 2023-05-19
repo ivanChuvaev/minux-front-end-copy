@@ -4,7 +4,7 @@ import { gpuReducers,
   ramReducers, 
   hdReducers, 
   supportReducer
-} from 'entities' 
+} from 'entities/index' 
 
 const rootReducer = { 
   ...gpuReducers,
