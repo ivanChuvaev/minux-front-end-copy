@@ -4,18 +4,25 @@ $font-gill-sans: 'Gill Sans MT', sans-serif;
 
 @font-face {
   font-family: 'Gill Sans MT';
-  src: url('../../public/fonts/gill-sans-mt.ttf') format('truetype');
+  src: url('../shared/assets/gill-sans-mt.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 } 
 
 body {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
   background: #20202B;
   color: $text-color-primary;
   font-family: $font-gill-sans;
+  text-decoration: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 

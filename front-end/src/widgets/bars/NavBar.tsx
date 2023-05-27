@@ -1,26 +1,19 @@
-import React from 'react'
-import './navBar.scss'
+import {NavigateLink} from 'shared/components';
+import './navBar.scss' 
 
-type Props = {}
+let classActive: string = 'nav-link';
+let className: string = 'flex-conteiner-horizontal_element';
 
-export default function NavBar({}: Props) {
+export default function NavBar() { 
   return (
     <div className='flex-conteiner-horizontal'>
-        <div className='flex-conteiner-horizontal_element'>
-            Monitoring
-        </div>
+        <NavigateLink route='/monitoring' classActive={classActive} className={className} text='Monitoring'/>
+        
+        <NavigateLink route='/settings' classActive={classActive} className={className} text='Settings'/>
 
-        <div className='flex-conteiner-horizontal_element'>
-            Settings
-        </div>
+        <NavigateLink route='/analytics' classActive={classActive} className={className} text='Analytics'/>
 
-        <div className='flex-conteiner-horizontal_element'> 
-            Analytics
-        </div>
-
-        <div className='flex-conteiner-horizontal_element'> 
-            System
-        </div>
+        <NavigateLink route='/system' classActive={classActive} className={className} text='System'/>
     </div>
   )
 }

@@ -21,7 +21,11 @@
     }
 }
 
-.nav_link {
+.nav-link {
+    color: $text-color-thirdy;
+    outline: none;
+    line-height: 5rem;
+    text-decoration: none;
     background-image: linear-gradient(to top, #594125B2, #3b3e3f00);  
-    border-bottom: 1px solid #FC8800;        
+    border-bottom: 1px solid $text-color-thirdy;        
 }
