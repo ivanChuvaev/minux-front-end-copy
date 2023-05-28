@@ -1,5 +1,8 @@
 @import 'app/values.scss';
 
-.content {
-    margin-left: $size-bar; 
+.flex-conteiner {
+    margin-left: $size-bar;
+
+    display: flex;
+    flex-direction: column;
 }
