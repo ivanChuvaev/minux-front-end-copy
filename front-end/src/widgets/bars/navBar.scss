@@ -14,10 +14,11 @@
 
     border-bottom: 1px solid $line-color; 
 
-    gap: 10rem; 
+    gap: 5rem; 
 
     .flex-conteiner-horizontal_element { 
-
+        text-align: center;
+        width: 12rem;
     }
 }
 
