@@ -1,10 +1,5 @@
-import { cpuDynamicReducer } from "./dynamic/cpuDynamicSlice";
-import { cpuStaticReducer } from "./static/cpuStaticSlice";
-
-export const cpuReducers = {
-    cpuDynamicReducer,
-    cpuStaticReducer
-}
+export { cpuDynamicReducer } from "./dynamic/cpuDynamicSlice";
+export { cpuStaticReducer } from "./static/cpuStaticSlice"; 
 
 export { cpuDynamicAction } from "./dynamic/cpuDynamicSlice";
 export { cpuStaticAction } from "./static/cpuStaticSlice";

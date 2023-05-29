@@ -1,7 +1,7 @@
-export { ramReducers, ramDynamicAction, ramStaticAction } from './ram'
-export { gpuReducers, gpuDynamicAction, gpuStaticAction } from './gpu'
-export { cpuReducers, cpuDynamicAction, cpuStaticAction } from './cpu'
-export { hdReducers, hdDynamicAction, hdStaticAction } from './hd'
+export { ramDynamicReducer, ramStaticReducer ,ramDynamicAction, ramStaticAction } from './ram'
+export { gpuDynamicReducer, gpuStaticReducer, gpuDynamicAction, gpuStaticAction } from './gpu'
+export { cpuDynamicReducer, cpuStaticReducer, cpuDynamicAction, cpuStaticAction } from './cpu'
+export { hdDynamicReducer, hdStaticReducer, hdDynamicAction, hdStaticAction } from './hd'
 export { supportReducer, supportAction } from './support'
 
 export { GpuDynamic, GpuStatic  } from './gpu/index' 

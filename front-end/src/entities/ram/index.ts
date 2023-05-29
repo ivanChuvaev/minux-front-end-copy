@@ -1,10 +1,5 @@
-import { ramDynamicReducer } from "./dynamic/ramDynamicSlice";
-import { ramStaticReducer } from "./static/ramStaticSlice";
-
-export const ramReducers = {
-    ramDynamicReducer,
-    ramStaticReducer
-}
+export { ramDynamicReducer } from "./dynamic/ramDynamicSlice";
+export { ramStaticReducer } from "./static/ramStaticSlice"; 
 
 export { ramDynamicAction } from "./dynamic/ramDynamicSlice";
 export { ramStaticAction } from "./static/ramStaticSlice";

@@ -1,10 +1,5 @@
-import { gpuDynamicReducer } from "./dynamic/gpuDynamicSlice";
-import { gpuStaticReducer } from "./static/gpuStaticSlice";
-
-export const gpuReducers = {
-    gpuDynamicReducer,
-    gpuStaticReducer
-}
+export { gpuDynamicReducer } from "./dynamic/gpuDynamicSlice";
+export { gpuStaticReducer } from "./static/gpuStaticSlice"; 
 
 export { gpuDynamicAction } from "./dynamic/gpuDynamicSlice";
 export { gpuStaticAction } from "./static/gpuStaticSlice";

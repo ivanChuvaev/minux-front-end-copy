@@ -1,10 +1,5 @@
-import { hdDynamicReducer } from "./dynamic/hdDynamicSlice";
-import { hdStaticReducer } from "./static/hdStaticSlice";
-
-export const hdReducers = {
-    hdDynamicReducer,
-    hdStaticReducer
-}
+export { hdDynamicReducer } from "./dynamic/hdDynamicSlice";
+export { hdStaticReducer } from "./static/hdStaticSlice";
 
 export { hdDynamicAction } from "./dynamic/hdDynamicSlice";
 export { hdStaticAction } from "./static/hdStaticSlice";

@@ -35,6 +35,7 @@ export const GpuDynamic = rt.Record({
   powerUsage: rt.Union(rt.Number, rt.Null),
   algorithm: rt.Union(rt.String, rt.Null),
   cryptocurrency: rt.Union(rt.String, rt.Null),
+  miner: rt.Union(rt.String, rt.Null),
   shared: Shares,
   memoryMb: MemoryMb,
   clocksMhz: ClocksMhz,
