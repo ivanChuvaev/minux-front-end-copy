@@ -1,8 +1,11 @@
 @import 'app/values.scss';
 
-.flex-conteiner {
+.flex-conteiner-monitoring {
     margin-left: $size-bar;
 
-    display: flex;
-    flex-direction: column;
+    padding: 5rem 10rem;
+
+    justify-content: center;
+
+    display: flex; 
 }

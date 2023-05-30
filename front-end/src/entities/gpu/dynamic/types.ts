@@ -5,7 +5,7 @@ const Shares = rt.Record({
   accepted: rt.Union(rt.Number, rt.Null),
   rejected: rt.Union(rt.Number, rt.Null),
 });
-export type Shared = rt.Static<typeof Shares>;
+export type Shares = rt.Static<typeof Shares>;
 
 export const MemoryMb = rt.Record({
   reserved: rt.Union(rt.Number, rt.Null),
@@ -36,7 +36,7 @@ export const GpuDynamic = rt.Record({
   algorithm: rt.Union(rt.String, rt.Null),
   cryptocurrency: rt.Union(rt.String, rt.Null),
   miner: rt.Union(rt.String, rt.Null),
-  shared: Shares,
+  shares: Shares,
   memoryMb: MemoryMb,
   clocksMhz: ClocksMhz,
   voltageMv: VoltageMv,

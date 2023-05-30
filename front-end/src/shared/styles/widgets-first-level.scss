@@ -1,0 +1,29 @@
+@import 'app/values.scss';
+
+.flex-conteiner-first-level { 
+    font-size: $text-size24; 
+
+    width: $widget-first-level-width;
+    height: $widget-first-level-height;
+
+    background-color: $color-primary;
+
+    padding: 10px 14px;
+
+    justify-content: space-between;
+    
+    align-items: center; 
+
+    display: flex; 
+
+    .text-fist-level {
+        width: 5rem;
+
+        opacity: 65%;
+    }
+}
+
+.border-line {
+    border: solid .5px $line-color;
+    padding: 5px;
+}
