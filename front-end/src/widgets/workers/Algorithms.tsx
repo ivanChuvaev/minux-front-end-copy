@@ -5,11 +5,9 @@ import BoxWithBorder from 'shared/components/BoxWithBorder';
 import { countNonEmptyValues } from 'shared/utils'
 import 'shared/styles/widgets-first-level.scss' 
 
-type Props = {}
-
 const name: string = 'Working algorithms'; 
 
-export default function Algorithms({}: Props) { 
+export default function Algorithms() { 
   const gpusDynamic = useSelector((state: RootState) => state.gpuDynamic.data);
   
   const count: number = countNonEmptyValues(gpusDynamic, 'algorithm'); 

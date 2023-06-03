@@ -1,14 +1,14 @@
 @import 'app/values.scss';
 
 .flex-conteiner-first-level { 
-    font-size: $text-size24; 
+    font-size: $text-size22; 
 
     width: $widget-first-level-width;
     height: $widget-first-level-height;
 
     background-color: $color-primary;
 
-    padding: 10px 14px;
+    padding: 5vh .8vw;
 
     justify-content: space-between;
     
@@ -16,14 +16,18 @@
 
     display: flex; 
 
-    .text-fist-level {
-        width: 5rem;
+    .text-first-level {
+        width: 7.5vw;
 
         opacity: 65%;
+    }
+
+    .text-first-level1 {
+        text-align: center; 
     }
 }
 
 .border-line {
-    border: solid .5px $line-color;
-    padding: 5px;
+    border: solid $line-size $line-color;
+    padding: 1vh;
 }

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { CpuDynamic } from "./types"; 
+import { CpuDynamic } from "../../../shared/types/cpuDynamic"; 
 
 interface CpuDynamicState {
     data: CpuDynamic[]

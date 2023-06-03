@@ -5,15 +5,20 @@ $color-primary: #242834;
 $data-color-succes: #43C09B;
 $data-color-negative: #FC4E4E;
 
+$line-size: .1vh;
 $line-color: #3C9EA5; 
 
-$size-bar: 5rem; 
+$size-bar: 10vh; 
 
 $text-weight-light: 300;
 $text-size12: .75rem;
 $text-size16: 1rem;
-$text-size24: 1.5rem;
+$text-size22: 1.4rem;
 $text-size32: 2rem;
+
+$gap-5vw: 4vw;
+
+$vh-10: 10vh;
 
 $text-color-primary: #FFFFFF;
 $text-color-secondary: #d5d5d5;
@@ -22,5 +27,5 @@ $text-color-thirdy: #FC8800;
 $gradient: #594125B2;
 $gradien1: #3B3E3F00;
 
-$widget-first-level-width: 14rem;
-$widget-first-level-height: 5rem;
+$widget-first-level-width: 13vw;
+$widget-first-level-height: 10vh;
