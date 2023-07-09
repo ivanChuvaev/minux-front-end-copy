@@ -1,19 +1,19 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { CpuDynamic } from "../../../shared/types/cpuDynamic"; 
+import { CpuDynamic } from "./cpuDynamic"; 
 
 interface CpuDynamicState {
-    data: CpuDynamic[]
+    data: CpuDynamic | null
 }
 
 export const initialState: CpuDynamicState = {
-    data: []
+    data: null
 }
 
 const cpuDynamicSlice = createSlice({
     name: 'cpuDymaic',
     initialState,
     reducers: {
-        addCpuDynamic: (state, action: PayloadAction<CpuDynamic[]>) => {
+        addCpuDynamic: (state, action: PayloadAction<CpuDynamic>) => {
             state.data = action.payload
         }
     }

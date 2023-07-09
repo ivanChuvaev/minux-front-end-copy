@@ -20,4 +20,4 @@ const cpuStaticSlice = createSlice({
 });
 
 export const cpuStaticAction = cpuStaticSlice.actions;
-export const cpuStaticReducer = cpuStaticSlice.reducer;
+export const cpuStaticReducer = cpuStaticSlice.reducer; 
