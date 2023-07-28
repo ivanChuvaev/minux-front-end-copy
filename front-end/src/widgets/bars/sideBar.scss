@@ -3,11 +3,14 @@
 .flex-conteiner-vertical { 
     position: absolute;
 
+    margin-top: 80px;
+    top: 0;
+
     display: flex; 
     flex-direction: column;
 
     width: $size-bar; 
-    height: 100vh;
+    height: calc(100vh - 80px);
 
     font-size: $text-size12;
     font-weight: $text-weight-light;
@@ -16,9 +19,9 @@
     align-items: center; 
     text-align: center; 
     
-    border-right: 1px solid $line-color; 
+    border-right: $line-size solid $line-color; 
 
-    gap: 10rem; 
+    gap: 160px; 
 
     .flex-conteiner-vertical_element { 
         font-weight: $text-weight-light;

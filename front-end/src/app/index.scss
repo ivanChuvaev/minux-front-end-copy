@@ -1,5 +1,9 @@
 @import './values.scss';
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 $font-gill-sans: 'Gill Sans MT', sans-serif;
 
 @font-face {

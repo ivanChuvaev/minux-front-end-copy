@@ -1,9 +1,7 @@
 import React from 'react'
-import './sideBar.scss'
+import './sideBar.scss' 
 
-type Props = {}
-
-export default function SideBar({}: Props) {
+export default function SideBar() {
   return (
     <div className='flex-conteiner-vertical'> 
       <div className='flex-conteiner-vertical_element'>

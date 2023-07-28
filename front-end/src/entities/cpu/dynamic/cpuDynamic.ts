@@ -25,6 +25,7 @@ export type Cores = rt.Static<typeof Cores>
 export const CpuDynamic = rt.Record({
     temperatureCelcius: rt.Union(rt.Number, rt.Null),
     fanSpeedPercentage: rt.Union(rt.Number, rt.Null),
+    clockSpeed: rt.Union(rt.Number, rt.Null),
     hashrateMg: rt.Union(rt.Number, rt.Null),
     powerUsage: rt.Union(rt.Number, rt.Null),
     algorithm: rt.Union(rt.String, rt.Null),

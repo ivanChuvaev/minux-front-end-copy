@@ -1,4 +1,4 @@
- export default function valueOrNA(value: unknown) {
+ export default function valueOrNA(value: any) {
     if (value === undefined || 
         value === null || 
         (typeof(value) === 'string' && value.trim() === '') ||

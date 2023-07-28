@@ -1,0 +1,36 @@
+@import 'app/values.scss';
+
+.flex-conteiner { 
+    display: flex;
+    flex-direction: column; 
+
+    width: 700px; 
+
+    background-color: $color-primary;
+
+    .cpu-conteiner {
+        padding: 10px $text-padding;
+        font-size: $text-size24; 
+        border-bottom: $line-size-smaller solid $line-color;
+        display: flex;
+        flex-direction: column; 
+    }
+    .cpu-info {
+        font-size: $text-size20;
+        display: flex;
+        
+        .cpu-info-element { 
+            width: 400px;
+            padding: 10px $text-padding; 
+            display: flex;
+            flex-direction: column; 
+        } 
+        .cpu-info-element:nth-child(n+2) {
+            border-left: $line-size-smaller solid $line-color;
+        } 
+    }
+
+    .text {
+        opacity: $text-opacity; 
+    }
+}

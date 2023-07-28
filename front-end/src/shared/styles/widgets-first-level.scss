@@ -8,7 +8,7 @@
 
     background-color: $color-primary;
 
-    padding: 5vh .8vw;
+    padding: 15px;
 
     justify-content: space-between;
     
@@ -17,9 +17,9 @@
     display: flex; 
 
     .text-first-level {
-        width: 7.5vw;
+        width: 120px;
 
-        opacity: 65%;
+        opacity: $text-opacity;
     }
 
     .text-first-level1 {
@@ -27,7 +27,3 @@
     }
 }
 
-.border-line {
-    border: solid $line-size $line-color;
-    padding: 1vh;
-}
