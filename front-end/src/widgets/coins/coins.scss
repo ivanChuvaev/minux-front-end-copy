@@ -1,0 +1,37 @@
+@import 'app/values.scss';
+
+.flex-conteiner-coin { 
+    display: flex;
+    flex-direction: column;
+    width: $widget-coin-width; 
+    font-size: $text-size24;
+    
+    .coin-conteiner {
+        padding: $text-padding-tb $text-padding-lr;
+        display: flex; 
+        justify-content: space-between;
+        background-color: $color-primary; 
+        opacity: $text-opacity;
+    }
+
+    .coin-scroll {
+        height: 120px; 
+        padding: $text-padding-tb $text-padding-lr; 
+        background-color: $color-primary;
+        overflow: auto;
+        &::-webkit-scrollbar {
+            display: none;
+          }
+    }
+
+    .text {
+        opacity: $text-opacity; 
+    }
+
+}
+
+@media (max-width: 1500px) {
+    .flex-conteiner-coin {
+        width: calc(#{$widget-coin-width} - #{$number}); 
+    }
+}

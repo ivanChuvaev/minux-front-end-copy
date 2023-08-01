@@ -1,6 +1,13 @@
 /* eslint-disable @typescript-eslint/no-redeclare */
 import * as rt from 'runtypes'
 
+export const CoinsValue = rt.Record({
+    coin: rt.String,
+    algorithm: rt.String,
+    value: rt.Number
+})
+export type CoinsValue = rt.Static<typeof CoinsValue>
+
 export const Cryptocurrencies = rt.Record({
     shortName: rt.String,
     fullName: rt.String,
@@ -16,6 +23,7 @@ export const Miners = rt.Record({
 export type Miners = rt.Static<typeof Miners>
 
 export const Support = rt.Record({
+    coinsValue: rt.Array(CoinsValue),
     cryptocurrencies: rt.Array(Cryptocurrencies),
     miners: rt.Array(Miners)
 }) 

@@ -1,15 +1,14 @@
 @import 'app/values.scss';
 
-.flex-conteiner { 
+.flex-conteiner-cpu { 
     display: flex;
     flex-direction: column; 
 
-    width: 700px; 
-
-    background-color: $color-primary;
+    width: $widget-cpu-width; 
+        background-color: $color-primary;
 
     .cpu-conteiner {
-        padding: 10px $text-padding;
+        padding: $text-padding-tb $text-padding-lr;
         font-size: $text-size24; 
         border-bottom: $line-size-smaller solid $line-color;
         display: flex;
@@ -18,10 +17,10 @@
     .cpu-info {
         font-size: $text-size20;
         display: flex;
-        
+        height: 99px;
         .cpu-info-element { 
-            width: 400px;
-            padding: 10px $text-padding; 
+            width: 400px; 
+            padding: $text-padding-tb $text-padding-lr;
             display: flex;
             flex-direction: column; 
         } 
@@ -32,5 +31,11 @@
 
     .text {
         opacity: $text-opacity; 
+    }
+}
+
+@media (max-width: 1500px) {
+    .flex-conteiner-cpu {
+        width: calc(#{$widget-cpu-width} - #{$number}); 
     }
 }

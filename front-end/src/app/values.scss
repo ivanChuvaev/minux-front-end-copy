@@ -19,12 +19,16 @@ $text-size22: 22px;
 $text-size24: 24px;
 $text-size32: 32px;
 $text-opacity: 65%;
-$text-padding: 15px;
+$text-padding-tb: 15px;
+$text-padding-lr: 15px;
 
 $gap-5vw: 70px;
 
 $vh-10: 80px;
 
+$text-color-value: #3C9EA5;
+$text-color-green: #43C09B;
+$text-color-red: #FC4E4E;
 $text-color-primary: #FFFFFF;
 $text-color-secondary: #d5d5d5;
 $text-color-thirdy: #FC8800;
@@ -32,10 +36,17 @@ $text-color-thirdy: #FC8800;
 $gradient: #594125B2;
 $gradien1: #3B3E3F00;
 
-$widget-first-level-width: 200px;
+$widget-first-level-width: 225px;
 $widget-first-level-height: 80px; 
+$widget-cpu-width: 780px;
+$widget-coin-width: 680px; 
+$number: 80px;
 
 .border-line {
     border: solid $line-size-smaller $line-color;
     padding: 7px;
 }
+
+.img-no-drag {
+    user-select: none;
+  }

@@ -9,7 +9,7 @@ export default function Cpu() {
   const cpuDynamic = useSelector((state: RootState) => state.cpuDynamic.data);
   return (
     <div className='border-line'> 
-      <div className='flex-conteiner'> 
+      <div className='flex-conteiner-cpu'> 
           <div className='cpu-conteiner'>
             <span>CPU</span>
             <span className='text'>{valueOrNA(cpuName)}</span>
@@ -31,24 +31,24 @@ export default function Cpu() {
           <div className='cpu-info-element'>
               <div className='flex justify-between'>
                 <span className='text'>Hashrate:</span>
-                <span>{valueOrNA(cpuDynamic?.hashrateMg)}</span>
+                <span>{valueOrNA(cpuDynamic?.hashrateMg)} H/s</span>
               </div> 
 
               <div className='flex justify-between'>
                 <span className='text'>Power:</span>
-                <span>{valueOrNA(cpuDynamic?.powerUsage)}</span>
+                <span>{valueOrNA(cpuDynamic?.powerUsage)} Watt</span>
               </div> 
           </div>
 
           <div className='cpu-info-element'>
               <div className='flex justify-between'>
                 <span className='text'>Clock Speed:</span>
-                <span>{valueOrNA(cpuDynamic?.clockSpeed)}</span>
+                <span>{valueOrNA(cpuDynamic?.clockSpeed)} Mhz</span>
               </div>
               
               <div className='flex justify-between'>
                 <span className='text'>Temperature:</span>
-                <span>{valueOrNA(cpuDynamic?.temperatureCelcius)}</span>
+                <span>{valueOrNA(cpuDynamic?.temperatureCelcius)} °C</span>
               </div> 
           </div>
         </div>

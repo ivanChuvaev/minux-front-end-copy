@@ -7,7 +7,8 @@ import { cpuDynamicReducer,
   ramStaticReducer, 
   ramDynamicReducer, 
   hdStaticReducer,
-  hdDynamicReducer
+  hdDynamicReducer,
+  supportReducer
 } from 'entities/index'; 
 
 const rootReducer = combineReducers({ 
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
   ramStatic: ramStaticReducer,
   ramDymamic: ramDynamicReducer, 
   hdStatic: hdStaticReducer,
-  hdDynamic: hdDynamicReducer
+  hdDynamic: hdDynamicReducer,
+  support: supportReducer
 });
 
 const store = configureStore({

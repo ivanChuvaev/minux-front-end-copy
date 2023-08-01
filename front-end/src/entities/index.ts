@@ -8,5 +8,6 @@ export { GpuDynamic, GpuStatic  } from './gpu/index'
 export { CpuDynamic, CpuStatic } from './cpu/index' 
 export { RamDynamic, RamStatic } from './ram/index' 
 export { HdDynamic, HdStatic  } from './hd/index'
+export { Support } from './support/index'
 
 

@@ -4,6 +4,7 @@ import WorkerWidget from 'widgets/workers'
 import SharesWidget from 'widgets/shares'
 import PowerRamWidget from 'widgets/power&ram'
 import Cpu from 'widgets/cpu/Cpu'
+import Coins from 'widgets/coins/Coins'
 
 export default function Monitoring() { 
     return (
@@ -18,6 +19,8 @@ export default function Monitoring() {
 
         <div className='flex-conteiner-monitoring'>
           <Cpu/>
+
+          <Coins/>
         </div>
       </div>
   ) 
