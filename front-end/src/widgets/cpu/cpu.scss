@@ -5,7 +5,7 @@
     flex-direction: column; 
 
     width: $widget-cpu-width; 
-        background-color: $color-primary;
+    background-color: $color-primary; 
 
     .cpu-conteiner {
         padding: $text-padding-tb $text-padding-lr;
@@ -16,8 +16,7 @@
     }
     .cpu-info {
         font-size: $text-size20;
-        display: flex;
-        height: 99px;
+        display: flex; 
         .cpu-info-element { 
             width: 400px; 
             padding: $text-padding-tb $text-padding-lr;
@@ -32,10 +31,4 @@
     .text {
         opacity: $text-opacity; 
     }
-}
-
-@media (max-width: 1500px) {
-    .flex-conteiner-cpu {
-        width: calc(#{$widget-cpu-width} - #{$number}); 
-    }
-}
+} 

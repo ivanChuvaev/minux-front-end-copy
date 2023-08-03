@@ -1,17 +1,14 @@
 import React from 'react'
 import { RootState } from 'app/store';
 import { useSelector } from 'react-redux';
-import BoxWithBorder from 'shared/components/BoxWithBorder'
-import sumOfValues from 'shared/components/sumOfValues';
+import BoxWithBorder from 'shared/components/BoxWithBorder' 
 
 const name: string = 'Total Shares Rejected'
 
 export default function SharesRejected() { 
-  const gpusDynamic = useSelector((state: RootState) => state.gpuDynamic.data); 
-    
-  const count: number = sumOfValues(gpusDynamic, 'shares', 'rejected')
+  const totalRejected = useSelector((state: RootState) => state.support.data?.totalValues.gpusRejected); 
 
   return ( 
-    <BoxWithBorder name={name} count={count}/> 
+    <BoxWithBorder name={name} count={totalRejected} color1='red'/> 
   )
 }

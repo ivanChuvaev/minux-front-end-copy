@@ -1,9 +1,10 @@
 $bg-color: #20202B;
 
-$color-primary: #242834;
+$color-primary: #242834; 
 
-$data-color-succes: #43C09B;
-$data-color-negative: #FC4E4E;
+$padding-20: 20px;
+$padding-25: 25px;
+$padding-30: 30px;
 
 $line-size-smaller: .5px;
 $line-size: 1px;
@@ -19,13 +20,14 @@ $text-size22: 22px;
 $text-size24: 24px;
 $text-size32: 32px;
 $text-opacity: 65%;
-$text-padding-tb: 15px;
-$text-padding-lr: 15px;
+$text-padding-tb: 10px;
+$text-padding-lr: 10px;
 
 $gap-5vw: 70px;
 
-$vh-10: 80px;
+$vh-10: 79px;
 
+$text-color-grey: #D9D9D9;
 $text-color-value: #3C9EA5;
 $text-color-green: #43C09B;
 $text-color-red: #FC4E4E;
@@ -36,11 +38,10 @@ $text-color-thirdy: #FC8800;
 $gradient: #594125B2;
 $gradien1: #3B3E3F00;
 
-$widget-first-level-width: 225px;
+$widget-first-level-width: 227px;
 $widget-first-level-height: 80px; 
-$widget-cpu-width: 780px;
-$widget-coin-width: 680px; 
-$number: 80px;
+$widget-cpu-width: 786px;
+$widget-coin-width: 686px; 
 
 .border-line {
     border: solid $line-size-smaller $line-color;
@@ -48,5 +49,17 @@ $number: 80px;
 }
 
 .img-no-drag {
-    user-select: none;
-  }
+    user-select: none; 
+}
+
+.red {
+    color: $text-color-red;
+}
+
+.green {
+    color: $text-color-green;
+}
+
+.value {
+    color: $text-color-value
+}

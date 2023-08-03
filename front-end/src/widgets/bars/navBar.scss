@@ -1,24 +1,23 @@
 @import 'app/values.scss';
 
-.flex-conteiner-horizontal {
-    margin-left: $size-bar;
+.border-line-flex {
+    
+    margin-left: $size-bar; 
 
-    display: flex;
-
-    height: $size-bar;
-
-    font-size: $text-size32;
-
-    justify-content: center;
-    align-items: center; 
+    height: $size-bar; 
 
     border-bottom: $line-size solid $line-color; 
 
-    gap: $gap-5vw; 
-
-    .flex-conteiner-horizontal_element { 
-        text-align: center;
-        width: 200px;
+    .flex-conteiner-horizontal { 
+        display: flex;
+        font-size: $text-size32; 
+        justify-content: center;
+        align-items: center; 
+        gap: $gap-5vw;
+        .flex-conteiner-horizontal_element { 
+            text-align: center;
+            width: 200px;
+        } 
     }
 }
 

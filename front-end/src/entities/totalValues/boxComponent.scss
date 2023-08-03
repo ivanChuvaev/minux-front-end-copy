@@ -1,0 +1,14 @@
+@import 'app/values.scss';
+
+.border-total {
+    border-top: $line-size-smaller solid;
+    border-bottom: $line-size-smaller solid;
+    border-left: 7px solid;
+    border-right: 7px solid;
+    padding: 0 10px;  
+    font-size: inherit;
+    display: flex;
+    width: 180px;
+    gap: 10px;
+    justify-content: space-between;
+}

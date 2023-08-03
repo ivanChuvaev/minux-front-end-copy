@@ -29,6 +29,7 @@ export type VoltageMv = rt.Static<typeof VoltageMv>;
 
 export const GpuDynamic = rt.Record({
   uuid: rt.Union(rt.String, rt.Null),
+  fullName: rt.Union(rt.String, rt.Null),
   temperatureCelcius: rt.Union(rt.Number, rt.Null),
   fanSpeedPercentage: rt.Union(rt.Number, rt.Null),
   hashrateMg: rt.Union(rt.Number, rt.Null),

@@ -1,16 +1,18 @@
 @import 'app/values.scss';
 
-.monitoring {
+.monitoring { 
 
     margin-left: $size-bar; 
-    
-    padding: 0 30px 0 30px;
+
+    padding: 0 $padding-25 0 $padding-25;
 
     .flex-conteiner-monitoring { 
 
-        padding-top: 30px;
+        padding-top: $padding-25;
     
-        justify-content: space-between;
+        justify-content: center;
+
+        gap: $padding-25;
     
         display: flex; 
 

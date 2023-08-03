@@ -13,7 +13,7 @@ const gpuStaticSlice = createSlice({
   name: 'gpuStatic',
   initialState,
   reducers: {
-    addGpusStatic: (state, action: PayloadAction<GpuStatic[]>) => {
+    addGpuStatic: (state, action: PayloadAction<GpuStatic[]>) => {
       state.data = action.payload;
     }, 
   }

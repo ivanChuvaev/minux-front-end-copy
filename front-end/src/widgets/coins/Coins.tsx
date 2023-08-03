@@ -2,11 +2,9 @@ import React from 'react'
 import './coins.scss'
 import CoinsScroll from './CoinsScroll'
 import { useSelector } from 'react-redux'
-import { RootState } from 'app/store'
+import { RootState } from 'app/store' 
 
-type Props = {}
-
-export default function Coins({}: Props) {
+export default function Coins() {
   const coinsValue = useSelector((state: RootState) => state.support.data?.coinsValue); 
 
   return ( 

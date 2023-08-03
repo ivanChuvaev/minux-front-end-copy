@@ -26,7 +26,7 @@ export default function CoinsScroll({coinsValue}: Props) {
     return ( 
         <div className='border-line'>
             <div className='coin-scroll'>
-                {coinsArray ? coinsArray : naImage("100px")}
+                {coinsArray ? coinsArray : naImage("90px")}
             </div>
         </div>
     )

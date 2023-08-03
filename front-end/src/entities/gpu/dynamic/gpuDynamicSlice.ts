@@ -13,7 +13,7 @@ const gpuDynamicSlice = createSlice({
   name: 'gpuDinamic',
   initialState,
   reducers: {
-    addGpusDynamic: (state, action: PayloadAction<GpuDynamic[]>) => {
+    addGpuDynamic: (state, action: PayloadAction<GpuDynamic[]>) => {
       state.data = action.payload;
     }, 
   }

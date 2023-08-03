@@ -15,7 +15,7 @@
     }
 
     .coin-scroll {
-        height: 120px; 
+        height: 102px; 
         padding: $text-padding-tb $text-padding-lr; 
         background-color: $color-primary;
         overflow: auto;
@@ -28,10 +28,4 @@
         opacity: $text-opacity; 
     }
 
-}
-
-@media (max-width: 1500px) {
-    .flex-conteiner-coin {
-        width: calc(#{$widget-coin-width} - #{$number}); 
-    }
-}
+} 

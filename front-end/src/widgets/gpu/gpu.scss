@@ -1,0 +1,23 @@
+@import 'app/values.scss';
+
+.gpus-conteiner {
+    width: 1520px;
+
+    font-size: $text-size24;
+
+    .grid-gpus-conteiner { 
+        display: grid;
+        grid-template-columns: repeat(9, 1fr);
+        place-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+
+    }
+    .gpus-scroll-conteiner { 
+        max-height: 400px;
+        overflow: auto;
+        &::-webkit-scrollbar {
+            display: none;
+          }
+    }
+}

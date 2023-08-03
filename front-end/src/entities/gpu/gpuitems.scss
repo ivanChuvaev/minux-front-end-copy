@@ -1,0 +1,12 @@
+@import 'app/values.scss';
+
+.gpu-card-items { 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .gpu-card {
+        background-color: $color-primary;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+    }
+}
