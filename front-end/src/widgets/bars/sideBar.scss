@@ -1,6 +1,7 @@
 @import 'app/values.scss';
 
 .flex-conteiner-vertical { 
+    user-select: none;
     position: absolute;
 
     margin-top: 80px;

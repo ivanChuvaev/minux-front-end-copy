@@ -11,6 +11,7 @@ export const gpuDynamicTestData: GpuDynamic[] = [
             algorithm: "Random X",
             cryptocurrency: "XMR",
             miner: "lolminer",
+            minerUpTime: "2:00:00",
             shares: {
                 accepted: 100,
                 rejected: 6
@@ -40,6 +41,7 @@ export const gpuDynamicTestData: GpuDynamic[] = [
         algorithm: "Random X",
         cryptocurrency: "XMR",
         miner: "lolminer",
+        minerUpTime: "2:00:00",
         shares: {
             accepted: 100,
             rejected: 6

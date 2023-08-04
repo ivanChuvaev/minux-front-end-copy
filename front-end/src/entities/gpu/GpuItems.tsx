@@ -19,10 +19,10 @@ export default function GpuItems() {
         )
     } 
   return (
-    <div className='gpu-card-items'>
+    <>
         {gpuDynamicData.map((item, index) => (
             <GpuItem key={item.uuid} item={item} index={index}/>
         ))}
-    </div>
+    </>
   )
 }

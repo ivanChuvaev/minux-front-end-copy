@@ -1,12 +1,41 @@
 @import 'app/values.scss';
 
-.gpu-card-items { 
+
+
+.grid-row-value {
+    display: grid; 
+    grid-template-columns: 150px 150px 150px repeat(6, minmax(62px, 1fr)); 
+    justify-items: center;
+    align-items: center; 
+    background-color: $color-primary;
+    cursor: pointer;
+
+    .span-2 { 
+        grid-column: span 2;
+    }
+
+}
+.gpu-popup {
+    margin-left: 205px;
+    width: fit-content;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    .gpu-card {
-        background-color: $color-primary;
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
+    border-left: $line-size-2 solid $line-color;
+    border-right: $line-size-2 solid $line-color;
+
+    .gpu-flex-data {
+        display: flex;
+        flex-direction: column;
+
+        padding: 0 15px 0 15px;
+
+        border-right: $line-size solid $line-color;
+    }
+
+    .gpu-flex-data-1 {
+        display: flex; 
+        align-items: center;
+        width: 100%; 
+        gap: 15px;
+        padding: 0 15px 0 15px;
     }
 }

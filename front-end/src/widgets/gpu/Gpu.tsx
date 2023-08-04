@@ -6,33 +6,33 @@ import { GpuItems } from 'entities/gpu'
 
 export default function Gpu() {
   return (
-    <div className='gpus-conteiner'> 
-      <div className='grid-gpus-conteiner'> 
-          <TotalGpus/>
+    <table className='gpus-table'> 
+      <div className='grid-gpus-conteiner'>
+        <TotalGpus/>
 
-          <TotalNvidia/>
+        <TotalNvidia/>
 
-          <TotalRadeon/> 
+        <TotalRadeon/>
 
+        <div className='grid-gpus-subgrid'>
           <span>Accepted</span>
 
           <span>Rejected</span>
 
           <span>Hashrate</span>
 
-          <span>Temp</span>
-
-          <span>Fan</span>
-
-          <span>Power</span>
+          <span>Temp</span> 
+          
+          <span>Fan</span> 
+          
+          <span>Power</span> 
+        </div>
       </div> 
 
-      <div className='border-line'>
-        <div className='gpus-scroll-conteiner'>
-          <GpuItems/>
-        </div>
+      <div className='gpus-scroll-conteiner'> 
+          <GpuItems/> 
       </div>
-    </div>
+    </table>
 
   )
 }
