@@ -25,14 +25,19 @@
 
     .gpus-scroll-conteiner {
         user-select: none;
+        overflow: auto;
         display: grid; 
-        padding: 7px; 
+        padding: 7px;
         border: solid $line-size-smaller $line-color; 
         border-left: $line-size-3 solid $line-color;
         border-right: $line-size-3 solid $line-color;
-        max-height: 500px;
-        grid-template-rows: repeat(auto-fit, auto);
+        height: 310px;
+        grid-template-rows: repeat(auto-fit, 70px);
 
         gap: 10px;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 }

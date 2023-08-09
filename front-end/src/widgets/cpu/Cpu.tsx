@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'app/store'; 
 import { valueOrNA } from 'shared/utils';
 
-const getFullName = (cpuManufacturer:any, cpuModelName: any) => {
+const getFullName = (cpuManufacturer: any, cpuModelName: any) => {
   if ((typeof(cpuManufacturer) === "string") && (typeof(cpuModelName) === "string")) {
 
     const cpuFullName: string = cpuManufacturer + cpuModelName;

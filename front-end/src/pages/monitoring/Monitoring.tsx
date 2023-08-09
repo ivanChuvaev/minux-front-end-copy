@@ -6,8 +6,13 @@ import { Cpu } from 'widgets/cpu'
 import { Coins } from 'widgets/coins'
 import { Gpu } from 'widgets/gpu'
 import { FooterSystemInfo } from 'widgets/footerSystemInfo'
+import { useDispatch } from 'react-redux'
+import { dynamicDataAction } from 'shared/store/storeData'
+import { testDynamicData } from 'shared/hook'
 
 export default function Monitoring() { 
+  const dispatch = useDispatch();
+  dispatch(dynamicDataAction.updateDynamicData(testDynamicData))
     return (
       <div className='monitoring'>
         <div className='flex-conteiner-monitoring'> 

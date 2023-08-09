@@ -60,7 +60,7 @@ export default function GpuItem({item, index}: Props) {
                     </div>
 
                     <div className='gpu-flex-data-1'>
-                        <p>Miner up time</p>
+                        <p className='opacity-[65%]'>Miner up time</p>
                         <p>{item.minerUpTime}</p>
                     </div>
                 </div> 

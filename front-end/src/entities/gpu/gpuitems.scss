@@ -4,7 +4,7 @@
 
 .grid-row-value {
     display: grid;
-    height: 300px; 
+    height: 75px; 
     grid-template-columns: 150px 150px 150px repeat(6, minmax(62px, 1fr)); 
     justify-items: center;
     align-items: center; 
@@ -18,7 +18,7 @@
 }
 .gpu-popup {
     margin-left: 205px;
-    width: fit-content;
+    width: fit-content; 
     display: flex;
     border-left: $line-size-2 solid $line-color;
     border-right: $line-size-2 solid $line-color;

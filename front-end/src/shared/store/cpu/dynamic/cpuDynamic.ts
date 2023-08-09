@@ -29,7 +29,9 @@ export const CpuDynamic = rt.Record({
     hashrateMg: rt.Union(rt.Number, rt.Null),
     powerUsage: rt.Union(rt.Number, rt.Null),
     algorithm: rt.Union(rt.String, rt.Null),
+    miner: rt.Union(rt.String, rt.Null),
     cryptocurrency: rt.Union(rt.String, rt.Null),
+    minerUpTime: rt.Union(rt.String, rt.Null),
     shares: Shares,
     cores: rt.Array(Cores)
 }) 
