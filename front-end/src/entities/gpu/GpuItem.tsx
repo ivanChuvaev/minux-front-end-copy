@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { GpuDynamic } from './dynamic/types'
+import { GpuDynamic } from 'shared/store/gpu/dynamic/types'
 
 type Props = {
     item: GpuDynamic

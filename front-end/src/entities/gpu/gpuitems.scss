@@ -3,7 +3,8 @@
 
 
 .grid-row-value {
-    display: grid; 
+    display: grid;
+    height: 300px; 
     grid-template-columns: 150px 150px 150px repeat(6, minmax(62px, 1fr)); 
     justify-items: center;
     align-items: center; 

@@ -1,30 +1,18 @@
   import { configureStore } from '@reduxjs/toolkit'; 
 import { combineReducers } from 'redux';
-import { cpuDynamicReducer, 
-  cpuStaticReducer, 
-  gpuDynamicReducer, 
-  gpuStaticReducer, 
-  ramStaticReducer, 
-  ramDynamicReducer, 
-  hdStaticReducer,
-  hdDynamicReducer,
+import { 
   supportReducer
-} from 'entities/index'; 
+} from 'shared/store/index'; 
+import { dynamicDataReducer, staticDataReducer } from 'shared/store/storeData';
 
 const rootReducer = combineReducers({ 
-  gpuStatic: gpuStaticReducer,
-  gpuDynamic: gpuDynamicReducer,
-  cpuStatic: cpuStaticReducer,
-  cpuDynamic: cpuDynamicReducer,
-  ramStatic: ramStaticReducer,
-  ramDymamic: ramDynamicReducer, 
-  hdStatic: hdStaticReducer,
-  hdDynamic: hdDynamicReducer,
+  dynamicData: dynamicDataReducer,
+  staticData: staticDataReducer,
   support: supportReducer
 });
 
 const store = configureStore({
-  reducer: rootReducer,
+  reducer: rootReducer
 });
 
 export default store;

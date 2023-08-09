@@ -1,0 +1,12 @@
+@import 'app/values.scss';
+
+.footer-system-info { 
+    border-top: solid $line-size-smaller $line-color;
+
+    font-size: $text-size20;
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

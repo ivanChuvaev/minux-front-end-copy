@@ -1,5 +1,5 @@
 import { useId } from 'react' 
-import { CoinsValue } from 'entities/support/types' 
+import { CoinsValue } from 'shared/store/support/types' 
 import NaImage from 'shared/components/NaImage';
 
 type Props = {

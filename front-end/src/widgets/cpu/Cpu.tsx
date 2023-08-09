@@ -4,15 +4,28 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'app/store'; 
 import { valueOrNA } from 'shared/utils';
 
+const getFullName = (cpuManufacturer:any, cpuModelName: any) => {
+  if ((typeof(cpuManufacturer) === "string") && (typeof(cpuModelName) === "string")) {
+
+    const cpuFullName: string = cpuManufacturer + cpuModelName;
+    
+    return cpuFullName
+  } 
+}
+
 export default function Cpu() {
-  const cpuName = useSelector((state: RootState) => state.cpuStatic.data?.information.modelName); 
-  const cpuDynamic = useSelector((state: RootState) => state.cpuDynamic.data);
+  const cpuManufacturer = useSelector((state: RootState) => state.staticData.data?.cpu.information.manufacturer);
+  const cpuModelName = useSelector((state: RootState) => state.staticData.data?.cpu.information.modelName); 
+  
+  const cpuFullName = getFullName(cpuManufacturer, cpuModelName); 
+
+  const cpuDynamic = useSelector((state: RootState) => state.dynamicData.data?.cpu);
   return (
     <div className='border-line'> 
       <div className='flex-conteiner-cpu'> 
           <div className='cpu-conteiner'>
             <span>CPU</span>
-            <span className='text'>{valueOrNA(cpuName)}</span>
+            <span className='text'>{valueOrNA(cpuFullName)}</span>
           </div> 
 
           <div className='cpu-info'> 

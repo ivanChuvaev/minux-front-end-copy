@@ -5,6 +5,7 @@ import PowerRamWidget from 'widgets/power&ram'
 import { Cpu } from 'widgets/cpu'
 import { Coins } from 'widgets/coins'
 import { Gpu } from 'widgets/gpu'
+import { FooterSystemInfo } from 'widgets/footerSystemInfo'
 
 export default function Monitoring() { 
     return (
@@ -26,6 +27,11 @@ export default function Monitoring() {
         <div className='flex-conteiner-monitoring'>
           <Gpu/>
         </div>
+
+        <div className='flex-conteiner-monitoring-footer'>
+          <FooterSystemInfo/>
+        </div>
       </div>
+      
   ) 
 }

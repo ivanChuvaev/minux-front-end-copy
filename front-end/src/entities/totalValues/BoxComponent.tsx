@@ -7,7 +7,7 @@ type Props = {
     color?: string
 }
 
-export default function TotalGpus({name, count, color}: Props) { 
+export default function BoxComponent({name, count, color}: Props) { 
   return (
     <div className='border-total' style={{borderColor: color}}>
         <span>{name}</span>
