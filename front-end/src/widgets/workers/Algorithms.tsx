@@ -7,7 +7,7 @@ import 'shared/styles/widgets-first-level.scss'
 const name: string = 'Working algorithms'; 
 
 export default function Algorithms() { 
-  const totalAlgorithms = useSelector((state: RootState) => state.support.data?.totalValues.gpusAlgorithms); 
+  const totalAlgorithms = useSelector((state: RootState) => state.dynamicData.data?.calculations.gpusAlgorithms); 
 
   return (
     <BoxWithBorder name={name} count={totalAlgorithms}/>

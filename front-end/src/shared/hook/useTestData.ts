@@ -106,5 +106,16 @@ export const testDynamicData: DynamicData = {
         capacityB: 256,
         availableB: 256,
         freeB: 256 
-    }]
+    }], 
+    calculations: {
+        gpusAccepted: 125,
+        gpusRejected: 200,
+        gpusCount: 2,
+        gpusNvidia: 2,
+        gpusRadeon: 0,
+        gpusMiners: 2,
+        gpusAlgorithms: 2,
+        totalPower: 123,
+        totalRam: 8000
+    }
 }

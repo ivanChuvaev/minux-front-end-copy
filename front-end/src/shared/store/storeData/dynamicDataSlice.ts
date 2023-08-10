@@ -4,6 +4,7 @@ import  {DynamicData} from "./dynamicData";
 import { CpuDynamic } from "../cpu";
 import { RamDynamic } from "../ram";
 import { HdDynamic } from "../hd";
+import { Calculations } from "../calculations";
 
 interface DynamicDataState {
     data: DynamicData 
@@ -36,6 +37,11 @@ const dynamicDataSlice = createSlice({
         changeHdDynamic: (state, action: PayloadAction<HdDynamic[]>) => {
             if (state.data) {
                 state.data.hd = action.payload; 
+            }
+        },
+        changeCalculationsDynamic: (state, action: PayloadAction<Calculations>) => {
+            if (state.data) {
+                state.data.calculations = action.payload; 
             }
         },
     }

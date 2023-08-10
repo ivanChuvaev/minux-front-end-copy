@@ -5,7 +5,7 @@ import BoxWithBorder from 'shared/components/BoxWithBorder'
 const name: string = 'Total Ram Usage' 
 
 export default function TotalRam() {
-  const totalRam = useSelector((state: RootState) => state.support.data?.totalValues.ram);  
+  const totalRam = useSelector((state: RootState) => state.dynamicData.data?.calculations.totalRam);  
 
   return (
     <BoxWithBorder name={name} count={totalRam} value='Gb' color2='value'/> 

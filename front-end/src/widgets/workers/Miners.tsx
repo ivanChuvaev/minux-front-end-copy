@@ -7,7 +7,7 @@ import BoxWithBorder from 'shared/components/BoxWithBorder';
 const name: string = 'Working miners'
 
 export default function Miners() { 
-  const totalMiners = useSelector((state: RootState) => state.support.data?.totalValues.gpusMiners); 
+  const totalMiners = useSelector((state: RootState) => state.dynamicData.data?.calculations.gpusMiners); 
 
   return (
     <BoxWithBorder name={name} count={totalMiners}/>

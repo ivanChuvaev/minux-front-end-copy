@@ -6,7 +6,7 @@ import BoxWithBorder from 'shared/components/BoxWithBorder'
 const name: string = 'Total Shares Accepted' 
 
 export default function SharesAccepted() { 
-  const totalAccepted = useSelector((state: RootState) => state.support.data?.totalValues.gpusAccepted); 
+  const totalAccepted = useSelector((state: RootState) => state.dynamicData.data?.calculations.gpusAccepted); 
 
   return ( 
     <BoxWithBorder name={name} count={totalAccepted} color1='green'/> 

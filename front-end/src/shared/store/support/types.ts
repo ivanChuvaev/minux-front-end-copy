@@ -20,25 +20,11 @@ export const Miners = rt.Record({
     fullName: rt.String,
     algorithmss: rt.Array(rt.String)
 }) 
-export type Miners = rt.Static<typeof Miners>
-
-export const TotalValues = rt.Record({
-    gpusAccepted: rt.Number,
-    gpusRejected: rt.Number,
-    gpusCount: rt.Number,
-    gpusNvidia: rt.Number,
-    gpusRadeon: rt.Number,
-    gpusMiners: rt.Number,
-    gpusAlgorithms: rt.Number,
-    power: rt.Number,
-    ram: rt.Number
-})
-export type TotalValues = rt.Static<typeof TotalValues>
+export type Miners = rt.Static<typeof Miners> 
 
 export const Support = rt.Record({
     coinsValue: rt.Array(CoinsValue),
     cryptocurrencies: rt.Array(Cryptocurrencies),
-    miners: rt.Array(Miners),
-    totalValues: TotalValues
+    miners: rt.Array(Miners)
 }) 
 export type Support = rt.Static<typeof Support>
