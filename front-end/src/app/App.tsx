@@ -12,8 +12,8 @@ function App() {
       <Route path="/" element={<LayoutAbsolute/>}>
         <Route path='monitoring' element={<Navigate to='/monitoring/mainpage'/>}/>
         <Route path='monitoring/mainpage' element={<Monitoring/>}/>
+        <Route path='system' element={<Navigate to='/system/gpu'/>}/>
         <Route path='system' element={<System/>}/>
-
       </Route>  
     </Routes>
   );
