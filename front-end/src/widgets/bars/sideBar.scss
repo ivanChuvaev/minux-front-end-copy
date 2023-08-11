@@ -11,7 +11,7 @@
     flex-direction: column;
 
     width: $size-bar; 
-    height: calc(100vh - 80px);
+    min-height: calc(100% - 80px);
 
     font-size: $text-size12;
     font-weight: $text-weight-light;

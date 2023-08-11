@@ -19,7 +19,7 @@ const HoverList: React.FC<Props> = ({ options, children }) => {
   return (
     <div
       className="hover-list-container"
-      onMouseEnter={() => setShowOptions(true)}
+      onClick={() => setShowOptions(!showOptions)} 
       onMouseLeave={() => setShowOptions(false)}
     >
       {children}

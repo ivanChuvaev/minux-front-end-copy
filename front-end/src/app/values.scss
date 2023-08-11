@@ -65,3 +65,11 @@ $widget-coin-width: 686px;
 .value {
     color: $text-color-value
 }
+
+.non-active {
+    display: inline-block;
+    width: 100%; 
+    &:hover {
+        background-image: linear-gradient(to top, rgba(128, 128, 128, 0.588), #3b3e3f00); 
+    }
+}

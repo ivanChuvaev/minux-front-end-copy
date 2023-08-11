@@ -27,19 +27,19 @@ export default function NavBar() {
     <div className='border-line-flex'>
       <div className='flex-conteiner-horizontal'> 
         <HoverList options={monitoringOptions}>
-          <NavigateLink route='/monitoring' classActive={classActive} text='Monitoring' />
+          <NavigateLink route='/monitoring' cancel={true} classActive={classActive} text='Monitoring' />
         </HoverList>
         
         <HoverList options={settingsOptions}>
-          <NavigateLink route='/settings' classActive={classActive} text='Settings' />
+          <NavigateLink route='/settings' cancel={true} classActive={classActive} text='Settings' />
         </HoverList>
 
         <HoverList>
-          <NavigateLink route='/analytics' classActive={classActive} text='Analytics' />
+          <NavigateLink route='/analytics' cancel={true} classActive={classActive} text='Analytics' />
         </HoverList>
 
         <HoverList options={systemOptions}>
-          <NavigateLink route='/system' classActive={classActive} text='System' />
+          <NavigateLink route='/system' cancel={true} classActive={classActive} text='System' />
         </HoverList>
       </div>
     </div>

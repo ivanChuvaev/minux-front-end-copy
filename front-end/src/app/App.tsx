@@ -13,8 +13,7 @@ function App() {
         <Route path='monitoring' element={<Navigate to='/monitoring/mainpage'/>}/>
         <Route path='monitoring/mainpage' element={<Monitoring/>}/>
         <Route path='system' element={<System/>}/>
-        <Route path='system' element={<System/>}/>
-        <Route path='system' element={<System/>}/>
+
       </Route>  
     </Routes>
   );

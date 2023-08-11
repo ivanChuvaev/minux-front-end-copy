@@ -1,9 +1,11 @@
 @import 'app/values.scss';
 
 .hover-list-container { 
+    cursor: pointer;
     text-align: center;
     line-height: $size-bar;
-    width: 180px;
+    width: 180px; 
+    
     .hover-list-options {
         width: 180px;
         display: flex;
@@ -12,23 +14,32 @@
         justify-items: center;
 
         position: absolute;
-        z-index: 1;
+        z-index: 1; 
     }
     .hover-list-item {
         line-height: 65px;
 
         background-color: $bg-color;
-
+        background-image: none;
         border-left: $line-size solid $line-color;
         border-right: $line-size solid $line-color;
         border-bottom: $line-size solid $line-color;
+
+        transition: .5s;
+    }
+
+    .hover-list-item:hover {
+        background-color: $line-color;
+        box-shadow: 0 0 10px $line-color; 
+
+        transition: .5s;
     }
 }
 
 .class-active {
     display: inline-block; 
 
-    width: 178px;
+    width: 100%;
     background: $text-color-thirdy;
     box-shadow: 0 0 10px $text-color-thirdy;
 }

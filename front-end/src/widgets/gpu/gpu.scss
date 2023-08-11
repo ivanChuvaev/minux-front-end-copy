@@ -24,20 +24,20 @@
     }
 
     .gpus-scroll-conteiner {
-        user-select: none;
-        overflow: auto;
-        display: grid; 
+        display: grid;
+
+        user-select: none; 
+
         padding: 7px;
-        border: solid $line-size-smaller $line-color; 
+
+        border-top: solid $line-size-smaller $line-color; 
         border-left: $line-size-3 solid $line-color;
         border-right: $line-size-3 solid $line-color;
-        height: 310px;
+
+        min-height: 310px;
+        
         grid-template-rows: repeat(auto-fit, 70px);
 
-        gap: 10px;
-
-        &::-webkit-scrollbar {
-            display: none;
-        }
+        gap: 10px; 
     }
 }
