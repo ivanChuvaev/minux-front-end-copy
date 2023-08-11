@@ -10,7 +10,7 @@ export default function GpuItems() {
         return (
             <>
                 {gpuDynamicData.map((item, index) => (
-                    <GpuItem key={item.uuid} item={item} index={index}/>
+                    <GpuItem key={item.uuid} item={item} index={index+1}/>
                 ))}
             </>
         )

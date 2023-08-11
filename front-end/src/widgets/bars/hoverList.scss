@@ -1,0 +1,32 @@
+@import 'app/values.scss';
+
+.hover-list-container { 
+    text-align: center;
+    line-height: $size-bar;
+    width: 180px;
+    .hover-list-options {
+        width: 180px;
+        display: flex;
+        flex-direction: column;
+
+        justify-items: center;
+
+        position: absolute;
+        z-index: 1;
+    }
+    .hover-list-item {
+        background-color: $bg-color;
+
+        border-left: $line-size solid $line-color;
+        border-right: $line-size solid $line-color;
+        border-bottom: $line-size solid $line-color;
+    }
+}
+
+.class-active {
+    display: inline-block; 
+
+    width: 178px;
+    background: $text-color-thirdy;
+    box-shadow: 0 0 10px $text-color-thirdy;
+}

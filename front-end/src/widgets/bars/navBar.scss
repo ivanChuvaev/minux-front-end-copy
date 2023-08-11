@@ -14,19 +14,16 @@
         font-size: $text-size32; 
         justify-content: center;
         align-items: center; 
-        gap: $gap-5vw;
-        .flex-conteiner-horizontal_element { 
-            text-align: center;
-            width: 200px;
-        } 
+        gap: $gap-80; 
     }
 }
 
-.nav-link {
-    color: $text-color-thirdy;
-    outline: none;
-    line-height: $vh-10;
-    text-decoration: none;
+.nav-link { 
+    text-align: center;
+    width: 180px;
+    height: 80px;
+    display: inline-block;
+    color: $text-color-thirdy; 
     background-image: linear-gradient(to top, #594125B2, #3b3e3f00);  
-    border-bottom: $line-size solid $text-color-thirdy;        
+    border-bottom: $line-size solid $text-color-thirdy;       
 }
