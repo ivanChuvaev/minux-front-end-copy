@@ -7,10 +7,10 @@ export const Information = rt.Record({
     architecture: rt.Union(rt.String, rt.Null), 
     opModes: rt.Union(rt.String, rt.Null), 
     cores: rt.Record({ 
-        cpus: rt.Union(rt.String, rt.Null), 
-        threadsPerCore: rt.Union(rt.String, rt.Null), 
-        threadsPerSocket: rt.Union(rt.String, rt.Null), 
-        sockets: rt.Union(rt.String, rt.Null) 
+        cpus: rt.Union(rt.Number, rt.Null), 
+        threadsPerCore: rt.Union(rt.Number, rt.Null), 
+        threadsPerSocket: rt.Union(rt.Number, rt.Null), 
+        sockets: rt.Union(rt.Number, rt.Null) 
     })
 })
 

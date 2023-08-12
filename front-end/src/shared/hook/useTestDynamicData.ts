@@ -109,10 +109,7 @@ export const testDynamicData: DynamicData = {
     }], 
     calculations: {
         gpusAccepted: 125,
-        gpusRejected: 200,
-        gpusCount: 2,
-        gpusNvidia: 2,
-        gpusRadeon: 0,
+        gpusRejected: 200, 
         gpusMiners: 2,
         gpusAlgorithms: 2,
         totalPower: 123,

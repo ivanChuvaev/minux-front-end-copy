@@ -1,2 +1,2 @@
 export { useFetchData } from './useFetchData'
-export { testDynamicData } from './useTestData'
+export { testDynamicData } from './useTestDynamicData'

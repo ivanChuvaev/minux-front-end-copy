@@ -20,6 +20,7 @@ export type Informations = rt.Static<typeof Informations>
 
 export const TemperatureCelsius = rt.Record({
     shutdown: rt.Union(rt.Number, rt.Null), 
+    maxOperating: rt.Union(rt.Number, rt.Null), 
 })
 export type TemperatureCelsius = rt.Static<typeof TemperatureCelsius>
 
