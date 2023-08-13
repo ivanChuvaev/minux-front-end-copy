@@ -1,0 +1,21 @@
+@use '../lib/shared.scss';
+@use 'app/values.scss';
+
+.wrapper {
+  display: flex;
+  height: shared.$layout-size;
+}
+
+
+.links {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  gap: 0px;
+}
+
+@media (min-width: 1300px) {
+  .links {
+    gap: 65px;
+  }
+}

@@ -1,4 +1,4 @@
-  import { configureStore } from '@reduxjs/toolkit'; 
+import { configureStore } from '@reduxjs/toolkit'; 
 import { combineReducers } from 'redux';
 import { 
   supportReducer
@@ -11,10 +11,8 @@ const rootReducer = combineReducers({
   support: supportReducer
 });
 
-const store = configureStore({
-  reducer: rootReducer
+export const store = configureStore({
+  reducer: rootReducer,
 });
 
-export default store;
 export type RootState = ReturnType<typeof store.getState>;
-

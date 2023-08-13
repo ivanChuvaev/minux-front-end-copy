@@ -1,0 +1,134 @@
+.wrapper {
+  display: flex;
+  min-width: 0;
+  max-width: 900px;
+}
+
+.fields-grid-wrapper {
+  flex-grow: 1;
+}
+
+.fields-grid {
+  display: grid;
+  padding: 20px 20px;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.fields-chunk {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  overflow: hidden;
+
+}
+
+@mixin field-mixin {
+  display: flex;
+  gap: 5px;
+  justify-content: space-between;
+  font-size: 20px;
+  min-width: 0;
+
+  .label {
+    min-width: 0;
+    color: rgba(255,255,255, 65%);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .value {
+    min-width: 0;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.field {
+  @include field-mixin();
+}
+
+.last-field {
+  @include field-mixin();
+  display: inline;
+  &>.label, &>.value {
+    display: inline;
+    white-space: normal;
+    min-width: fit-content;
+    word-break: break-word;
+  }
+}
+
+.image-container-wrapper.sp1 {
+  width: 200px;
+  flex-shrink: 0;
+  height: unset;
+}
+
+.image-container {
+  padding: 10px;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media screen and (min-width: 1000px) {
+  .fields-grid {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 30px;
+    row-gap: 10px;
+  }
+
+  .last-field {
+    @include field-mixin();
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    justify-content: flex-start;
+    grid-column: 1 / 4;
+  }
+  
+}
+
+@media screen and (min-width: 1500px) {
+  .wrapper {
+    width: 1300px;
+    max-width: 1300px;
+  }
+}
+
+
+@media screen and (min-width: 1800px) {
+
+  .fields-grid {
+    padding: 31px 40px;
+    column-gap: 50px;
+    row-gap: 20px;
+  }
+
+  .wrapper {
+    width: 1600px;
+    max-width: 1600px;
+  }
+
+  .field {
+    font-size: 24px;
+    gap: 20px;
+  }
+  .last-field {
+    font-size: 24px;
+  }
+
+  .image-container-wrapper.sp1 {
+    width: 300px;
+  }
+  
+  .image-container {
+    padding: 30px;
+  }
+
+}

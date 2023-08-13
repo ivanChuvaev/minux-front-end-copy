@@ -1,0 +1,130 @@
+@use 'app/values.scss';
+
+$quad-size: 8px;
+$line-thickness: 1px;
+$min-line-length: 5px;
+
+.wrapper {
+  min-width: calc($quad-size * 2 + $min-line-length);
+  min-height: calc($quad-size * 2 + $min-line-length);
+  padding: $quad-size;
+  position: relative;
+  color: values.$line-color;
+  border-color: currentColor;
+}
+
+@mixin corner {
+  position: absolute;
+  box-sizing: border-box;
+  width: $quad-size;
+  height: $quad-size;
+  border: 1px solid;
+  border-color: inherit;
+
+  &.filled {
+    background: currentColor;
+  }
+}
+
+$offset: calc(-1 * $quad-size / 2);
+
+.lt-corner {
+  @include corner();
+  left: $offset;
+  top: $offset;
+}
+
+.rt-corner {
+  @include corner();
+  right: $offset;
+  top: $offset;
+}
+
+.lb-corner {
+  @include corner();
+  left: $offset;
+  bottom: $offset;
+}
+
+.rb-corner {
+  @include corner();
+  right: $offset;
+  bottom: $offset;
+}
+
+@mixin horizontal-line($side) {
+  position: absolute;
+  height: 0;
+  border-bottom: $line-thickness solid;
+  border-color: inherit;
+  left: calc($quad-size / 2);
+  width: calc(100% - $quad-size);
+
+  @if $side == top {
+    top: 0;
+  } @else {
+    bottom: 0;
+  }
+
+  &.no-l-corner {
+    left: 0;
+    width: calc(100% - $quad-size / 2);
+  }
+
+  &.no-r-corner {
+    right: 0;
+    width: calc(100% - $quad-size / 2);
+  }
+
+  &.no-l-corner.no-r-corner {
+    left: 0;
+    width: 100%;
+  }
+}
+
+.t-line {
+  @include horizontal-line(top);
+}
+
+.b-line {
+  @include horizontal-line(bottom)
+}
+
+
+@mixin vertical-line($side) {
+  position: absolute;
+  top: calc($quad-size / 2);
+  width: 0;
+  border-right: $line-thickness solid;
+  border-color: currentColor;
+  height: calc(100% - $quad-size);
+
+  @if $side == left {
+    left: 0;
+  } @else {
+    right: 0;
+  }
+
+  &.no-t-corner {
+    top: 0;
+    height: calc(100% - $quad-size / 2);
+  }
+
+  &.no-b-corner {
+    bottom: 0;
+    height: calc(100% - $quad-size / 2);
+  }
+
+  &.no-t-corner.no-b-corner {
+    top: 0;
+    height: 100%;
+  }
+}
+
+.l-line {
+  @include vertical-line(left);
+}
+
+.r-line {
+  @include vertical-line(right);
+}

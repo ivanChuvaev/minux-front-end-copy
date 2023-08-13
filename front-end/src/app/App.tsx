@@ -1,22 +1,15 @@
-import React from 'react'; 
-import { LayoutAbsolute } from 'pages/layoutAbsolute';
-import { Navigate, Route, Routes } from 'react-router-dom';
-import { Monitoring, SystemMotherboardPage } from 'pages';
+import { store } from '@app';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom'
+import { FRoutes } from './FRoutes';
+import './index.scss';
 
-
-function App() {
+export function App() {
   return (
-    <Routes> 
-      <Route path="*" element={<>Bruh</>} />
-      <Route path='/' element={<Navigate to='monitoring'/>}/>
-      <Route path="/" element={<LayoutAbsolute/>}>
-        <Route path='monitoring' element={<Navigate to='/monitoring/mainpage'/>}/>
-        <Route path='monitoring/mainpage' element={<Monitoring/>}/>
-        <Route path='system' element={<Navigate to='/system/gpus'/>}/>
-        <Route path='system/gpus' element={<SystemMotherboardPage/>}/>
-      </Route>  
-    </Routes>
+    <BrowserRouter>
+      <Provider store={store}>
+        <FRoutes /> 
+      </Provider>
+    </BrowserRouter>
   );
 }
-
-export default App;

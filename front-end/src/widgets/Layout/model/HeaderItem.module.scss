@@ -1,0 +1,94 @@
+@use 'app/values.scss';
+@use '../lib/shared.scss';
+
+$color: values.$line-color;
+$active-color: values.$text-color-thirdy;
+
+.wrapper {
+  position: relative;
+  color: $color;
+  z-index: 1;
+
+  &:hover {
+    .dropdown {
+      display: block;
+    }
+    .group-label {
+      background-image: linear-gradient(to top, color-mix(in srgb, currentColor 20%, transparent), transparent);
+    }
+  }
+
+  &.active {
+    color: $active-color;
+    .group-label {
+      .text {
+        color: currentColor;
+      }
+      background-image: linear-gradient(to top, color-mix(in srgb, currentColor 20%, transparent), transparent);
+      border-bottom: values.$line-size solid values.$text-color-thirdy;
+    }
+
+    .dropdown-item {
+      &:global(.active) {
+        background: values.$text-color-thirdy;
+        box-shadow: 0 0 10px values.$text-color-thirdy;
+      }
+    }
+  }
+}
+
+@mixin item {
+  display: flex;
+  width: 150px;
+  height: shared.$layout-size;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: 400;
+  box-sizing: content-box;
+}
+
+.group-label {
+  @include item;
+  user-select: none;
+}
+
+.text {
+  color: white;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  z-index: 3;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  min-width: 0;
+}
+
+.dropdown-item {
+  @include item;
+  box-sizing: content-box;
+  border-bottom: 1px solid transparent;
+  border: 1px solid;
+  border-color: currentColor;
+  background: values.$bg-color;
+  
+  &:hover {
+    background: currentColor;
+    box-shadow: 0 0 10px currentColor;
+  }
+}
+
+@media (min-width: 1300px) {
+  .group-label {
+    width: 184px;
+    font-size: 32px;
+  }
+
+  .dropdown-item {
+    width: 184px;
+    font-size: 32px;
+  }
+}

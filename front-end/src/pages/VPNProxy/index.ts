@@ -1,0 +1,1 @@
+export { VPNProxy } from './model'

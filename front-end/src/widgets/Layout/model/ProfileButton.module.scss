@@ -1,0 +1,128 @@
+@use '../lib/shared.scss';
+@use 'app/values.scss';
+
+.wrapper {
+  display: flex;
+  user-select: none;
+  position: relative;
+  color: values.$line-color;
+  z-index: 1;
+  padding-right: 8px;
+  padding-left: 30px;
+  gap: 8px;
+  box-sizing: content-box;
+  height: shared.$layout-size;
+  border-bottom: 1px solid transparent;
+
+  &:hover {
+    background-image: linear-gradient(to left, color-mix(in srgb, currentColor 20%, transparent), transparent);
+
+    .dropdown-wrapper {
+      display: block;
+    }
+
+    .profile-button-burger {
+      background: #ffffff11;
+    }
+  }
+
+  &.active {
+    background-image: linear-gradient(to left, color-mix(in srgb, currentColor 20%, transparent), transparent);
+    color: values.$text-color-thirdy;
+    border-bottom: 1px solid currentColor;
+  }
+}
+
+.profile-image-wrapper {
+  padding: 6px;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  color: inherit;
+}
+
+.profile-image {
+  color: inherit;
+  background: currentColor;
+}
+
+.profile-button-burger {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: 4px;
+
+  .line {
+    width: 19px;
+    height: 0px;
+    border-bottom: 2px solid;
+    border-color: currentColor;
+  }
+}
+
+.dropdown-wrapper {
+  position: absolute;
+  display: none;
+  top: 100%;
+  right: 24px;
+  width: 221px;
+  z-index: 1;
+}
+
+.dropdown-top-right-line {
+  height: 10px;
+  border-right: 1px solid;
+  border-color: currentColor;
+}
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  right: 0;
+  border: 1px solid;
+  border-color: currentColor;
+  padding: 12px;
+  background: values.$bg-color;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 47px;
+  font-size: 24px;
+  border: 1px solid;
+  border-color: currentColor;
+  position: relative;
+
+  &:global(.active) {
+    background: values.$text-color-thirdy;
+    box-shadow: 0 0 10px values.$text-color-thirdy;
+  }
+
+  .text {
+    color: white;
+  }
+
+  &:hover {
+    background: currentColor;
+    box-shadow: 0 0 10px currentColor;
+  }
+
+  &::after {
+    content: '';
+    border-bottom: 1px solid;
+    border-color: currentColor;
+    position: absolute;
+    top: 50%;
+    right: -12px;
+    width: 12px;
+    height: 0px;
+  }
+}

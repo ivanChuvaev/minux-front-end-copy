@@ -1,0 +1,39 @@
+.wrapper {
+  min-width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.topic {
+  margin-bottom: 20px;
+  width: 500px;
+  font-size: 25px;
+}
+
+.gpu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+@media screen and (min-width: 1000px) {
+  .topic {
+    width: 800px;
+  }
+}
+
+
+@media screen and (min-width: 1500px) {
+  .topic {
+    font-size: 32px;
+    width: 1140px;
+  }
+
+  .wrapper {
+    padding: 50px;
+  }
+}

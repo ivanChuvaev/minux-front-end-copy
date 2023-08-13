@@ -1,0 +1,336 @@
+@use 'app/values.scss';
+
+$corner-size: 20px;
+$line-thickness: .5px;
+$fat-line-thickness: 3px;
+$line-gap: 9px;
+$center-line-length: 90px;
+$min-thin-line-length: 5px;
+$bg-body-color: #232836;
+
+$padding: 9px;
+
+.wrapper {
+  display: grid;
+  min-height: calc(2 * #{$corner-size} + 4 * #{$line-gap} + #{$center-line-length} + 2 * #{$min-thin-line-length});
+  min-width: calc(2 * #{$corner-size} + 4 * #{$line-gap} + #{$center-line-length} + 2 * #{$min-thin-line-length});
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+  padding: $padding;
+  color: values.$line-color;
+
+  &.no-vertical-c-lines {
+    min-height: calc(2 * #{$corner-size} + 2 * #{$line-gap} + #{$min-thin-line-length});
+  }
+
+  &.no-horizontal-c-lines {
+    min-width: calc(2 * #{$corner-size} + 2 * #{$line-gap} + #{$min-thin-line-length});
+  }
+
+  &.no-corners {
+    min-width: calc(#{$center-line-length} + 2 * #{$line-gap} + 2 * #{$min-thin-line-length});
+    min-height: calc(#{$center-line-length} + 2 * #{$line-gap} + 2 * #{$min-thin-line-length});
+
+    &.no-vertical-c-lines {
+      min-height: calc(#{$min-thin-line-length});
+    }
+  
+    &.no-horizontal-c-lines {
+      min-width: calc(#{$min-thin-line-length});
+    }
+  }
+}
+
+.body {
+  min-width: 0;
+  min-height: 0;
+  background: $bg-body-color;
+  color: white;
+}
+
+
+@mixin corner {
+  width: $corner-size;
+  height: $corner-size;
+  border: $fat-line-thickness solid;
+  border-color: currentColor;
+  position: absolute;
+}
+
+.lt-corner {
+  @include corner();
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.rt-corner {
+  @include corner();
+  right: 0;
+  top: 0;
+  border-left: none;
+  border-bottom: none;
+}
+
+.lb-corner {
+  @include corner();
+  left: 0;
+  bottom: 0;
+  border-right: none;
+  border-top: none;
+}
+
+.rb-corner {
+  @include corner();
+  right: 0;
+  bottom: 0;
+  border-left: none;
+  border-top: none;
+}
+
+
+
+
+
+@mixin horizontal-thin-line-part($side) {
+  $horizontal-thin-line-part-with-corner-offset: calc(#{$corner-size} + #{$line-gap});
+  $horizontal-thin-line-part-with-corner-width: calc((100% - 2 * #{$corner-size} - 4 * #{$line-gap} - #{$center-line-length}) / 2);
+  $horizontal-thin-line-part-no-corner-width: calc((100% - 2 * #{$corner-size} - 4 * #{$line-gap} - #{$center-line-length}) / 2 + #{$corner-size} + #{$line-gap});
+
+  position: absolute;
+  height: 0;
+  border-bottom: $line-thickness solid currentColor;
+  width: $horizontal-thin-line-part-with-corner-width;
+
+  @if $side == left {
+    left: $horizontal-thin-line-part-with-corner-offset;
+  } @else {
+    right: $horizontal-thin-line-part-with-corner-offset;
+  }
+
+  &.no-corner {
+    width: $horizontal-thin-line-part-no-corner-width;
+
+    @if $side == left {
+      left: 0;
+    } @else {
+      right: 0;
+    }
+  }
+}
+
+.lt-thin-line-part {
+  @include horizontal-thin-line-part(left);
+  top: 0;
+}
+
+.rt-thin-line-part {
+  @include horizontal-thin-line-part(right);
+  top: 0;
+}
+
+.lb-thin-line-part {
+  @include horizontal-thin-line-part(left);
+  bottom: 0;
+}
+
+.rb-thin-line-part {
+  @include horizontal-thin-line-part(right);
+  bottom: 0;
+}
+
+
+
+
+
+@mixin horizontal-thin-line-full {
+  $horizontal-thin-line-full-2corners-width: calc(100% - 2 * #{$corner-size} - 2 * #{$line-gap});
+  $horizontal-thin-line-full-1corner-width: calc(100% - #{$corner-size} - #{$line-gap});
+  $horizontal-thin-line-full-no-corners-width: 100%;
+
+  position: absolute;
+  left: calc(#{$corner-size} + #{$line-gap});
+  height: $line-thickness;
+  height: 0;
+  border-bottom: $line-thickness solid currentColor;
+  width: $horizontal-thin-line-full-2corners-width;
+
+  &.no-l-corner {
+    left: 0;
+    width: $horizontal-thin-line-full-1corner-width;
+  }
+
+  &.no-r-corner {
+    right: 0;
+    width: $horizontal-thin-line-full-1corner-width;
+  }
+
+  &.no-l-corner.no-r-corner {
+    left: 0;
+    width: $horizontal-thin-line-full-no-corners-width;
+  }
+}
+
+.t-thin-line-full {
+  @include horizontal-thin-line-full();
+  top: 0;
+}
+
+.b-thin-line-full {
+  @include horizontal-thin-line-full();
+  bottom: 0;
+}
+
+
+
+
+
+
+@mixin vertical-thin-line-part($x, $y) {
+  $vertical-thin-line-part-with-corner-offset: calc(#{$corner-size} + #{$line-gap});
+  $vertical-thin-line-part-with-corner-height: calc((100% - 2 * #{$corner-size} - 4 * #{$line-gap} - #{$center-line-length}) / 2);
+  $vertical-thin-line-part-no-corner-height: calc((100% - 2 * #{$corner-size} - 4 * #{$line-gap} - #{$center-line-length}) / 2 + #{$corner-size} + #{$line-gap});
+  position: absolute;
+  background: currentColor;
+  height: $vertical-thin-line-part-with-corner-height;
+  width: 0;
+  border-right: $line-thickness solid currentColor;
+
+  @if $x == left {
+    left: 0;
+  } @else {
+    right: 0;
+  }
+
+  @if $y == top {
+    top: $vertical-thin-line-part-with-corner-offset;
+  } @else {
+    bottom: $vertical-thin-line-part-with-corner-offset;
+  }
+
+  &.no-corner {
+    height: $vertical-thin-line-part-no-corner-height;
+
+    @if $y == top {
+      top: 0;
+    } @else {
+      bottom: 0;
+    }
+  }
+}
+
+.l-side-t-thin-line-part {
+  @include vertical-thin-line-part(left, top);
+}
+
+.l-side-b-thin-line-part {
+  @include vertical-thin-line-part(left, bottom);
+}
+
+.r-side-t-thin-line-part {
+  @include vertical-thin-line-part(right, top);
+}
+
+.r-side-b-thin-line-part {
+  @include vertical-thin-line-part(right, bottom);
+}
+
+
+
+
+
+
+@mixin vertical-thin-line {
+  $vertical-line-2corners-heigth: calc(100% - 2 * #{$corner-size} - 2 * #{$line-gap});
+  $vertical-line-1corner-height: calc(100% - #{$corner-size} - #{$line-gap});
+  $vertical-line-no-corners-height: 100%;
+
+  position: absolute;
+  top: calc(#{$corner-size} + #{$line-gap});
+  height: $vertical-line-2corners-heigth;
+  width: 0;
+  border-right: $line-thickness solid currentColor;
+  background: currentColor;
+
+  &.no-t-corner {
+    top: 0;
+    height: $vertical-line-1corner-height;
+  }
+
+  &.no-b-corner {
+    bottom: 0;
+    height: $vertical-line-1corner-height;
+  }
+
+  &.no-t-corner.no-b-corner {
+    top: 0;
+    height: $vertical-line-no-corners-height;
+  }
+}
+
+.l-thin-line-full {
+  @include vertical-thin-line();
+  left: 0;
+}
+
+.r-thin-line-full {
+  @include vertical-thin-line();
+  right: 0;
+}
+
+
+
+
+
+@mixin center-line($side) {
+  position: absolute;
+
+  @if $side == top {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: $center-line-length;
+    height: 0;
+    border-bottom: $fat-line-thickness solid currentColor;
+  } @else if $side == right {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    border-right: $fat-line-thickness solid currentColor;
+    height: $center-line-length;
+  } @else if $side == bottom {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: $center-line-length;
+    height: 0;
+    border-bottom: $fat-line-thickness solid currentColor;
+  } @else if $side == left {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    border-right: $fat-line-thickness solid currentColor;
+    height: $center-line-length;
+  }
+}
+
+.tc-line {
+  @include center-line(top);
+}
+
+.rc-line {
+  @include center-line(right);
+}
+
+.bc-line {
+  @include center-line(bottom);
+}
+
+.lc-line {
+  @include center-line(left);
+}
+

@@ -1,4 +1,4 @@
-import { SystemMotherboard } from 'widgets/systemMotherboard'
+import { SystemMotherboard } from '@widgets/systemMotherBoard'
 import './system.scss'
 
 type Props = {}

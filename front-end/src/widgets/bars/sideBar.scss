@@ -1,20 +1,23 @@
 @import 'app/values.scss';
 
 .flex-conteiner-vertical { 
-    user-select: none; 
-    
+    flex-shrink: 0;
+    user-select: none;
+
     display: flex; 
     flex-direction: column;
 
     width: $size-bar; 
-    min-height: 100%;
+    // height: calc(100vh);
+    // align-self: flex-start;
+    position: sticky;
+    top: 0;
 
     font-size: $text-size12;
     font-weight: $text-weight-light; 
     
     text-align: center; 
     
-    border-right: $line-size solid $line-color; 
 
     gap: 160px; 
 

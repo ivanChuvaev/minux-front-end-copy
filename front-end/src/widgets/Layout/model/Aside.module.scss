@@ -1,0 +1,13 @@
+@use '../lib/shared.scss';
+@use 'app/values.scss';
+
+.wrapper {
+  width: shared.$layout-size;
+  display: flex; 
+  flex-direction: column;
+  text-align: center;
+  padding-top: 115px;
+  gap: 95px; 
+  flex-shrink: 0;
+  overflow: auto;
+}

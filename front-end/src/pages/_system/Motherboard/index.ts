@@ -1,0 +1,1 @@
+export { Motherboard } from './model'

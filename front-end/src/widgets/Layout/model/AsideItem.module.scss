@@ -1,0 +1,36 @@
+@use 'app/values.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+
+  &:hover {
+    .icon {
+      background: #ffffff27;
+    }
+    .text {
+      font-weight: 700;
+    }
+  }
+
+}
+
+.icon {
+  border: 1px solid values.$line-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  user-select: none;
+}
+
+.text {
+  font-family: 'Gemunu Libre';
+  letter-spacing: 1px;
+  display: inline-block;
+  font-size: 13px;
+  line-height: 13px;
+  user-select: none;
+}

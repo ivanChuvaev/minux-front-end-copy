@@ -13,6 +13,13 @@ $font-gill-sans: 'Gill Sans MT', sans-serif;
   font-style: normal;
 } 
 
+@font-face {
+  font-family: 'Gemunu Libre';
+  src: url('../shared/assets/GemunuLibre-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   box-sizing: border-box;
 }
