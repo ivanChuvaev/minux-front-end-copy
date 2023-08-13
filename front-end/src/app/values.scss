@@ -66,10 +66,17 @@ $widget-coin-width: 686px;
     color: $text-color-value
 }
 
-.non-active {
+.not-active {
     display: inline-block;
     width: 100%; 
+
     &:hover {
         background-image: linear-gradient(to top, rgba(128, 128, 128, 0.588), #3b3e3f00); 
     }
+}
+
+.not-active-click {
+    display: inline-block;
+    width: 100%; 
+    background-image: linear-gradient(to top, #3c9ea5b8, #3b3e3f00); 
 }

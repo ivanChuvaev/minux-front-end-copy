@@ -1,7 +1,7 @@
 import React from 'react'; 
 import { LayoutAbsolute } from 'pages/layoutAbsolute';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { Monitoring, System } from 'pages';
+import { Monitoring, SystemMotherboardPage } from 'pages';
 
 
 function App() {
@@ -12,8 +12,8 @@ function App() {
       <Route path="/" element={<LayoutAbsolute/>}>
         <Route path='monitoring' element={<Navigate to='/monitoring/mainpage'/>}/>
         <Route path='monitoring/mainpage' element={<Monitoring/>}/>
-        <Route path='system' element={<Navigate to='/system/gpu'/>}/>
-        <Route path='system' element={<System/>}/>
+        <Route path='system' element={<Navigate to='/system/gpus'/>}/>
+        <Route path='system/gpus' element={<SystemMotherboardPage/>}/>
       </Route>  
     </Routes>
   );

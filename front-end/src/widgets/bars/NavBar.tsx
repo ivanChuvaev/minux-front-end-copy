@@ -1,4 +1,5 @@
 import {NavigateLink} from 'shared/components';
+import { useState } from 'react';
 import './navBar.scss' 
 import HoverList from './HoverList';
 
@@ -23,24 +24,68 @@ const systemOptions = [
 ];
 
 export default function NavBar() { 
+  const [showOptionsMonitoring, setShowOptionsMonitoring] = useState(false); 
+  
+  const [showOptionsSettings, setShowOptionsSettings] = useState(false); 
+  const [showOptionsAnalytics, setShowOptionsAnalytics] = useState(false); 
+  const [showOptionsSystem, setShowOptionsSystem] = useState(false); 
+  
+  const handlerClickMonitoring = () => {
+    setShowOptionsMonitoring(!showOptionsMonitoring)
+  }
+
+
+
+  const handlerClickSettings = () => {
+    setShowOptionsSettings(!showOptionsSettings)
+  }
+
+
+
+  const handlerClickAnalytics = () => {
+    setShowOptionsAnalytics(!showOptionsAnalytics)
+  }
+
+
+
+  const handlerClickSystem = () => {
+    setShowOptionsSystem(!showOptionsSystem)
+  }
+
   return (
     <div className='border-line-flex'>
       <div className='flex-conteiner-horizontal'> 
-        <HoverList options={monitoringOptions}>
-          <NavigateLink route='/monitoring' cancel={true} classActive={classActive} text='Monitoring' />
-        </HoverList>
+      <div onClick={handlerClickMonitoring} onMouseLeave={() => setShowOptionsMonitoring(false)}>
+        <HoverList options={monitoringOptions} >
+          <NavigateLink route='/monitoring' cancel={true} classActive={classActive} 
+          notActive={showOptionsMonitoring ? 'not-active-click' : 'not-active'}
+          text='Monitoring'/>
+        </HoverList> 
+      </div>
         
-        <HoverList options={settingsOptions}>
-          <NavigateLink route='/settings' cancel={true} classActive={classActive} text='Settings' />
-        </HoverList>
+        <div onClick={handlerClickSettings} onMouseLeave={() => setShowOptionsSettings(false)}>
+          <HoverList options={settingsOptions}>
+            <NavigateLink route='/settings' cancel={true} classActive={classActive}
+                            notActive={showOptionsSettings ? 'not-active-click' : 'not-active'} 
+                             text='Settings' /> 
+          </HoverList>
+        </div>
 
-        <HoverList>
-          <NavigateLink route='/analytics' cancel={true} classActive={classActive} text='Analytics' />
-        </HoverList>
+        <div onClick={handlerClickAnalytics} onMouseLeave={() => setShowOptionsAnalytics(false)}>
+          <HoverList>
+            <NavigateLink route='/analytics' cancel={true} classActive={classActive}
+            notActive={showOptionsAnalytics ? 'not-active-click' : 'not-active'}
+             text='Analytics' />
+          </HoverList> 
+        </div>
 
-        <HoverList options={systemOptions}>
-          <NavigateLink route='/system' cancel={true} classActive={classActive} text='System' />
-        </HoverList>
+        <div onClick={handlerClickSystem} onMouseLeave={() => setShowOptionsSystem(false)}>
+          <HoverList options={systemOptions}>
+            <NavigateLink route='/system' cancel={true} classActive={classActive}
+            notActive={showOptionsSystem ? 'not-active-click' : 'not-active'}
+             text='System' />
+          </HoverList> 
+        </div>
       </div>
     </div>
   )

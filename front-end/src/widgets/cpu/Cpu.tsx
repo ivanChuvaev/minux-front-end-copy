@@ -7,7 +7,7 @@ import { valueOrNA } from 'shared/utils';
 const getFullName = (cpuManufacturer: any, cpuModelName: any) => {
   if ((typeof(cpuManufacturer) === "string") && (typeof(cpuModelName) === "string")) {
 
-    const cpuFullName: string = cpuManufacturer + cpuModelName;
+    const cpuFullName: string = cpuManufacturer + ' ' + cpuModelName;
     
     return cpuFullName
   } 

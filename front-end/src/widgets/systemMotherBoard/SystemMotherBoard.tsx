@@ -1,4 +1,4 @@
- import './systemMotherBoard.scss'
+ import './systemMotherboard.scss'
  
  export default function SystemMotherBoard() {
   return (

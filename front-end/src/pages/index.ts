@@ -1,2 +1,2 @@
-export { System } from './system'
+export { SystemMotherboardPage } from './systemMotherboard'
 export { Monitoring } from './monitoring'

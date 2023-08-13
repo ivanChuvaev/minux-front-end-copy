@@ -1,1 +1,1 @@
-export {default as SystemMotherBoard} from './SystemMotherBoard'
+export {default as SystemMotherboard} from './SystemMotherboard'

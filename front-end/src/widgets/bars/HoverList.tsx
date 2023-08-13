@@ -27,7 +27,9 @@ const HoverList: React.FC<Props> = ({ options, children }) => {
         <ul className="hover-list-options">
           {options && options.map((option) => (
             <li key={option.id} className='hover-list-item'>
-                <NavigateLink route={option.url} classActive='class-active' text={option.text}/> 
+                <NavigateLink route={option.url} 
+                classActive='class-active' 
+                text={option.text}/> 
             </li>
           ))}
         </ul>

@@ -4,11 +4,13 @@ import { NavBar, SideBar } from 'widgets/bars'
 
 export default function LayoutAbsolute() {
   return (
-    <> 
-      <NavBar/> 
-      <SideBar/>
+    <div className='flex'>
+        <SideBar/>
+        <div className=' w-full'>
+          <NavBar/> 
 
-      <Outlet/>
-    </>
+          <Outlet/> 
+        </div>
+    </div>
   )
 }

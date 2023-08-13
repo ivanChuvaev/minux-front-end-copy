@@ -1,32 +1,37 @@
 @import 'app/values.scss';
 
 .flex-conteiner-vertical { 
-    user-select: none;
-    position: absolute;
-
-    margin-top: 80px;
-    top: 0;
-
+    user-select: none; 
+    
     display: flex; 
     flex-direction: column;
 
     width: $size-bar; 
-    min-height: calc(100% - 80px);
+    min-height: 100%;
 
     font-size: $text-size12;
-    font-weight: $text-weight-light;
+    font-weight: $text-weight-light; 
     
-    justify-content: center;
-    align-items: center; 
     text-align: center; 
     
     border-right: $line-size solid $line-color; 
 
     gap: 160px; 
 
-    .flex-conteiner-vertical_element { 
-        font-weight: $text-weight-light;
+    .imageLin {
+        height: 80px;
+        border-bottom: $line-color solid 1px ;
+    }
 
+    .flex-conteiner-vertical-cont {
+        display: flex;
+        flex-direction: column; 
+        gap: 100px;
+        
+        .flex-conteiner-vertical_element { 
+            font-weight: $text-weight-light;
+    
+        }
     }
 }
 

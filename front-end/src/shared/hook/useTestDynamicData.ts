@@ -1,6 +1,9 @@
 import { DynamicData } from 'shared/store';
 
 export const testDynamicData: DynamicData = {
+    state: {
+        mining: true
+    },
     cpu: {
         temperatureCelcius: 80,
         clockSpeed: 1000,

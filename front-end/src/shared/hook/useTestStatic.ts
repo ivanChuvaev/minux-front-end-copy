@@ -1,7 +1,7 @@
 import { StaticData } from "shared/store";
 
 export const testStaticData: StaticData = {
-    "gpu": [
+    gpu: [
         {
             "uuid": "jfsdkjf230423",
             "information": {
@@ -40,7 +40,7 @@ export const testStaticData: StaticData = {
             }
         }, 
     ],
-    "cpu": {
+    cpu: {
         "information": {
             "manufacturer": "Intel",
             "modelName": "i3-7100",
@@ -58,17 +58,17 @@ export const testStaticData: StaticData = {
             "min": 800.0
         }
     },
-    "motherboard": {
+    motherboard: {
         "information": {
             "manufacturer": "ASUSTeK COMPUTER INC.",
-            "product-name": "B250 MINING EXPERT",
+            "productName": "B250 MINING EXPERT",
             "serialNumber": "180118537208105"
         },
         "sataSlots": 4,
         "pciSlots": 19,
         "ramSlots": 4
     },
-    "harddrive": [
+    hd: [
         {
             "uuid": "sdkfjk34",
             "information": {
@@ -78,13 +78,13 @@ export const testStaticData: StaticData = {
                 "busInfo": "string",
                 "logicalName": "string",
                 "serial": "string",
-                "width": "string",
+                "width": 21,
                 "clockMhz": 44,
             },
             "capacityB": 256
         }, 
     ],
-    "ram": [
+    ram: [
         {
             "uuid": "qweroiu54",
             "information": {
@@ -101,4 +101,9 @@ export const testStaticData: StaticData = {
             }
         }, 
     ],
+    calculations: {
+        gpusCount: 2,
+        gpusNvidia: 2,
+        gpusRadeon: 0
+    }
 }
