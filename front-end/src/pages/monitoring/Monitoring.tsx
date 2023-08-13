@@ -23,22 +23,24 @@ export default function Monitoring() {
 
     return (
       <div className='monitoring'>
-        <div className='flex-conteiner-monitoring'> 
-          <WorkerWidget/> 
-           
-          <PowerRamWidget/> 
-           
-          <SharesWidget/> 
-        </div>
+        <div className='monitoring-main-content'>
+          <div className='flex-conteiner-monitoring'> 
+            <WorkerWidget/> 
+            
+            <PowerRamWidget/> 
+            
+            <SharesWidget/> 
+          </div>
 
-        <div className='flex-conteiner-monitoring'>
-          <Cpu/>
+          <div className='flex-conteiner-monitoring'>
+            <Cpu/>
 
-          <Coins/>
-        </div>
+            <Coins/>
+          </div>
 
-        <div className='flex-conteiner-monitoring'>
-          <Gpu/>
+          <div className='flex-conteiner-monitoring'>
+            <Gpu/>
+          </div> 
         </div>
 
         <div className='flex-conteiner-monitoring-footer'>

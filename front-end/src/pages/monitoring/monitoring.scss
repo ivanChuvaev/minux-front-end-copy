@@ -1,7 +1,10 @@
 @import 'app/values.scss';
 
 .monitoring { 
+    display: flex;
+    flex-direction: column; 
 
+    justify-content: space-between;
     .flex-conteiner-monitoring { 
 
         padding: 0 $padding-30 0 $padding-30;

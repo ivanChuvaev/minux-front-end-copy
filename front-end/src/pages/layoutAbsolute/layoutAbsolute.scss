@@ -1,0 +1,12 @@
+.layout-absolute {
+    display: flex;
+    
+    height: 100%;
+
+    .layout-absolute-content { 
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+    }
+}

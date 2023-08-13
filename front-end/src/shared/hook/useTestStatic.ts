@@ -101,6 +101,19 @@ export const testStaticData: StaticData = {
             }
         }, 
     ],
+    systemInfo: {
+        motherBoard: "Asus Rock 2500GMX",
+        cpu: "Intel i5-6666",
+        hd: "Sumsung A2300",
+        system: "Linux Ubuntu v22",
+        openCl: "nihuya ne ponyal",
+        cuda: "eshe luchshe",
+        driver: "v2024",
+        minuxVer: "1.00",
+        localIp: "111.01.01.111",
+        globalIp: "111.01.01.111",
+        macAdress: "100.01.01.100", 
+    },
     calculations: {
         gpusCount: 2,
         gpusNvidia: 2,
