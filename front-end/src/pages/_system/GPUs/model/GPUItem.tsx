@@ -38,7 +38,7 @@ export const GPUItem = (props: GPUItemProps) => {
         {_.map(_.chunk(fields, 5), (chunk, index) => (
           <div key={'chunk-' + index} className={styles['fields-chunk']}>
             {_.map(chunk, item => (
-              <div className={styles['field']}>
+              <div key={item.label} className={styles['field']}>
                 <span className={styles['label']}>{item.label}</span>
                 <span className={styles['value']}>{item.value}</span>
               </div>
