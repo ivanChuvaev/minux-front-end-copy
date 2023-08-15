@@ -1,10 +1,10 @@
 import { store } from '@app';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom'
-import { FRoutes } from './FRoutes';
-import './index.scss';
+import { FRoutes } from './FRoutes'; 
+import './index.scss'; 
 
-export function App() {
+export function App() { 
   return (
     <BrowserRouter>
       <Provider store={store}>

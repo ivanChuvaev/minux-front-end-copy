@@ -8,6 +8,7 @@ export const testStaticData: StaticData = {
                 "manufacturer": "Nvidia",
                 "periphery": "RTX 3080 Ti",
                 "driverVersion": "515.76",
+                "architecture": "Ampere",
                 "cudaVersion": "11.7",
                 "gpuUuid": "GPU-87111c58-594e-494c-a574-6c9b130a6170",
                 "productArchitecture": "Ampere",
@@ -51,7 +52,9 @@ export const testStaticData: StaticData = {
                 "threadsPerCore": 2,
                 "threadsPerSocket": 2,
                 "sockets": 1
-            }
+            },
+            cacheL2: 12,
+            cacheL3: 23
         },
         "clocksMhz": {
             "max": 3900.0,

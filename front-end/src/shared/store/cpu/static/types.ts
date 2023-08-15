@@ -11,7 +11,9 @@ export const Information = rt.Record({
         threadsPerCore: rt.Union(rt.Number, rt.Null), 
         threadsPerSocket: rt.Union(rt.Number, rt.Null), 
         sockets: rt.Union(rt.Number, rt.Null) 
-    })
+    }),
+    cacheL2: rt.Number,
+    cacheL3: rt.Number
 })
 
 export const ClocksMhz = rt.Record({

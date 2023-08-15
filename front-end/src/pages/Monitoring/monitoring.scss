@@ -3,11 +3,7 @@
 .monitoring { 
     display: flex;
     flex-direction: column; 
-
-    margin-left: $size-bar; 
-    min-width: 0;
-
-    padding: 0 $padding-30 0 $padding-30;
+    min-width: 0; 
 
     .flex-conteiner-monitoring { 
 

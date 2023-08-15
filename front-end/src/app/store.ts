@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'; 
 import { combineReducers } from 'redux';
 import { 
+  dynamicDataReducer, 
+  staticDataReducer,
   supportReducer
 } from 'shared/store/index'; 
-import { dynamicDataReducer, staticDataReducer } from 'shared/store/storeData';
 
 const rootReducer = combineReducers({ 
   dynamicData: dynamicDataReducer,

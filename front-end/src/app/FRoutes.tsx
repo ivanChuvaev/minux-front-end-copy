@@ -1,10 +1,25 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Layout } from '@widgets/Layout';
 import * as pages from '@pages'
+import { useDispatch } from 'react-redux'
+import { dynamicDataAction } from 'shared/store/storeData'
+import { staticDataAction } from 'shared/store/storeData'
+import { testDynamicData } from 'shared/hook'
+import { testStaticData } from 'shared/hook/useTestStatic'
 
 export const FRoutes = () => {
+
+  //TODO: ws provider
+  const dispatch = useDispatch();
+
+  //Test Data
+  dispatch(dynamicDataAction.updateDynamicData(testDynamicData))
+  dispatch(staticDataAction.updateStaticData(testStaticData))
+  //Test Data
+
   return (
     <Routes> 
+      <Route path='/' element={<Navigate to='/monitoring'/>}/>
       <Route path="/" element={<Layout />}>
         <Route path='/monitoring' element={<pages.Monitoring/>}/>
         <Route path='/settings-flight-sheet' element={<pages.settings.FlightSheet />} />

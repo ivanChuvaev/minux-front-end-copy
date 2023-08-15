@@ -4,6 +4,7 @@ import * as rt from 'runtypes'
 export const Informations = rt.Record({
     manufacturer: rt.Union(rt.String, rt.Null),
     periphery: rt.Union(rt.String, rt.Null),
+    architecture: rt.Union(rt.String, rt.Null),
     driverVersion: rt.Union(rt.String, rt.Null),
     cudaVersion: rt.Union(rt.String, rt.Null),
     gpuUuid: rt.Union(rt.String, rt.Null),

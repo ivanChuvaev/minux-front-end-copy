@@ -5,22 +5,9 @@ import PowerRamWidget from 'widgets/power&ram'
 import { Cpu } from 'widgets/cpu'
 import { Coins } from 'widgets/coins'
 import { Gpu } from 'widgets/gpu'
-import { FooterSystemInfo } from 'widgets/footerSystemInfo'
-import { useDispatch } from 'react-redux'
-import { dynamicDataAction } from 'shared/store/storeData'
-import { staticDataAction } from 'shared/store/storeData'
-import { testDynamicData } from 'shared/hook'
-import { testStaticData } from 'shared/hook/useTestStatic'
+import { FooterSystemInfo } from 'widgets/footerSystemInfo' 
 
 export default function Monitoring() { 
-
-  const dispatch = useDispatch();
-
-  //Test Data
-  dispatch(dynamicDataAction.updateDynamicData(testDynamicData))
-  dispatch(staticDataAction.updateStaticData(testStaticData))
-  //Test Data
-
     return (
       <div className='monitoring'>
         <div className='monitoring-main-content'>

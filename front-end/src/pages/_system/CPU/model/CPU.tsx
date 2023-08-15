@@ -1,39 +1,28 @@
 import { FContainer, FTopic } from "@shared/ui"
 import { HTMLProps } from "react"
 import cpuImage from '@shared/images/cpu-image.svg'
-import styles from './CPU.module.scss'
-
-const dummy = {
-  manufacturer: 'AMD Ryzen',
-  model: '7 5700x',
-  architecture: 'x86_64',
-  operation: '32-bit,64-bit',
-  cpus: 8,
-  threadsPerCore: 2,
-  coresPerSocket: 8,
-  maxClock: 4661.7,
-  minClock: 2200.0,
-  cacheL2: '4 Mb',
-  cahceL3: '32 Mb'
-}
+import styles from './CPU.module.scss' 
+import { useSelector } from "react-redux"
+import { RootState } from "@app/store" 
+import { valueOrNA } from "@shared/utils"
 
 type CPUProps = HTMLProps<HTMLDivElement>
 
 export const CPU = (props: CPUProps) => {
-  const data = dummy // TODO replace with actual data
+  const data = useSelector((state: RootState) => state.staticData.data?.cpu) // TODO replace with actual data
 
   const fields: Array<{ label: string, value: string | number }> = [
-    { label: 'Manufacturer', value: data.manufacturer },
-    { label: 'Model', value: data.model },
-    { label: 'Architecture', value: data.architecture },
-    { label: 'Operation', value: data.operation },
-    { label: 'CPUs', value: data.cpus },
-    { label: 'Threads per Core', value: data.threadsPerCore },
-    { label: 'Cores per Socket', value: data.coresPerSocket },
-    { label: 'Max Clock', value: data.maxClock },
-    { label: 'Min Clock', value: data.minClock },
-    { label: 'Cache L2', value: data.cacheL2 },
-    { label: 'Cache L3', value: data.cahceL3 }
+    { label: 'Manufacturer', value: valueOrNA(data?.information.manufacturer) },
+    { label: 'Model', value: valueOrNA(data?.information.modelName) },
+    { label: 'Architecture', value: valueOrNA(data?.information.architecture) },
+    { label: 'Operation', value: valueOrNA(data?.information.opModes) },
+    { label: 'CPUs', value: valueOrNA(data?.information.cores.cpus) },
+    { label: 'Threads per Core', value: valueOrNA(data?.information.cores.threadsPerCore) },
+    { label: 'Cores per Socket', value: valueOrNA(data?.information.cores.threadsPerSocket) },
+    { label: 'Max Clock', value: valueOrNA(data?.clocksMhz.max) },
+    { label: 'Min Clock', value: valueOrNA(data?.clocksMhz.min) },
+    { label: 'Cache L2', value: valueOrNA(data?.information.cacheL2) + 'Mb' },
+    { label: 'Cache L3', value: valueOrNA(data?.information.cacheL3) + 'Mb' }
   ]
 
   return (
@@ -51,7 +40,7 @@ export const CPU = (props: CPUProps) => {
       </FContainer>
       <div className={styles['cpu-image-wrapper']}>
         <img src={cpuImage} alt="cpu" className={styles['image']} />
-        <div className={styles['cpu-image-text']}>{data.manufacturer}<br />{data.model}</div>
+        <div className={styles['cpu-image-text']}>{valueOrNA(data?.information.manufacturer)}<br />{data?.information.modelName}</div>
       </div>
     </div>
   )

@@ -1,14 +1,15 @@
-import { HTMLProps } from "react"
-import { TGPUItem } from "../types"
+import { HTMLProps } from "react" 
 import { FContainer } from "@shared/ui"
 import { useMediaQuery } from 'usehooks-ts'
 import styles from './GPUItem.module.scss'
 import gpuOneVentImage from '@shared/images/gpu-one-vent-image.png'
 import gpuTwoVentImage from '@shared/images/gpu-two-vent-image.png'
 import _ from 'lodash'
+import { GpuStatic } from "@shared/store"
+import { valueOrNA } from "@shared/utils"
 
 type GPUItemProps = HTMLProps<HTMLDivElement> & {
-  item: TGPUItem,
+  item: GpuStatic,
   narrow?: boolean,
   imageType?: 'one-vent' | 'two-vent'
 }
@@ -18,17 +19,17 @@ export const GPUItem = (props: GPUItemProps) => {
 
   const fields: Array<{ label: string, value: string }> = [
     { label: 'uuid', value: props.item.uuid },
-    { label: 'Manufacturer', value: props.item.manufacturer },
-    { label: 'Periphery', value: props.item.periphery },
-    { label: 'Driver Ver.', value: props.item.driverVer },
-    { label: 'CUDA Ver.', value: props.item.cudaVer},
-    { label: 'Architecture', value: props.item.architecture },
-    { label: 'Serial Number', value: props.item.serialNumber },
-    { label: 'PCI bus', value: props.item.pciBus },
-    { label: 'Memory', value: props.item.memory },
-    { label: 'Power', value: props.item.power },
-    { label: 'Core Clocks Mhz', value: props.item.coreClocksMhz },
-    { label: 'Memory Clocks Mhz', value: props.item.memoryClockMhz }
+    { label: 'Manufacturer', value: valueOrNA(props.item.information.manufacturer) },
+    { label: 'Periphery', value: valueOrNA(props.item.information.periphery) },
+    { label: 'Driver Ver.', value: valueOrNA(props.item.information.driverVersion) },
+    { label: 'CUDA Ver.', value: valueOrNA(props.item.information.cudaVersion)},
+    { label: 'Architecture', value: valueOrNA(props.item.information.architecture) },
+    { label: 'Serial Number', value: valueOrNA(props.item.information.serialNumber) },
+    { label: 'PCI bus', value: valueOrNA(props.item.information.pci.bus) },
+    { label: 'Memory', value: valueOrNA(props.item.memoryMb.total) },
+    { label: 'Power', value: valueOrNA(props.item.powerWatt.minimal) },
+    { label: 'Core Clocks Mhz', value: valueOrNA(props.item.clocksMhz.coreMax) },
+    { label: 'Memory Clocks Mhz', value: valueOrNA(props.item.clocksMhz.memMax)  }
   ]
   const lastField = { label: 'GPU uuid', value: 'GPU-87111c58-594e-494c-a574-6c9b130a6170' }
 
