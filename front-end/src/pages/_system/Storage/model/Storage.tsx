@@ -1,28 +1,23 @@
 import { FContainer, FTopic } from "@shared/ui"
 import { HTMLProps } from "react"
 import styles from './Storage.module.scss'
-import hddImage from '@shared/images/hdd-image.svg'
-
-const dummy = {
-  deviceModel: 'EX280421RUS',
-  serialNumber: 'EX5572810221146',
-  capacity: '180118537208105',
-  uuid: '65564654654781234976',
-  sataPorts: 'SATA 3.2 6 Gb/s'
-}
+import hddImage from '@shared/images/hdd-image.svg' 
+import { useSelector } from "react-redux" 
+import { RootState } from "@app/store" 
+import { valueOrNA } from "@shared/utils"
 
 
 type StorageProps = HTMLProps<HTMLDivElement>
 
 export const Storage = (props: StorageProps) => {
-  const data = dummy // TODO replace with actual data
+  const data = useSelector((state: RootState) => state.staticData.data?.hd)
 
   const fields: Array<{ label: string, value: string | number }> = [
-    { label: 'Device Model', value: data.deviceModel },
-    { label: 'Serial Number', value: data.serialNumber },
-    { label: 'Capacity', value: data.capacity },
-    { label: 'uuid', value: data.uuid },
-    { label: 'SATA ports', value: data.sataPorts },
+    { label: 'uuid', value: valueOrNA(data?.uuid) },
+    { label: 'Device Model', value: valueOrNA(data?.information.product) },
+    { label: 'Serial Number', value: valueOrNA(data?.information.serial) },
+    { label: 'Capacity', value: valueOrNA(data?.capacityB) },
+    { label: 'SATA ports', value: valueOrNA(data?.information.sataPorts) },
   ]
 
   return (

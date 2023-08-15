@@ -11,7 +11,7 @@ export const DynamicData = rt.Record({
     gpu: rt.Array(GpuDynamic),
     cpu: CpuDynamic, 
     ram: rt.Array(RamDynamic),
-    hd: rt.Array(HdDynamic), 
+    hd: HdDynamic, 
     calculations: CalculationsDynamic 
 })
 export type DynamicData = rt.Static<typeof DynamicData>;

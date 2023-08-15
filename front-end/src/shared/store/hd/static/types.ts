@@ -9,6 +9,7 @@ export const Information = rt.Record({
     logicalName: rt.Union(rt.String, rt.Null),
     serial: rt.Union(rt.String, rt.Null),
     width: rt.Union(rt.Number, rt.Null),
+    sataPorts: rt.Union(rt.Number, rt.Null),
     clockMhz: rt.Union(rt.Number, rt.Null)   
 });
 export type Information = rt.Static<typeof Information>

@@ -26,8 +26,8 @@ export const GPUItem = (props: GPUItemProps) => {
     { label: 'Architecture', value: valueOrNA(props.item.information.architecture) },
     { label: 'Serial Number', value: valueOrNA(props.item.information.serialNumber) },
     { label: 'PCI bus', value: valueOrNA(props.item.information.pci.bus) },
-    { label: 'Memory', value: valueOrNA(props.item.memoryMb.total) },
-    { label: 'Power', value: valueOrNA(props.item.powerWatt.minimal) },
+    { label: 'Memory', value: valueOrNA(props.item.memoryMb.total) + " Gb" },
+    { label: 'Power', value: valueOrNA(props.item.powerWatt.minimal) + " Watt" },
     { label: 'Core Clocks Mhz', value: valueOrNA(props.item.clocksMhz.coreMax) },
     { label: 'Memory Clocks Mhz', value: valueOrNA(props.item.clocksMhz.memMax)  }
   ]

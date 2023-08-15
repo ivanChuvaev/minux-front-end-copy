@@ -103,13 +103,13 @@ export const testDynamicData: DynamicData = {
             }, 
 
         ],
-    hd: [{ 
+    hd: { 
         uuid: 'rwerkj432',
         temperatureCelcius: 25,
         capacityB: 256,
         availableB: 256,
         freeB: 256 
-    }], 
+    }, 
     calculations: {
         gpusAccepted: 125,
         gpusRejected: 200, 

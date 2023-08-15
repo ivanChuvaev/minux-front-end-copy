@@ -62,31 +62,36 @@ export const testStaticData: StaticData = {
         }
     },
     motherboard: {
+        uuid: "2343241sdfwe",
         "information": {
             "manufacturer": "ASUSTeK COMPUTER INC.",
             "productName": "B250 MINING EXPERT",
             "serialNumber": "180118537208105"
         },
-        "sataSlots": 4,
-        "pciSlots": 19,
-        "ramSlots": 4
+        "sataPorts": "4 x 6",
+        "pciSlots": "18 x PCIe, 1 x PCIe x16" ,
+        "ramSlots": {
+            capacity: 5000,
+            speed: 1234,
+            type: "4 x DDR4"
+        }
     },
-    hd: [
+    hd:
         {
             "uuid": "sdkfjk34",
             "information": {
-                "description": "string",
-                "product": "string",
-                "vendor": "string",
-                "busInfo": "string",
-                "logicalName": "string",
-                "serial": "string",
+                "description": "131",
+                "product": "Kingston",
+                "vendor": "Allah",
+                "busInfo": "1234",
+                "logicalName": "A@#$1",
+                "serial": "123-412-124",
                 "width": 21,
                 "clockMhz": 44,
+                sataPorts: 4
             },
             "capacityB": 256
         }, 
-    ],
     ram: [
         {
             "uuid": "qweroiu54",

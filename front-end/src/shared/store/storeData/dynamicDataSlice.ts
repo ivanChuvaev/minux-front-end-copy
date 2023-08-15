@@ -34,7 +34,7 @@ const dynamicDataSlice = createSlice({
                 state.data.ram = action.payload; 
             }
         },
-        changeHdDynamic: (state, action: PayloadAction<HdDynamic[]>) => {
+        changeHdDynamic: (state, action: PayloadAction<HdDynamic>) => {
             if (state.data) {
                 state.data.hd = action.payload; 
             }

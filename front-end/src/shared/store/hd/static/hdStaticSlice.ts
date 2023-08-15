@@ -2,18 +2,16 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { HdStatic } from "./types"; 
 
 interface HdStaticState {
-    data: HdStatic[]
+    data: HdStatic
 }
 
-export const initialState: HdStaticState = {
-    data: []
-}
+export const initialState: Partial<HdStaticState> = {}
 
 const hdStaticSlice = createSlice({
     name: 'hdStatic',
     initialState,
     reducers: {
-        addHdsStatic: (state, action: PayloadAction<HdStatic[]>) => {
+        addHdsStatic: (state, action: PayloadAction<HdStatic>) => {
             state.data = action.payload
         }
     }

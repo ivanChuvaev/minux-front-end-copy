@@ -2,18 +2,16 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { HdDynamic } from "./types"; 
 
 interface HdDynamicState {
-    data: HdDynamic[]
+    data: HdDynamic
 }
 
-export const initialState: HdDynamicState = {
-    data: []
-}
+export const initialState: Partial<HdDynamicState> = {}
 
 const hdDynamicSlice = createSlice({
     name: 'hdDynamic',
     initialState,
     reducers: {
-        addHdsDynamic: (state, action: PayloadAction<HdDynamic[]>) => {
+        addHdsDynamic: (state, action: PayloadAction<HdDynamic>) => {
             state.data = action.payload
         }
     }
