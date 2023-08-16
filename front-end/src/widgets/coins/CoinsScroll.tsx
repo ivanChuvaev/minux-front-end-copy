@@ -7,8 +7,8 @@ export default function CoinsScroll() {
     const id = useId(); 
     const coinsValue = useSelector((state: RootState) => state.dynamicData.data?.calculations.coinsValue); 
 
-    const coinsArray = coinsValue?.map((item) => (
-        <div className='grid grid-cols-3 text-center' key={id}>
+    const coinsArray = coinsValue?.map((item, index) => (
+        <div className='grid grid-cols-3 text-center' key={index + id}>
             <p>{item.coin}</p>
             <p>{item.algorithm}</p>
             <p>{item.value} Mh/s</p> 
