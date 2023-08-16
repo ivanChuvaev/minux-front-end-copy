@@ -1,22 +1,38 @@
 /* eslint-disable @typescript-eslint/no-redeclare */
 import * as rt from 'runtypes' 
 
-export const Cryptocurrencies = rt.Record({
+export const Cryptocurrencie = rt.Record({
     shortName: rt.String,
     fullName: rt.String,
     algorithms: rt.String
 })
-export type Cryptocurrencies = rt.Static<typeof Cryptocurrencies>
+export type Cryptocurrencie = rt.Static<typeof Cryptocurrencie>
 
-export const Miners = rt.Record({
+export const Wallet = rt.Record({
+    coinName: rt.String,
+    source: rt.String,
+    address: rt.String
+}) 
+export type Wallet = rt.Static<typeof Wallet> 
+
+export const Pool = rt.Record({
+    poolsDomen: rt.String,
+    poolsPort: rt.String, 
+    coinName: rt.String
+}) 
+export type Pool = rt.Static<typeof Pool> 
+
+export const Miner = rt.Record({
     shortName: rt.String,
     fullName: rt.String,
     algorithms: rt.Array(rt.String)
 }) 
-export type Miners = rt.Static<typeof Miners> 
+export type Miner = rt.Static<typeof Miner> 
 
 export const Support = rt.Record({ 
-    cryptocurrencies: rt.Array(Cryptocurrencies),
-    miners: rt.Array(Miners)
+    cryptocurrencies: rt.Array(Cryptocurrencie),
+    wallets: rt.Array(Wallet),
+    pools: rt.Array(Pool),
+    miners: rt.Array(Miner)
 }) 
 export type Support = rt.Static<typeof Support>

@@ -1,0 +1,11 @@
+@use 'app/values.scss';
+
+.wrapper {
+    width: 100%;
+
+    .header {
+        width: 340px;
+        display: flex;
+        justify-content: space-between;
+    }
+}

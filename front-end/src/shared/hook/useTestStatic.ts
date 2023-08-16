@@ -128,6 +128,14 @@ export const testStaticData: StaticData = {
         gpusRadeon: 0
     },
     support: {
+        pools: [
+            {poolsDomen: "2miner.com", poolsPort: "4500", coinName:"Bitcoin"},
+            {poolsDomen: "5miner.com", poolsPort: "5500", coinName:"Ethereum"}
+        ],
+        wallets: [
+            {coinName: 'Allah', source: 'https//al/sdf.com', address: '123.41.23.101'},
+            {coinName: 'Bitcoin', source: 'https//BTC/coin.com', address: '512.623.613.412'}
+        ],
         cryptocurrencies: [
             { shortName: "ETH", fullName: "Ethereum", algorithms: "Ethash" },
             { shortName: "ETC", fullName: "Ethereum Classic", algorithms: "Ethash" }

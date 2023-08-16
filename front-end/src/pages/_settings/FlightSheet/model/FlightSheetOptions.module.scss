@@ -3,9 +3,23 @@
 $wrapper-height: 385px;
 
 .wrapper {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    width: 100%; 
+    min-height: fit-content; 
+    font-size: 36px; 
+}
 
-    min-height: $wrapper-height;
+.black {
+    background-color: rgba(0, 0, 0, 0.20);
+}
+
+.fields-body {
+    width: 100%; 
+    min-height: fit-content; 
+}
+
+.fields-grid-wrapper {
+    width: 100%;
+    min-height: fit-content;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
 }
