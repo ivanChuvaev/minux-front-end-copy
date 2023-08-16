@@ -5,21 +5,22 @@ $wrapper-height: 385px;
 .wrapper {
     width: 100%; 
     min-height: fit-content; 
-    font-size: 36px; 
+    font-size: 32px; 
 }
 
 .black {
     background-color: rgba(0, 0, 0, 0.20);
-}
-
-.fields-body {
-    width: 100%; 
-    min-height: fit-content; 
-}
+} 
 
 .fields-grid-wrapper {
+    display: grid;
+    
     width: 100%;
     min-height: fit-content;
-    display: grid;
+    
+    padding: 55px 110px;
+
+    gap: 30px; 
+
     grid-template-columns: repeat(4, 1fr); 
 }

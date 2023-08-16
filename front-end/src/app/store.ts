@@ -2,14 +2,12 @@ import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 import { 
   dynamicDataReducer, 
-  staticDataReducer,
-  supportReducer
+  staticDataReducer
 } from 'shared/store/index'; 
 
 const rootReducer = combineReducers({ 
   dynamicData: dynamicDataReducer,
-  staticData: staticDataReducer,
-  support: supportReducer
+  staticData: staticDataReducer, 
 });
 
 export const store = configureStore({

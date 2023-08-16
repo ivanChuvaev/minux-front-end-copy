@@ -130,7 +130,7 @@ export const testStaticData: StaticData = {
     support: {
         pools: [
             {poolsDomen: "2miner.com", poolsPort: "4500", coinName:"Bitcoin"},
-            {poolsDomen: "5miner.com", poolsPort: "5500", coinName:"Ethereum"}
+            {poolsDomen: "5miner.com", poolsPort: "5500", coinName:"Ethereum"},
         ],
         wallets: [
             {coinName: 'Allah', source: 'https//al/sdf.com', address: '123.41.23.101'},
@@ -138,6 +138,8 @@ export const testStaticData: StaticData = {
         ],
         cryptocurrencies: [
             { shortName: "ETH", fullName: "Ethereum", algorithms: "Ethash" },
+            { shortName: "ETC", fullName: "Ethereum Classic", algorithms: "Ethash" },
+            { shortName: "ETC", fullName: "Ethereum Classic", algorithms: "Ethash" },
             { shortName: "ETC", fullName: "Ethereum Classic", algorithms: "Ethash" }
         ],
         miners: [
