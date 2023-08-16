@@ -8,8 +8,9 @@
     
     .coin-conteiner {
         padding: $text-padding-tb $text-padding-lr;
-        display: flex; 
-        justify-content: space-between;
+        display: grid; 
+        grid-template-columns: repeat(3, 1fr);
+        text-align: center;
         background-color: $color-primary; 
         opacity: $text-opacity;
     }

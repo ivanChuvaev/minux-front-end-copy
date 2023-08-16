@@ -1,12 +1,8 @@
 import React from 'react'
 import './coins.scss'
-import CoinsScroll from './CoinsScroll'
-import { useSelector } from 'react-redux'
-import { RootState } from 'app/store' 
+import CoinsScroll from './CoinsScroll' 
 
-export default function Coins() {
-  const coinsValue = useSelector((state: RootState) => state.support.data?.coinsValue); 
-
+export default function Coins() { 
   return ( 
     <div className='flex-conteiner-coin'>
         <div className='border-line'> 
@@ -17,7 +13,7 @@ export default function Coins() {
           </div>   
         </div> 
 
-        <CoinsScroll coinsValue={coinsValue}/>
+        <CoinsScroll/>
     </div>
   )
 }

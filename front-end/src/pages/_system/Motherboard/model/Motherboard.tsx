@@ -8,7 +8,7 @@ import { valueOrNA } from "@shared/utils"
 
 type MotherboardProps = HTMLProps<HTMLDivElement>
 
-export const Motherboard = (props: MotherboardProps) => {
+export const Motherboard = (props: MotherboardProps) => { 
   const data = useSelector((state: RootState) => state.staticData.data?.motherboard)
 
   const fields: Array<{ label: string, value: string | number }> = [

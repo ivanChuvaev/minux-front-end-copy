@@ -10,7 +10,7 @@ type FContainerProps = HTMLProps<HTMLDivElement> & {
   visibility?: {
     /** left top corner */
     lt?: boolean,
-    /** top cener line  */
+    /** top center line  */
     tc?: boolean,
     /** right top corner */
     rt?: boolean,

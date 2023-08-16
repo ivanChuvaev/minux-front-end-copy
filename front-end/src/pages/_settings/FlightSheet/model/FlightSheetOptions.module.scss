@@ -1,0 +1,11 @@
+@use 'app/values.scss';
+
+$wrapper-height: 385px;
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    min-height: $wrapper-height;
+}

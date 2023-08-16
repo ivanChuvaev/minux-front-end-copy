@@ -1,0 +1,9 @@
+@use 'app/values.scss';
+
+.wrapper {
+    padding: values.$padding-30;
+
+    display: grid; 
+    
+    grid-template-rows: 1fr; 
+}

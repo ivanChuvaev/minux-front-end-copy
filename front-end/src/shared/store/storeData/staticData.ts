@@ -7,6 +7,7 @@ import { HdStatic } from '../hd';
 import { CalculationsStatic } from '../calculations';
 import { motherboardStatic } from '../motherboard/types';
 import { SystemInfo } from '../systemInfo';
+import { Support } from '../support';
 
 export const StaticData = rt.Record({
     gpu: rt.Array(GpuStatic),
@@ -15,6 +16,7 @@ export const StaticData = rt.Record({
     motherboard: motherboardStatic,
     hd: HdStatic,
     systemInfo: SystemInfo,
-    calculations: CalculationsStatic
+    calculations: CalculationsStatic,
+    support: Support
 })
 export type StaticData = rt.Static<typeof StaticData>;

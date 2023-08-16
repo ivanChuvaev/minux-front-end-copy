@@ -9,7 +9,7 @@ import { valueOrNA } from "@shared/utils"
 type CPUProps = HTMLProps<HTMLDivElement>
 
 export const CPU = (props: CPUProps) => {
-  const data = useSelector((state: RootState) => state.staticData.data?.cpu) // TODO replace with actual data
+  const data = useSelector((state: RootState) => state.staticData.data?.cpu) 
 
   const fields: Array<{ label: string, value: string | number }> = [
     { label: 'Manufacturer', value: valueOrNA(data?.information.manufacturer) },

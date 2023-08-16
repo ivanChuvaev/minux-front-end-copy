@@ -126,5 +126,15 @@ export const testStaticData: StaticData = {
         gpusCount: 2,
         gpusNvidia: 2,
         gpusRadeon: 0
+    },
+    support: {
+        cryptocurrencies: [
+            { shortName: "ETH", fullName: "Ethereum", algorithms: "Ethash" },
+            { shortName: "ETC", fullName: "Ethereum Classic", algorithms: "Ethash" }
+        ],
+        miners: [
+            { shortName: "trex", fullName: "T-Rex", algorithms: [ "Ethash", "Autolykos2"] },
+            { shortName: "lolminer", fullName: "lolMiner", algorithms: [ "Ethash", "lolminer"] }
+        ]
     }
 }

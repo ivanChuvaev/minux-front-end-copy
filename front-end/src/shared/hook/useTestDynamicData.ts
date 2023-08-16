@@ -111,6 +111,10 @@ export const testDynamicData: DynamicData = {
         freeB: 256 
     }, 
     calculations: {
+        coinsValue: [
+            { coin: "Raven", algorithm: "Kawpow", value: 120 },
+            { coin: "Bitcoin", algorithm: "Kawpow", value: 150 }
+    ],
         gpusAccepted: 125,
         gpusRejected: 200, 
         gpusMiners: 2,

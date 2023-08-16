@@ -1,19 +1,17 @@
+import { RootState } from '@app/store'; 
 import { useId } from 'react' 
-import { CoinsValue } from 'shared/store/support/types' 
-import NaImage from 'shared/components/NaImage';
+import { useSelector } from 'react-redux';
+import NaImage from 'shared/components/NaImage'; 
 
-type Props = {
-    coinsValue: Array<CoinsValue> | undefined;
-}
-
-export default function CoinsScroll({coinsValue}: Props) { 
+export default function CoinsScroll() { 
     const id = useId(); 
+    const coinsValue = useSelector((state: RootState) => state.dynamicData.data?.calculations.coinsValue); 
 
     const coinsArray = coinsValue?.map((item) => (
-        <div className='flex justify-between' key={id}>
+        <div className='grid grid-cols-3 text-center' key={id}>
             <p>{item.coin}</p>
             <p>{item.algorithm}</p>
-            <p>{item.value}</p> 
+            <p>{item.value} Mh/s</p> 
         </div>
     )) 
 
