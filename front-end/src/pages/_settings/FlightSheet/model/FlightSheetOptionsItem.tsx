@@ -5,14 +5,17 @@ import arrowDown from '@shared/images/arrow-down.png'
 
 type FlightSheetOptionsItemProps = HTMLProps<HTMLDivElement> & {
     item: {
-        label: string, options: string[] | undefined, header: string
+        label: string, 
+        options: string[] | undefined, 
+        header: string, 
+        handler: (value: string) => void
     } 
 }
 
 
 export const FlightSheetOptionsItem = (props: FlightSheetOptionsItemProps) => { 
     const [isHidden, setIsHidden] = useState<boolean>(true);
-    const [header, setHeader] = useState<string | null>(props.item.header)
+    const [selectedValue, setSelectedValue] = useState<string>('')
 
     const id = useId();
 
@@ -21,7 +24,9 @@ export const FlightSheetOptionsItem = (props: FlightSheetOptionsItemProps) => {
     }
 
     const itemSelect: MouseEventHandler<HTMLDivElement> = (event) => {
-        setHeader(event.currentTarget.textContent)
+        setSelectedValue(event.currentTarget.textContent ?? "") 
+
+        props.item.handler(event.currentTarget.textContent ?? "")
     } 
 
     const MouseLeaveHandler: MouseEventHandler<HTMLDivElement> = () => {
@@ -36,7 +41,7 @@ export const FlightSheetOptionsItem = (props: FlightSheetOptionsItemProps) => {
         </div>
         <div className={styles['drop-down']} onMouseLeave={MouseLeaveHandler}>
             <div className={styles['drop-down-header']}>
-                <div className={styles['text']}>{header}</div>
+                <input className={styles['input']} value={selectedValue} placeholder={props.item.header} disabled/>
                 <img className={styles['img']}src={arrowDown} alt="arrowDown" onClick={openDropDown}/>
             </div> 
             <div className={styles['drop-down-options']} hidden={isHidden}>

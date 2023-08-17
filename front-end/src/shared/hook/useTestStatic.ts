@@ -133,18 +133,18 @@ export const testStaticData: StaticData = {
             {poolsDomen: "5miner.com", poolsPort: "5500", coinName:"Ethereum"},
         ],
         wallets: [
-            {coinName: 'Allah', source: 'https//al/sdf.com', address: '123.41.23.101'},
+            {coinName: 'Ethereum', source: 'https//al/sdf.com', address: '123.41.23.101'},
             {coinName: 'Bitcoin', source: 'https//BTC/coin.com', address: '512.623.613.412'}
         ],
         cryptocurrencies: [
-            { shortName: "ETH", fullName: "Ethereum", algorithms: "Ethash" },
+            { shortName: "ETH", fullName: 'Ethereum', algorithms: "Ethash" },
+            { shortName: "ETC", fullName: "Bitcoin", algorithms: "SHA-256" },
             { shortName: "ETC", fullName: "Ethereum Classic", algorithms: "Ethash" },
-            { shortName: "ETC", fullName: "Ethereum Classic", algorithms: "Ethash" },
-            { shortName: "ETC", fullName: "Ethereum Classic", algorithms: "Ethash" }
+            { shortName: "ETC", fullName: "Ripple", algorithms: "Ripple" }
         ],
         miners: [
             { shortName: "trex", fullName: "T-Rex", algorithms: [ "Ethash", "Autolykos2"] },
-            { shortName: "lolminer", fullName: "lolMiner", algorithms: [ "Ethash", "lolminer"] }
+            { shortName: "lolminer", fullName: "lolMiner", algorithms: [ "Ethash", "lolminer", 'Ripple'] }
         ]
     }
 }
