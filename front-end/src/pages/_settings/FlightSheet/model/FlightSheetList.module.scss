@@ -5,28 +5,32 @@
 
     gap: 50px;
 
-    .border-line {
+    .flex-conteiner { 
+        display: flex;
 
-        border: 1px solid values.$line-color;
+        gap: 30px;
+        
+        .border-line { 
+            width: 100%;
 
-        .list-item {
-            display: grid;
+            border: 1px solid values.$line-color; 
     
-            background-color: values.$color-primary;
-    
-            justify-items: center;
-    
-            align-items: center; 
+            .list-item {
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
         
-            height: 120px;
+                background-color: values.$color-primary;
         
-            grid-template-columns: repeat(6, 1fr);
+                justify-items: center;
+                align-items: center; 
         
-            font-size: 28px;
-    
-            padding: 10px; 
+                height: 120px;
+                padding: 10px; 
             
+                font-size: 28px; 
+            } 
         }
     }
+
 
 }
