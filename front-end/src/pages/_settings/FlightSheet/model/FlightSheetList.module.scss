@@ -1,0 +1,32 @@
+@use 'app/values.scss';
+
+.wrapper {
+    display: grid; 
+
+    gap: 50px;
+
+    .border-line {
+
+        border: 1px solid values.$line-color;
+
+        .list-item {
+            display: grid;
+    
+            background-color: values.$color-primary;
+    
+            justify-items: center;
+    
+            align-items: center; 
+        
+            height: 120px;
+        
+            grid-template-columns: repeat(6, 1fr);
+        
+            font-size: 28px;
+    
+            padding: 10px; 
+            
+        }
+    }
+
+}

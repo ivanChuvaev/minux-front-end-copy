@@ -8,6 +8,7 @@ import {
 const rootReducer = combineReducers({ 
   dynamicData: dynamicDataReducer,
   staticData: staticDataReducer, 
+  
 });
 
 export const store = configureStore({
