@@ -1,3 +1,8 @@
 export { FContainer } from './FContainer'
 export { FQuadContainer } from './FQuadContainer'
+export { FSwitch } from './FSwitch'
 export { FTopic } from './FTopic'
+export { FTrisContainer } from './FTrisContainer'
+export { FTextInput } from './FTextInput'
+export { FButton } from './FButton'
+export { FDatePicker } from './FDatePicker'

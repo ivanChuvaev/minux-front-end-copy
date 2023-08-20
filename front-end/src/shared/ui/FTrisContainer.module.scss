@@ -1,0 +1,50 @@
+@use 'app/values.scss';
+@use 'sass:math';
+
+$tris-size: 20;
+$tris-rotated-scale: (math.sqrt(math.pow($tris-size, 2) / 2)) / $tris-size;
+
+.wrapper {
+  position: relative;
+  min-width: calc(#{$tris-size}px * 2);
+  min-height: calc(#{$tris-size}px * 2);
+  border: 1px solid values.$line-color;
+  padding: calc(#{$tris-size}px / 2);
+}
+
+@mixin triangle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: #{$tris-size}px;
+  border-color: transparent transparent values.$line-color transparent;
+}
+
+.lt-triangle {
+  left: 0;
+  top: 0;
+  transform: translate(-#{$tris-size}px, -#{$tris-size}px) rotate(-45deg) scale($tris-rotated-scale);
+  @include triangle();
+}
+
+.rt-triangle {
+  right: 0;
+  top: 0;
+  transform: translate(#{$tris-size}px, -#{$tris-size}px) rotate(45deg) scale($tris-rotated-scale);
+  @include triangle();
+}
+
+.lb-triangle {
+  left: 0;
+  bottom: 0;
+  transform: translate(-#{$tris-size}px, #{$tris-size}px) rotate(-135deg) scale($tris-rotated-scale);
+  @include triangle();
+}
+
+.rb-triangle {
+  right: 0;
+  bottom: 0;
+  transform: translate(#{$tris-size}px, #{$tris-size}px) rotate(135deg) scale($tris-rotated-scale);
+  @include triangle();
+}

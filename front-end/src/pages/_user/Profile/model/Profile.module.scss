@@ -1,0 +1,63 @@
+@use 'app/values.scss';
+
+.wrapper {
+  display: block;
+}
+
+@mixin box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(0, 0, 0, 20%);
+  padding: 65px;
+}
+
+.password {
+  @include box();
+  margin-bottom: 80px;
+}
+
+.name {
+  @include box();
+}
+
+@mixin box-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.password-inner {
+  @include box-inner();
+}
+
+.name-inner {
+  @include box-inner();
+}
+
+@mixin box-inner-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 28px;
+  max-width: min-content
+}
+
+.password-inner-inner {
+  @include box-inner-inner();
+}
+
+.name-inner-inner {
+  @include box-inner-inner();
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.buttons {
+  display: flex;
+  gap: 162px;
+}

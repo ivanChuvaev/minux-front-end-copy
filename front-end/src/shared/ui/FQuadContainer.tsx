@@ -7,6 +7,8 @@ type FQuadContainerProps = HTMLProps<HTMLDivElement> & {
   filled?: boolean
   /** defines default visibility of quads */
   defaultHideDecorators?: boolean
+  /** props for body element */
+  bodyProps?: HTMLProps<HTMLDivElement>
   /** defines what parts of container are visible */
   visibility?: {
     /** left top quad */
@@ -69,7 +71,9 @@ export const FQuadContainer = (props: FQuadContainerProps) => {
       {vis._b && vis.bl && <div className={styles['b-line'] + ' ' + (!vis.lb ? styles['no-l-corner'] : '') + ' ' + (!vis.rb ? styles['no-r-corner'] : '')} />}
       {vis._l && vis.ll && <div className={styles['l-line'] + ' ' + (!vis.lt ? styles['no-t-corner'] : '') + ' ' + (!vis.lb ? styles['no-b-corner'] : '')} />}
       {vis._r && vis.rl && <div className={styles['r-line'] + ' ' + (!vis.rt ? styles['no-t-corner'] : '') + ' ' + (!vis.rb ? styles['no-b-corner'] : '')} />}
-      {props.children}
+      <div {...props.bodyProps} className={(props.bodyProps?.className ?? '') + ' ' + styles['body']}>
+        {props.children}
+      </div>
     </div>
   )
 }
