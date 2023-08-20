@@ -1,0 +1,120 @@
+@use 'app/values.scss';
+
+$px: 10px;
+$py: 8px;
+$line-height: 30px;
+$transition-duration: 200ms;
+$title-p: 5px;
+$title-scale: 0.6;
+
+.wrapper {
+  position: relative;
+  padding: $py $px;
+  display: flex;
+  border: 1px solid values.$line-color;
+  border-top-color: transparent;
+  background: #ffffff0c;
+  min-height: calc($line-height + 2 * $py);
+  height: min-content;
+  transition: all $transition-duration;
+  &:focus-within {
+    border-color: values.$text-color-thirdy;
+    border-top-color: transparent;
+    // box-shadow: 0 0 4px values.$text-color-thirdy;
+  }
+
+  &:focus-within, &.active {
+    .title {
+      transform: translate($px, -50%) scale($title-scale);
+    }
+    .lt-line {
+      width: calc($px - $title-p);
+    }
+
+    .rt-line {
+      width: calc(100% - var(--title-width) * $title-scale - $title-p - $px );
+    }
+  }
+
+  &.active {
+    .title {
+      color: values.$line-color;
+    }
+  }
+
+  &:focus-within {
+    .title {
+      color: values.$text-color-thirdy;
+    }
+
+    .lt-line, .rt-line {
+      color: values.$text-color-thirdy;
+    }
+  }
+
+  &.no-title {
+    .lt-line, .rt-line {
+      display: none;
+    }
+    border-top-color: values.$line-color;
+
+    &:focus-within {
+      border-top-color: values.$text-color-thirdy;
+    }
+  }
+}
+
+@mixin line {
+  position: absolute;
+  height: 0;
+  color: values.$line-color;
+  border-bottom: 1px solid currentColor;
+  transition: all $transition-duration;
+}
+
+.lt-line {
+  @include line();
+  left: 0;
+  top: -1px;
+  width: $px;
+}
+
+.rt-line {
+  @include line();
+  --title-width: 5px;
+  right: 0;
+  top: -1px;
+  width: calc(100% - $px);
+}
+
+.title {
+  position: absolute;
+  font-size: 28px;
+  line-height: 28px;
+  left: 0px;
+  top: 0px;
+  transform: translate($px, $py);
+  transform-origin: left center;
+  transition: all $transition-duration;
+  color: #ffffff7c;
+  pointer-events: none;
+}
+
+.input {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  min-width: 20px;
+  width: 100%;
+  min-height: calc($line-height + 2px);
+  overflow: visible;
+  // min-height: 50px;
+  height: fit-content;
+  font-size: 28px;
+  line-height: $line-height;
+  vertical-align: top;
+  resize: none;
+  &:focus {
+    outline: none;
+  }
+}

@@ -1,0 +1,104 @@
+@use 'app/values.scss';
+$gap: 10px;
+$head-height: 70px;
+$body-padding: 15px;
+$cell-gap: 30px;
+
+$bg-color: rgba(0, 0, 0, 20%);
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.table-wrapper-wrapper {
+  display: block;
+  background: $bg-color;
+  padding: 0;
+}
+
+.table-wrapper {
+  display: block;
+  padding: $body-padding;
+  padding-top: 0;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY($head-height - $body-padding / 2);
+    height: 0;
+    width: 100%;
+    border-bottom: 1px solid values.$line-color;
+  }
+
+  table {
+    width: 100%;
+    font-size: 24px;
+  }
+
+  thead {
+    height: calc($head-height + $body-padding / 2);
+  }
+
+  tr {
+    cursor: pointer;
+    &:hover {
+      background: color-mix(in srgb, values.$line-color 80%, transparent);
+    }
+  }
+
+  td {
+    padding: $gap;
+    padding-right: $cell-gap;
+    padding-left: 0;
+    word-break: break-word;
+  }
+
+  th {
+    text-align: left;
+    padding-right: $cell-gap;
+    transform: translateY(-$body-padding / 2);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+  }
+
+  td, th {
+    &:first-child {
+      padding-left: $gap;
+    }
+
+    &:last-child {
+      padding-right: $gap;
+      min-width: 50px;
+    }
+  }
+}
+
+.actions {
+  height: 100%;
+  width: calc(75px + $gap);
+  white-space: nowrap;
+
+  &>*{
+    padding: 5px;
+    display: inline-block;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.137);
+    }
+    &:first-child {
+      margin-right: 5px;
+    }
+  }
+}
+
+.new-address-wrapper {
+  background: $bg-color;
+  padding: 25px;
+}

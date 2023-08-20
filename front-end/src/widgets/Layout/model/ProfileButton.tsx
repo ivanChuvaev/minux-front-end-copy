@@ -5,11 +5,11 @@ import styles from './ProfileButton.module.scss'
 import { NavLink, useLocation } from "react-router-dom"
 
 const links = [
-  { url: '/profile', title: 'Profile' },
-  { url: '/wallets', title: 'Wallets' },
-  { url: '/crypto-pool', title: 'Crypto/Pool' },
-  { url: '/vpn-proxy', title: 'VPN/Proxy' },
-  { url: '/feedback', title: 'Feedback' },
+  { url: '/user/profile', title: 'Profile' },
+  { url: '/user/wallets', title: 'Wallets' },
+  { url: '/user/crypto-pool', title: 'Crypto/Pool' },
+  { url: '/user/vpn-proxy', title: 'VPN/Proxy' },
+  { url: '/user/feedback', title: 'Feedback' },
   { url: '/logout', title: 'Logout' },
 ]
 
@@ -19,7 +19,7 @@ export const ProfileButton = (props: ProfileButtonProps) => {
   const location = useLocation()
   return (
     <div {...props} className={(props.className ?? '') + ' ' + styles['wrapper'] + ' ' + (links.some(v => v.url === location.pathname) ? styles['active'] : '')}>
-      <FQuadContainer visibility={{ lt: false, rb: false }} className={styles['profile-image-wrapper']}>
+      <FQuadContainer visibility={{ lt: false, rb: false }} className={styles['profile-image-wrapper']} bodyProps={{ className: styles['profile-image-wrapper-body']}}>
         <img src={profile} alt="profile" className={styles['profile-image']} />
       </FQuadContainer>
       <div className={styles['profile-button-burger']}>

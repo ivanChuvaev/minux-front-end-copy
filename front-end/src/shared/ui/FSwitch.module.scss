@@ -1,0 +1,53 @@
+@use 'app/values.scss';
+
+$marker-scale: 0.75;
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  width: fit-content;
+  cursor: pointer;
+
+  &.reversed {
+    flex-direction: row-reverse;
+  }
+}
+
+.body {
+  width: 50px;
+  height: 25px;
+  border-radius: 12.5px;
+  border: 1px solid values.$line-color;
+  position: relative;
+  box-sizing: border-box;
+  transition: background 200ms;
+}
+
+.marker {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  top: 1;
+  left: 1;
+  transform: translate(0) scale($marker-scale);
+  transition: transform 200ms;
+}
+
+.checked {
+  &.body {
+    background: values.$line-color;
+  }
+
+  .marker {
+    transform: translate(100%) scale($marker-scale);
+  }
+}
+
+.label {
+  font-size: 28px;
+  line-height: 25px;
+}

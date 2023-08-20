@@ -1,0 +1,11 @@
+$px: 10px;
+$py: 8px;
+
+.wrapper {
+  display: flex;
+  width: 100%;
+}
+.input-container {
+  padding: $py $px;
+  line-height: 30px;
+}
