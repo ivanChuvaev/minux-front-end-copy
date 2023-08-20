@@ -16,10 +16,10 @@ export const Motherboard = (props: MotherboardProps) => {
     { label: 'Product Name', value: valueOrNA(data?.information.productName) },
     { label: 'Serial Number', value: valueOrNA(data?.information.serialNumber) },
     { label: 'uuid', value: valueOrNA(data?.uuid) },
-    { label: 'SATA ports', value: valueOrNA(data?.sataPorts) },
+    { label: 'SATA ports', value: valueOrNA(data?.sataSlots) },
     { label: 'RAM Type', value: valueOrNA(data?.ramSlots.type) },
-    { label: 'Maximum RAM Speed', value: valueOrNA(data?.ramSlots.speed + " Mhz") },
-    { label: 'Maximum RAM Capacity', value: valueOrNA(data?.ramSlots.capacity) + " Gb" },
+    { label: 'Maximum RAM Speed', value: valueOrNA(data?.ramSlots.maxSpeed + " Mhz") },
+    { label: 'Maximum RAM Capacity', value: valueOrNA(data?.ramSlots.maxCapacity) + " Gb" },
     { label: 'PCIe', value: valueOrNA(data?.pciSlots) },
   ]
 

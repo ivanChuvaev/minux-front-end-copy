@@ -9,11 +9,9 @@ export const testStaticData: StaticData = {
                 "periphery": "RTX 3080 Ti",
                 "driverVersion": "515.76",
                 "architecture": "Ampere",
-                "cudaVersion": "11.7",
-                "gpuUuid": "GPU-87111c58-594e-494c-a574-6c9b130a6170",
+                "cudaVersion": "11.7", 
                 "productArchitecture": "Ampere",
-                "serialNumber": null,
-                "vbiosVersion": "94.06.25.00.7e",
+                "serialNumber": null, 
                 "pci": {
                     "bus": "0x0b",
                     "deviceId": "0x250410de",
@@ -68,12 +66,13 @@ export const testStaticData: StaticData = {
             "productName": "B250 MINING EXPERT",
             "serialNumber": "180118537208105"
         },
-        "sataPorts": "4 x 6",
-        "pciSlots": "18 x PCIe, 1 x PCIe x16" ,
+        "sataSlots": 4,
+        "pciSlots": 12 ,
         "ramSlots": {
-            capacity: 5000,
-            speed: 1234,
-            type: "4 x DDR4"
+            type: 'DDR4',
+            count: 4,
+            maxSpeed: 1000,
+            maxCapacity: 16000
         }
     },
     hd:
