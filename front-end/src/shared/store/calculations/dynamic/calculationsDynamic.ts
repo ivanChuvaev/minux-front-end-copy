@@ -10,7 +10,7 @@ export type CoinsValue = rt.Static<typeof CoinsValue>
 
 export const CalculationsDynamic = rt.Record({
     coinsValue: rt.Array(CoinsValue),
-    gpusAccepted: rt.Number,
+    gpusAccepted: rt.Number,    
     gpusRejected: rt.Number, 
     gpusAlgorithms: rt.Number,
     gpusMiners: rt.Number,

@@ -19,7 +19,12 @@ const dynamicDataSlice = createSlice({
         updateDynamicData: (state, action: PayloadAction<DynamicData>) => {
             state.data = action.payload;
         },
-        changeGpuDynamic: (state, action: PayloadAction<GpuDynamic[]>) => {
+        changeStateDynamic: (state, action: PayloadAction<boolean>) => {
+            if (state.data) {
+                state.data.state.mining = action.payload; 
+            }
+        },
+        changeGpusDynamic: (state, action: PayloadAction<GpuDynamic[]>) => {
             if (state.data) {
                 state.data.gpu = action.payload; 
             }
@@ -29,7 +34,7 @@ const dynamicDataSlice = createSlice({
                 state.data.cpu = action.payload; 
             }
         },
-        changeRamDynamic: (state, action: PayloadAction<RamDynamic[]>) => {
+        changeRamsDynamic: (state, action: PayloadAction<RamDynamic[]>) => {
             if (state.data) {
                 state.data.ram = action.payload; 
             }

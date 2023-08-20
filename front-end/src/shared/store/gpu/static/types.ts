@@ -6,11 +6,9 @@ export const Informations = rt.Record({
     periphery: rt.Union(rt.String, rt.Null),
     architecture: rt.Union(rt.String, rt.Null),
     driverVersion: rt.Union(rt.String, rt.Null),
-    cudaVersion: rt.Union(rt.String, rt.Null),
-    gpuUuid: rt.Union(rt.String, rt.Null),
+    cudaVersion: rt.Union(rt.String, rt.Null), 
     productArchitecture: rt.Union(rt.String, rt.Null),
-    serialNumber: rt.Union(rt.String, rt.Null),
-    vbiosVersion: rt.Union(rt.String, rt.Null),
+    serialNumber: rt.Union(rt.String, rt.Null), 
     pci: rt.Record({ 
         bus: rt.Union(rt.String, rt.Null), 
         deviceId: rt.Union(rt.String, rt.Null), 

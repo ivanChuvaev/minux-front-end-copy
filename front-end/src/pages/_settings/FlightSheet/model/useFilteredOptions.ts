@@ -20,9 +20,9 @@ export const useFilteredOptions = (
 
   const [filteredOptions, setFilteredOptions] = useState<FilteredOptions>({
     cryptocurrencies: _.map(options?.cryptocurrencies, 'fullName'),
-    pools: _.map(options?.wallets, 'address'),
-    miners: _.map(options?.pools, 'poolsDomen'),
-    wallets: _.map(options?.miners, 'fullName')
+    pools: _.map(options?.pools, 'poolsDomen'),
+    miners: _.map(options?.miners, 'fullName'),
+    wallets: _.map(options?.wallets, 'address')
   });
 
   useEffect(() => { 
