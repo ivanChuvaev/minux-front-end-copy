@@ -13,7 +13,7 @@ export const authenticate = async (request: TRequest): Promise<TResponse> => {
       if (request.username === 'admin' && request.password === 'admin') {
         resolve({accessToken: 'dummyAccessToken'})
       }
-      reject('fuck you')
+      resolve({ accessToken: null })
     }, 1000)
   })
 }
