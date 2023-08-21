@@ -1,32 +1,37 @@
+$font-size: 28px;
+
 .wrapper {
   display: flex;
   min-width: 0;
-  max-width: 900px;
+  width: 100%;
+  max-width: 1600px;
 }
 
 .fields-grid-wrapper {
   flex-grow: 1;
+  width: 100%;
 }
 
 .fields-grid {
   display: grid;
+  gap: 40px;
+  row-gap: 20px;
   padding: 20px 20px;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .fields-chunk {
   display: flex;
   flex-direction: column;
-  gap: 0px;
   overflow: hidden;
-
+  gap: 0;
 }
 
 @mixin field-mixin {
   display: flex;
-  gap: 5px;
+  gap: 20px;
   justify-content: space-between;
-  font-size: 20px;
+  font-size: $font-size;
   min-width: 0;
 
   .label {
@@ -52,6 +57,7 @@
 .last-field {
   @include field-mixin();
   display: inline;
+  grid-column: 1 / 4;
   &>.label, &>.value {
     display: inline;
     white-space: normal;
@@ -61,7 +67,7 @@
 }
 
 .image-container-wrapper.sp1 {
-  width: 200px;
+  aspect-ratio: 1;
   flex-shrink: 0;
   height: unset;
 }
@@ -76,59 +82,24 @@
   object-fit: contain;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (max-width: 1300px) {
   .fields-grid {
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 30px;
-    row-gap: 10px;
+    grid-template-columns: 1fr 1fr;
   }
 
   .last-field {
-    @include field-mixin();
-    display: flex;
-    flex-direction: row;
-    gap: 40px;
-    justify-content: flex-start;
-    grid-column: 1 / 4;
-  }
-  
-}
-
-@media screen and (min-width: 1500px) {
-  .wrapper {
-    width: 1300px;
-    max-width: 1300px;
+    grid-column: 1;
   }
 }
 
-
-@media screen and (min-width: 1800px) {
-
+@media screen and (max-width: 960px) {
   .fields-grid {
-    padding: 31px 40px;
-    column-gap: 50px;
-    row-gap: 20px;
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 
-  .wrapper {
-    width: 1600px;
-    max-width: 1600px;
-  }
-
-  .field {
-    font-size: 24px;
-    gap: 20px;
-  }
   .last-field {
-    font-size: 24px;
+    margin-top: 20px;
+    grid-column: 1;
   }
-
-  .image-container-wrapper.sp1 {
-    width: 300px;
-  }
-  
-  .image-container {
-    padding: 30px;
-  }
-
 }

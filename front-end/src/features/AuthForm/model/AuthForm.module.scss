@@ -1,0 +1,37 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+label {
+  font-size: 28px;
+  letter-spacing: 2px;
+}
+
+.password-wrapper {
+  $p: 10px;
+  position: relative;
+  cursor: pointer;
+
+  
+  :global(.react-icon) {
+    position: absolute;
+    right: $p;
+    top: 50%;
+    transform: translate(0, -50%);
+    &:hover {
+      background: rgba(255,255,255,.2);
+    }
+  
+  }
+  .password-input {
+    padding-right: calc(28px + $p);
+  }
+}
+
+.login-button {
+  align-self: center;
+  margin-top: 40px;
+  padding: 0 60px;
+}

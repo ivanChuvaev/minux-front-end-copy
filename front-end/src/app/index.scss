@@ -59,3 +59,22 @@ html *::-webkit-scrollbar-thumb {
   background-color: values.$line-color; 
   border: 3px solid values.$line-color;
 }
+
+
+.react-icon {
+  font-size: 28px;
+  padding: 0;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+  -webkit-box-shadow: 0 0 0 30px #606063 inset !important;
+  font-size: 28px;
+  color: white !important;
+}
+
+img {
+  pointer-events: none;
+}

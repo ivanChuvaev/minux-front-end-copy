@@ -28,8 +28,8 @@ export const Feedback = (props: HTMLProps<HTMLDivElement>) => {
         <FTextInput value={state.message.value} onChange={state.message.setValue}  multiline minRows={8} maxRows={13} title="Message"/>
         <FDatePicker value={state.period.value} onChange={state.period.setValue} />
         <div className={styles['actions']}>
-          <FButton type="bad" onClick={action.reset}>Clear</FButton>
-          <FButton type="good" onClick={action.send}>Send</FButton>
+          <FButton severity="bad" onClick={action.reset}>Clear</FButton>
+          <FButton severity="good" onClick={action.send}>Send</FButton>
         </div>
       </FQuadContainer>
     </div>

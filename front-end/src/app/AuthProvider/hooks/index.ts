@@ -1,0 +1,1 @@
+export { useGetUserInfoQuery } from './useGetUserInfoQuery'

@@ -3,6 +3,9 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom'
 import { ConfigProvider, theme, ThemeConfig } from 'antd';
 import { FRoutes } from './FRoutes';
+import { AuthProvider } from './AuthProvider';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { IconContext } from "react-icons";
 import './index.scss';
 
 const color = {
@@ -21,14 +24,29 @@ const ftheme: ThemeConfig = {
   }
 }
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+      refetchOnWindowFocus: false
+    }
+  }
+})
+
 export function App() {
   return (
     <BrowserRouter>
-      <Provider store={store}>
-        <ConfigProvider theme={ftheme}>
-          <FRoutes /> 
-        </ConfigProvider>
-      </Provider>
+      <IconContext.Provider value={{ className: 'react-icon' }}>
+        <QueryClientProvider client={queryClient}>
+          <AuthProvider>
+            <Provider store={store}>
+              <ConfigProvider theme={ftheme}>
+                <FRoutes /> 
+              </ConfigProvider>
+            </Provider>
+          </AuthProvider>
+        </QueryClientProvider>
+      </IconContext.Provider>
     </BrowserRouter>
   );
 }

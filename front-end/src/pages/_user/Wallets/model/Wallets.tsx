@@ -61,13 +61,13 @@ export const Wallets = (props: HTMLProps<HTMLDivElement>) => {
           </tbody>
         </table>
       </FQuadContainer>
-      <FButton type='good' className="self-end">Add new</FButton>
+      <FButton severity='good' className="self-end">Add new</FButton>
       <FQuadContainer filled className={styles['new-address-wrapper']}>
         <FTextInput title="New Address" />
       </FQuadContainer>
       <div className="self-end flex gap-10">
-        <FButton type="bad">Reset</FButton>
-        <FButton type="good">Add</FButton>
+        <FButton severity="bad">Reset</FButton>
+        <FButton severity="good">Add</FButton>
       </div>
     </div>
   )

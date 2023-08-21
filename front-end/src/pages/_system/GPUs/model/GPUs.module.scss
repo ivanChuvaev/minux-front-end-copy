@@ -1,41 +1,24 @@
 .wrapper {
   min-width: 100%;
   min-height: 100%;
+  padding: 50px;
   display: flex;
   flex-direction: column;
-  padding: 30px;
-  align-items: center;
-  justify-content: center;
+  align-items: stretch;
 }
 
 .topic {
   margin-bottom: 20px;
   min-width: 0;
+  font-size: 28px;
   width: 100%;
-  max-width: 500px;
-  font-size: 25px;
+  max-width: 1500px;
+  align-self: center;
 }
 
 .gpu-list {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 50px;
-}
-
-@media screen and (min-width: 1000px) {
-  .topic {
-    max-width: 800px;
-  }
-}
-
-
-@media screen and (min-width: 1500px) {
-  .topic {
-    font-size: 32px;
-    max-width: 1140px;
-  }
-
-  .wrapper {
-    padding: 50px;
-  }
 }

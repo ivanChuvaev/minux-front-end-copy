@@ -1,4 +1,4 @@
-import { HTMLProps, SetStateAction, useEffect, useRef } from "react"
+import { HTMLProps, SetStateAction, useEffect, useMemo, useRef } from "react"
 import { useStateObj } from "@shared/lib"
 import styles from './FTextInput.module.scss'
 import _ from 'lodash'
@@ -13,6 +13,8 @@ type FTextInputProps = Omit<HTMLProps<HTMLDivElement>, 'value' | 'onChange' | 'r
   minRows?: number
   maxRows?: number
   title?: string
+  password?: boolean,
+  inputProps?: HTMLProps<HTMLInputElement>
 }
 
 export const FTextInput = (props: FTextInputProps) => {
@@ -23,7 +25,7 @@ export const FTextInput = (props: FTextInputProps) => {
   const innerState = {
     value: useStateObj('')
   }
-  const state = (() => {
+  const state = useMemo(() => {
     return {
       value: {
         value: props.value ?? innerState.value.value,
@@ -34,7 +36,7 @@ export const FTextInput = (props: FTextInputProps) => {
         })
       }
     }
-  })()
+  }, [props.value, innerState.value.value, props.onChange])
 
   useEffect(() => {
     if (refTitle.current !== null && refRTLine.current !== null) {
@@ -64,12 +66,12 @@ export const FTextInput = (props: FTextInputProps) => {
   }, [refTextArea, props.minRows, props.maxRows, props.multiline])
 
   return (
-    <div {..._.omit(props, 'value', 'onChange', 'placeholder', 'multiline', 'minRows', 'maxRows', 'autoResize')} className={(props.className ?? '') + ' ' + styles['wrapper'] + ' ' + (state.value.value !== '' ? styles['active'] : '') + ' ' + (props.title === undefined || props.title === '' ? styles['no-title'] : '')}>
+    <div {..._.omit(props, 'value', 'onChange', 'placeholder', 'multiline', 'minRows', 'maxRows', 'autoResize', 'password', 'inputProps')} className={(props.className ?? '') + ' ' + styles['wrapper'] + ' ' + (state.value.value !== '' ? styles['active'] : '') + ' ' + (props.title === undefined || props.title === '' ? styles['no-title'] : '')}>
       <div ref={refTitle} className={styles['title']}>{props.title}</div>
       <div className={styles['lt-line']} />
       <div ref={refRTLine} className={styles['rt-line']} />
-      {multiline && <textarea spellCheck={false} ref={refTextArea} className={styles['input']} placeholder={props.placeholder} value={state.value.value} onChange={e => state.value.setValue(e.target.value)} />}
-      {!multiline && <input style={{ marginTop: '-2px' }} className={styles['input']} placeholder={props.placeholder} value={state.value.value} onChange={e => state.value.setValue(e.target.value)} />}
-    </div>
+      {multiline && <textarea autoComplete={props.autoComplete} spellCheck={false} ref={refTextArea} className={styles['input']} placeholder={props.placeholder} value={state.value.value} onChange={e => state.value.setValue(e.target.value)} />}
+      {!multiline && <input autoComplete={props.autoComplete} type={(props.password ?? false) ? 'password' : 'text'} placeholder={props.placeholder} value={state.value.value} onChange={e => state.value.setValue(e.target.value)} {...props.inputProps} style={{ marginTop: '-2px', ...props.inputProps?.style }} className={styles['input'] + ' ' + (props.inputProps?.className)} />}
+    </div> 
   )
 }

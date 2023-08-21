@@ -104,6 +104,7 @@
   border: 1px solid;
   border-color: currentColor;
   position: relative;
+  cursor: pointer;
 
   &:global(.active) {
     background: values.$text-color-thirdy;

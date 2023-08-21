@@ -6,15 +6,20 @@
   padding: 30px;
   align-items: center;
   justify-content: center;
+  font-size: 28px;
 }
 
 .data {
-  width: 560px;
+  width: fit-content;
 }
 
 .data-topic {
   font-size: 25px;
   letter-spacing: 13px;
+  width: 100%;
+  min-width: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .data-body {
@@ -25,13 +30,12 @@
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 
 .field-item {
   display: flex;
   justify-content: space-between;
-  font-size: 25px;
+  gap: 20px;
 
   &>*{
     white-space: nowrap;
@@ -48,46 +52,11 @@
 
 .image {
   display: none;
+  width: 400px;
 }
 
 @media screen and (min-width: 1260px) {
   .image {
     display: block;
-    width: 500px;
-  }
-}
-
-@media screen and (min-width: 1760px) {
-
-  .wrapper {
-    gap: 118px;
-    padding: 118px;
-  }
-
-  .data {
-    width: 776px;
-    flex-shrink: 0;
-  }
-
-  .data-body {
-    padding: 40px;
-  }
-
-  .data-topic {
-    font-size: 30px;
-    letter-spacing: 23px;
-  }
-
-  .fields {
-    margin-top: 25px;
-    gap: 25px;
-  }
-
-  .field-item {
-    font-size: 30px;
-  }
-
-  .image {
-    width: 628px;
   }
 }

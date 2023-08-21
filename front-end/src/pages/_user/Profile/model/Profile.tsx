@@ -37,8 +37,8 @@ export const Profile = (props: HTMLProps<HTMLDivElement>) => {
             <FTextInput title="New password" value={state.newPassword.value} onChange={state.newPassword.setValue} />
           </div>
           <div className={styles['buttons']}>
-            <FButton type='bad' onClick={action.resetPassword}>Reset</FButton>
-            <FButton type='good' onClick={action.applyPassword}>Apply</FButton>
+            <FButton severity='bad' onClick={action.resetPassword}>Reset</FButton>
+            <FButton severity='good' onClick={action.applyPassword}>Apply</FButton>
           </div>
         </div>
       </FQuadContainer>
@@ -47,8 +47,8 @@ export const Profile = (props: HTMLProps<HTMLDivElement>) => {
           <span>Change name</span>
           <FTextInput title="New name" value={state.newName.value} onChange={state.newName.setValue} />
           <div className={styles['buttons']}>
-            <FButton type='bad' onClick={action.resetName}>Reset</FButton>
-            <FButton type='good' onClick={action.applyName}>Apply</FButton>
+            <FButton severity='bad' onClick={action.resetName}>Reset</FButton>
+            <FButton severity='good' onClick={action.applyName}>Apply</FButton>
           </div>
         </div>
       </FQuadContainer>

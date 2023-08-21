@@ -9,7 +9,7 @@
 }
 
 .data {
-  width: 560px;
+  width: 500px;
 }
 
 .data-topic {
@@ -25,7 +25,6 @@
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 
 .field-item {
@@ -48,46 +47,11 @@
 
 .image {
   display: none;
+  width: 240px;
 }
 
 @media screen and (min-width: 1260px) {
   .image {
     display: block;
-    width: 286px;
-  }
-}
-
-@media screen and (min-width: 1760px) {
-
-  .wrapper {
-    gap: 118px;
-    padding: 118px;
-  }
-
-  .data {
-    width: 776px;
-    flex-shrink: 0;
-  }
-
-  .data-body {
-    padding: 40px;
-  }
-
-  .data-topic {
-    font-size: 30px;
-    letter-spacing: 23px;
-  }
-
-  .fields {
-    margin-top: 25px;
-    gap: 25px;
-  }
-
-  .field-item {
-    font-size: 30px;
-  }
-
-  .image {
-    width: 365px;
   }
 }

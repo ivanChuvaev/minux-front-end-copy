@@ -1,12 +1,12 @@
 import { HTMLProps } from "react" 
 import { FContainer } from "@shared/ui"
 import { useMediaQuery } from 'usehooks-ts'
-import styles from './GPUItem.module.scss'
-import gpuOneVentImage from '@shared/images/gpu-one-vent-image.png'
-import gpuTwoVentImage from '@shared/images/gpu-two-vent-image.png'
-import _ from 'lodash'
 import { GpuStatic } from "@shared/store"
 import { valueOrNA } from "@shared/utils"
+import gpuOneVentImage from '@shared/images/gpu-one-vent-image.png'
+import gpuTwoVentImage from '@shared/images/gpu-two-vent-image.png'
+import styles from './GPUItem.module.scss'
+import _ from 'lodash'
 
 type GPUItemProps = HTMLProps<HTMLDivElement> & {
   item: GpuStatic,
@@ -15,7 +15,8 @@ type GPUItemProps = HTMLProps<HTMLDivElement> & {
 }
 
 export const GPUItem = (props: GPUItemProps) => {
-  const above1500px = useMediaQuery('(min-width: 1500px)');
+  const above1500px = useMediaQuery('(min-width: 1600px)');
+  const above1300px = useMediaQuery('(min-width: 1300px)');
 
   const fields: Array<{ label: string, value: string }> = [
     { label: 'uuid', value: props.item.uuid },
@@ -36,7 +37,7 @@ export const GPUItem = (props: GPUItemProps) => {
   return (
     <div {..._.omit(props, 'item', 'narrow', 'imageType')} className={(props.className ?? '') + ' ' + styles['wrapper']}>
       <FContainer visibility={{ r: !above1500px, rc: false, tc: false, bc: false, lc: false }} className={styles['fields-grid-wrapper']} bodyProps={{ className: styles['fields-grid']}}>
-        {_.map(_.chunk(fields, 5), (chunk, index) => (
+        {_.map(_.chunk(fields, above1300px ? 5 : 6), (chunk, index) => (
           <div key={'chunk-' + index} className={styles['fields-chunk']}>
             {_.map(chunk, item => (
               <div key={item.label} className={styles['field']}>

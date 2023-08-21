@@ -101,7 +101,7 @@ $title-scale: 0.6;
 }
 
 .input {
-  background: transparent;
+  background: transparent !important;
   margin: 0;
   padding: 0;
   min-width: 20px;
@@ -116,5 +116,9 @@ $title-scale: 0.6;
   resize: none;
   &:focus {
     outline: none;
+  }
+
+  &:internal-autofill-selected {
+    background: transparent !important;
   }
 }
