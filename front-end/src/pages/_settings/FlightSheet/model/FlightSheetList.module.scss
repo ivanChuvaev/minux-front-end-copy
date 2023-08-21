@@ -9,7 +9,7 @@
         display: flex;
 
         gap: 30px;
-        
+
         .border-line { 
             width: 100%;
 
@@ -17,20 +17,54 @@
     
             .list-item {
                 display: grid;
-                grid-template-columns: repeat(6, 1fr);
+                grid-template-columns: repeat(5, 1fr) 80px; 
         
                 background-color: values.$color-primary;
         
                 justify-items: center;
                 align-items: center; 
-        
-                height: 120px;
+
+                min-height: 120px;
                 padding: 10px; 
             
                 font-size: 28px; 
             } 
+        } 
+
+        .img {
+            cursor: pointer;
         }
+
+    }
+    
+    
+}
+
+.grid-hidden {
+    display: flex; 
+
+    background-color: values.$color-primary;
+
+    font-size: 28px; 
+
+    justify-content: space-evenly;
+
+    padding: 10px; 
+
+    @mixin item {
+        display: flex;
+        flex-direction: column;
     }
 
+    .item-1 {
+        @include item; 
+    }
 
+    .item-2 {
+        @include item; 
+    }
+
+    .item-3 {
+        @include item; 
+    }
 }

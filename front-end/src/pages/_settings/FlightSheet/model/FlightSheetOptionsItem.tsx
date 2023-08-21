@@ -40,7 +40,7 @@ export const FlightSheetOptionsItem = (props: FlightSheetOptionsItemProps) => {
         <div className={styles['drop-down']} onMouseLeave={MouseLeaveHandler}>
             <div className={styles['drop-down-header']}>
                 <input className={styles['input']} value={props.item.value} placeholder={props.item.header} disabled/>
-                <img className={styles['img']}src={arrowDown} alt="arrowDown" onClick={openDropDown}/>
+                <img className={styles['img-arrow']}src={arrowDown} alt="arrowDown" onClick={openDropDown}/>
             </div> 
             <div className={styles['drop-down-options']} hidden={isHidden}>
                 {props.item.options?.map((item, index) => (
