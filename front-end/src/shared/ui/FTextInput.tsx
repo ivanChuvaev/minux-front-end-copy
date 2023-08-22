@@ -1,9 +1,12 @@
-import { HTMLProps, SetStateAction, useEffect, useMemo, useRef } from "react"
+import { CSSProperties, HTMLProps, SetStateAction, useEffect, useMemo, useRef, useState } from "react"
 import { useStateObj } from "@shared/lib"
+import { useElementSize } from "usehooks-ts";
 import styles from './FTextInput.module.scss'
 import _ from 'lodash'
 
 const lineHeight = 30;
+const px = 10;
+const py = 8;
 
 type FTextInputProps = Omit<HTMLProps<HTMLDivElement>, 'value' | 'onChange' | 'rows'> & {
   value?: string
@@ -15,12 +18,24 @@ type FTextInputProps = Omit<HTMLProps<HTMLDivElement>, 'value' | 'onChange' | 'r
   title?: string
   password?: boolean,
   inputProps?: HTMLProps<HTMLInputElement>
+  textareaProps?: HTMLProps<HTMLTextAreaElement>
 }
+
+const omitProps: Array<keyof FTextInputProps> = [
+  'value',
+  'onChange',
+  'placeholder',
+  'multiline',
+  'minRows',
+  'maxRows',
+  'title',
+  'password',
+  'inputProps'
+]
 
 export const FTextInput = (props: FTextInputProps) => {
   const multiline = props.multiline ?? false
   const refTextArea = useRef<HTMLTextAreaElement>(null)
-  const refTitle = useRef<HTMLDivElement>(null)
   const refRTLine = useRef<HTMLDivElement>(null)
   const innerState = {
     value: useStateObj('')
@@ -37,23 +52,19 @@ export const FTextInput = (props: FTextInputProps) => {
       }
     }
   }, [props.value, innerState.value.value, props.onChange])
-
-  useEffect(() => {
-    if (refTitle.current !== null && refRTLine.current !== null) {
-      refRTLine.current.style.setProperty('--title-width', refTitle.current.clientWidth + 'px')
-    }
-  }, [refTitle, refRTLine])
+  const [refTitle, titleSize] = useElementSize()
+  const [titleWidth, setTitleWidth] = useState(0)
 
   useEffect(() => {
     if (refTextArea.current !== null) {
-      refTextArea.current!.style.height = ((props.minRows ?? 1) * lineHeight + 2) + 'px';
+      refTextArea.current!.style.height = ((props.minRows ?? 1) * lineHeight + 2 * py) + 'px';
     }
   }, [refTextArea, props.minRows, props.multiline])
 
   useEffect(() => {
     const handler = () => {
-      refTextArea.current!.style.height = ((props.minRows ?? 1) * lineHeight + 2) + 'px';
-      refTextArea.current!.style.height = ((props.maxRows === undefined ? refTextArea.current!.scrollHeight : Math.min(refTextArea.current!.scrollHeight, props.maxRows * lineHeight + 2))) + 'px';
+      refTextArea.current!.style.height = ((props.minRows ?? 1) * lineHeight + 2 * py) + 'px';
+      refTextArea.current!.style.height = ((props.maxRows === undefined ? refTextArea.current!.scrollHeight : Math.min(refTextArea.current!.scrollHeight, props.maxRows * lineHeight + 2 * py))) + 'px';
     }
     if (refTextArea.current !== null) {
       refTextArea.current.addEventListener('input', handler)
@@ -65,13 +76,44 @@ export const FTextInput = (props: FTextInputProps) => {
     }
   }, [refTextArea, props.minRows, props.maxRows, props.multiline])
 
+
   return (
-    <div {..._.omit(props, 'value', 'onChange', 'placeholder', 'multiline', 'minRows', 'maxRows', 'autoResize', 'password', 'inputProps')} className={(props.className ?? '') + ' ' + styles['wrapper'] + ' ' + (state.value.value !== '' ? styles['active'] : '') + ' ' + (props.title === undefined || props.title === '' ? styles['no-title'] : '')}>
+    <div {..._.omit(props, omitProps)}
+      onClick={() => setTitleWidth(titleSize.width)}
+      className={(props.className ?? '') + ' ' + styles['wrapper'] + ' ' + (state.value.value !== '' ? styles['active'] : '') + ' ' + (props.title === undefined || props.title === '' ? styles['no-title'] : '')}
+      style={{
+        '--px': px + 'px',
+        '--py': py + 'px',
+        '--line-height': lineHeight + 'px',
+        '--title-width': titleWidth + 'px'
+      } as CSSProperties}
+    >
       <div ref={refTitle} className={styles['title']}>{props.title}</div>
       <div className={styles['lt-line']} />
       <div ref={refRTLine} className={styles['rt-line']} />
-      {multiline && <textarea autoComplete={props.autoComplete} spellCheck={false} ref={refTextArea} className={styles['input']} placeholder={props.placeholder} value={state.value.value} onChange={e => state.value.setValue(e.target.value)} />}
-      {!multiline && <input autoComplete={props.autoComplete} type={(props.password ?? false) ? 'password' : 'text'} placeholder={props.placeholder} value={state.value.value} onChange={e => state.value.setValue(e.target.value)} {...props.inputProps} style={{ marginTop: '-2px', ...props.inputProps?.style }} className={styles['input'] + ' ' + (props.inputProps?.className)} />}
+      {multiline &&
+        <textarea
+          {...props.textareaProps}
+          autoComplete={props.autoComplete}
+          className={(props.textareaProps?.className ?? '') + ' ' + styles['textarea']}
+          spellCheck={false}
+          ref={refTextArea}
+          placeholder={props.placeholder}
+          value={state.value.value}
+          onChange={e => state.value.setValue(e.target.value)}
+        />
+      }
+      {!multiline &&
+        <input
+          {...props.inputProps}
+          className={(props.inputProps?.className ?? '') + ' ' + styles['input']}
+          autoComplete={props.autoComplete}
+          type={(props.password ?? false) ? 'password' : 'text'}
+          placeholder={props.placeholder}
+          value={state.value.value}
+          onChange={e => state.value.setValue(e.target.value)}
+        />
+      }
     </div> 
   )
 }
