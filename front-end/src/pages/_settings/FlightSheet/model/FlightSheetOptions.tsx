@@ -2,7 +2,7 @@ import { ChangeEvent, HTMLProps, useState } from "react";
 import styles from './FlightSheetOptions.module.scss' 
 import _ from 'lodash'
 import { FlightSheetOptionsItem } from "./FlightSheetOptionsItem";
-import { FQuadCornerConteiner } from "@shared/ui"; 
+import { FQuadCornerContainer } from "@shared/ui"; 
 import { useFilteredOptions } from "./useFilteredOptions";
 
 
@@ -37,19 +37,19 @@ export const FlightSheetOptions = (props: HTMLProps<HTMLDivElement>) => {
 
   return (
     <div {...props} className={(props.className ?? '') + ' ' + styles['wrapper']}>
-      <FQuadCornerConteiner className={styles['fields-grid-wrapper'] + " " + styles['black']}> 
+      <FQuadCornerContainer className={styles['fields-grid-wrapper'] + " " + styles['black']}> 
         {fields.map(item => (
             <FlightSheetOptionsItem key={item.label} item={item}/> 
             ))} 
 
-        <div className={styles['input-conteiner']}>
+        <div className={styles['input-container']}>
           <p className={styles['text']}>Name</p>
           <input className={styles['input']} 
           type="text" value={flightSheetName} 
           onChange={handlerChangeName}
           placeholder="Write flight sheet's name..."/> 
         </div>
-      </FQuadCornerConteiner> 
+      </FQuadCornerContainer> 
 
       <div className={styles['flex-button-wrapper']}> 
           <div className={styles['button-reset']}>

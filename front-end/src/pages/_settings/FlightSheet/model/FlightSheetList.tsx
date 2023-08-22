@@ -34,31 +34,31 @@ export default function FlightSheetList(props: HTMLProps<HTMLDivElement>) {
   return (
     <div {...props} className={(props.className ?? "") + styles['wrapper']}>
         {data.map(item => (
-            <div key={item.id} className={styles['flex-conteiner']}>
+            <div key={item.id} className={styles['flex-container']}>
                 <div className={styles['border-line']}>
                     <div className={styles['list-item']}>
                         <p>{item.name}</p>
-                        <p>{item.coinName}</p>
-                        <p>{item.wallet}</p>
-                        <p>{item.pool}</p>
-                        <p>{item.miner}</p>
+                        <p><span className={styles['text-color']}>coin</span> {item.coinName}</p>
+                        <p><span className={styles['text-color']}>wallet</span> {item.wallet}</p>
+                        <p><span className={styles['text-color']}>pool</span> {item.pool}</p>
+                        <p><span className={styles['text-color']}>miner</span> {item.miner}</p>
                         <img className={styles['img']} src={arrowDown} alt='arrowDown' onClick={handlerHidden}/>
                     </div> 
                     {isHidden && 
                         <div className={styles['grid-hidden']}>
                             <div className={styles['item-1']}>
                                 <p>{item.walletAdress.name}</p>
-                                <p>{item.walletAdress.value}</p>
+                                <p className='opacity-[60%]'>{item.walletAdress.value}</p>
                             </div>
                             <div className={styles['item-2']}> 
                                 <p>{item.serverAddress.name}</p>
                                 {item.serverAddress.value.map((item) => (
-                                    <p key={item}>{item}</p>
+                                    <p className='opacity-[60%]' key={item}>{item}</p>
                                 ))}
                             </div>
                             <div className={styles['item-3']}> 
                                 <p>{item.algorithm.name}</p>
-                                <p>{item.algorithm.value}</p>
+                                <p className='opacity-[60%]'>{item.algorithm.value}</p>
                             </div> 
                         </div>
                     } 

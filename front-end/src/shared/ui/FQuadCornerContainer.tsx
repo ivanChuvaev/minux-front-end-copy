@@ -1,7 +1,7 @@
 import { HTMLProps } from 'react'
-import styles from './FQuadCornerConteiner.module.scss'
+import styles from './FQuadCornerContainer.module.scss'
 
-export const FQuadCornerConteiner = (props: HTMLProps<HTMLDivElement>) => {
+export const FQuadCornerContainer = (props: HTMLProps<HTMLDivElement>) => {
     return (
         <div {...props} className={(props.className ?? '') + ' ' + styles['wrapper']}>
             <div className={styles['lt-corner']}></div>
