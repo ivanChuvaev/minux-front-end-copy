@@ -1,26 +1,32 @@
 @use 'app/values.scss';
 
-$px: 10px;
-$py: 8px;
-$line-height: 30px;
+/**
+  those variables are defined inside component
+  --line-height
+  --px
+  --py
+*/
+
+$px: var(--px);
+$py: var(--py);
+$line-height: var(--line-height);
 $transition-duration: 200ms;
 $title-p: 5px;
 $title-scale: 0.6;
 
+
 .wrapper {
   position: relative;
-  padding: $py $px;
   display: flex;
   border: 1px solid values.$line-color;
   border-top-color: transparent;
   background: #ffffff0c;
   min-height: calc($line-height + 2 * $py);
-  height: min-content;
+  height: fit-content;
   transition: all $transition-duration;
   &:focus-within {
     border-color: values.$text-color-thirdy;
     border-top-color: transparent;
-    // box-shadow: 0 0 4px values.$text-color-thirdy;
   }
 
   &:focus-within, &.active {
@@ -81,7 +87,6 @@ $title-scale: 0.6;
 
 .rt-line {
   @include line();
-  --title-width: 5px;
   right: 0;
   top: -1px;
   width: calc(100% - $px);
@@ -89,28 +94,29 @@ $title-scale: 0.6;
 
 .title {
   position: absolute;
-  font-size: 28px;
-  line-height: 28px;
+  font-size: $line-height;
+  line-height: $line-height;
   left: 0px;
   top: 0px;
   transform: translate($px, $py);
   transform-origin: left center;
   transition: all $transition-duration;
-  color: #ffffff7c;
+  color: var(--fuck-you);
   pointer-events: none;
 }
 
-.input {
+.textarea {
+  // position: absolute;
+  left: 0;
   background: transparent !important;
   margin: 0;
-  padding: 0;
+  padding: $py $px;
   min-width: 20px;
   width: 100%;
   min-height: calc($line-height + 2px);
   overflow: visible;
-  // min-height: 50px;
   height: fit-content;
-  font-size: 28px;
+  font-size: $line-height;
   line-height: $line-height;
   vertical-align: top;
   resize: none;
@@ -118,7 +124,27 @@ $title-scale: 0.6;
     outline: none;
   }
 
-  &:internal-autofill-selected {
-    background: transparent !important;
+}
+
+
+.input {
+  position: absolute;
+  left: 0;
+  background: transparent !important;
+  margin: 0;
+  padding: $py $px;
+  min-width: 20px;
+  width: 100%;
+  min-height: calc($line-height + 2px);
+  height: 100% !important;
+  overflow: visible;
+  height: fit-content;
+  font-size: $line-height;
+  line-height: $line-height;
+  vertical-align: top;
+  resize: none;
+  &:focus {
+    outline: none;
   }
+
 }

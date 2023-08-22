@@ -26,6 +26,7 @@ export const Feedback = (props: HTMLProps<HTMLDivElement>) => {
         <span>Send us Your problems or thoughts. We'll listen to you!</span>
         <FTextInput value={state.title.value} onChange={state.title.setValue} multiline minRows={3} maxRows={3} title="Title" />
         <FTextInput value={state.message.value} onChange={state.message.setValue}  multiline minRows={8} maxRows={13} title="Message"/>
+        <FTextInput title="efajg" />
         <FDatePicker value={state.period.value} onChange={state.period.setValue} />
         <div className={styles['actions']}>
           <FButton severity="bad" onClick={action.reset}>Clear</FButton>
