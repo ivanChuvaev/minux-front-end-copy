@@ -1,0 +1,1 @@
+export { MinerAdd } from './model'

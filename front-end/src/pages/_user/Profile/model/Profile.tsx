@@ -1,14 +1,18 @@
 import { HTMLProps } from "react";
-import styles from './Profile.module.scss'
 import { FButton, FQuadContainer, FTextInput } from "@shared/ui";
 import { useStateObj } from "@shared/lib";
+import { useBoolean } from "usehooks-ts";
+import { updateName, updatePassword } from "../api";
+import styles from './Profile.module.scss'
 
 export const Profile = (props: HTMLProps<HTMLDivElement>) => {
 
   const state = {
     oldPassword: useStateObj(''),
     newPassword: useStateObj(''),
-    newName: useStateObj('')
+    newName: useStateObj(''),
+    isUpdatingPassword: useBoolean(false),
+    isUpdatingName: useBoolean(false)
   }
 
   const action = {
@@ -17,13 +21,35 @@ export const Profile = (props: HTMLProps<HTMLDivElement>) => {
       state.newPassword.setValue('');
     },
     applyPassword: () => {
-      alert('cannot change password, not implemented')
+      if (state.oldPassword.value === '') { alert('old password must be entered'); return }
+      if (state.newPassword.value === '') { alert('new password must be entered'); return }
+      state.isUpdatingPassword.setTrue();
+      updatePassword({
+        oldPassword: state.oldPassword.value,
+        newPassword: state.newPassword.value
+      }).then(res => {
+        action.resetPassword()
+      }).catch(e => {
+        alert(e.message);
+      }).finally(() => {
+        state.isUpdatingPassword.setFalse();
+      })
     },
     resetName: () => {
       state.newName.setValue('');
     },
     applyName: () => {
-      alert('cannot change name, not implemented')
+      if (state.newName.value === '') { alert('new name must be entered'); return }
+      state.isUpdatingName.setTrue();
+      updateName({
+        name: state.newName.value
+      }).then(res => {
+        action.resetName()
+      }).catch(e => {
+        alert(e.message);
+      }).finally(() => {
+        state.isUpdatingName.setFalse();
+      })
     }
   }
 
@@ -32,14 +58,12 @@ export const Profile = (props: HTMLProps<HTMLDivElement>) => {
       <FQuadContainer filled visibility={{ ll: false, rl: false }} className={styles['password']} bodyProps={{ className: styles['password-inner']}}>
         <div className={styles['password-inner-inner']}>
           <span>Change password</span>
-          <div className={styles['fields']}>
             <FTextInput title="Old password" value={state.oldPassword.value} onChange={state.oldPassword.setValue} />
             <FTextInput title="New password" value={state.newPassword.value} onChange={state.newPassword.setValue} />
-          </div>
-          <div className={styles['buttons']}>
-            <FButton severity='bad' onClick={action.resetPassword}>Reset</FButton>
-            <FButton severity='good' onClick={action.applyPassword}>Apply</FButton>
-          </div>
+            <div className={styles['buttons']}>
+              <FButton severity='bad' onClick={action.resetPassword}>Reset</FButton>
+              <FButton severity='good' loading={state.isUpdatingPassword.value} onClick={action.applyPassword}>Apply</FButton>
+            </div>
         </div>
       </FQuadContainer>
       <FQuadContainer filled visibility={{ ll: false, rl: false }} className={styles['name']} bodyProps={{ className: styles['name-inner']}}>
@@ -48,7 +72,7 @@ export const Profile = (props: HTMLProps<HTMLDivElement>) => {
           <FTextInput title="New name" value={state.newName.value} onChange={state.newName.setValue} />
           <div className={styles['buttons']}>
             <FButton severity='bad' onClick={action.resetName}>Reset</FButton>
-            <FButton severity='good' onClick={action.applyName}>Apply</FButton>
+            <FButton severity='good' loading={state.isUpdatingName.value} onClick={action.applyName}>Apply</FButton>
           </div>
         </div>
       </FQuadContainer>

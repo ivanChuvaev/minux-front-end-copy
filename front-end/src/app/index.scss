@@ -31,6 +31,7 @@ body {
   background: #20202B;
   color: values.$text-color-primary;
   font-family: $font-gill-sans;
+  font-size: 28px;
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; 
@@ -73,4 +74,9 @@ input:-webkit-autofill:active{
   -webkit-box-shadow: 0 0 0 30px #606063 inset !important;
   font-size: 28px;
   color: white !important;
-} 
+}
+
+.thumb-vertical {
+  background-color: red;
+  height: 10px !important;
+}
