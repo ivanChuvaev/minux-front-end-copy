@@ -1,9 +1,9 @@
 @use '@app/values.scss';
 
 $gap: 10px;
-$head-height: 70px;
+$head-height: 50px;
 $body-padding: 15px;
-$cell-gap: 10px;
+$cell-gap: 20px;
 $bg-color: rgba(0, 0, 0, 20%);
 
 .wrapper {
@@ -14,16 +14,14 @@ $bg-color: rgba(0, 0, 0, 20%);
 
 .table-wrapper {
   display: block;
-  padding: $body-padding;
   padding-top: 0;
   position: relative;
 
   &::after {
     content: '';
     position: absolute;
-    top: 0;
+    top: calc($head-height + $body-padding / 2);
     left: 0;
-    transform: translateY($head-height - $body-padding / 2);
     height: 0;
     width: 100%;
     border-bottom: 1px solid values.$line-color;
@@ -41,7 +39,6 @@ $bg-color: rgba(0, 0, 0, 20%);
   th {
     text-align: left;
     padding-right: $cell-gap;
-    transform: translateY(-$body-padding / 2);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -51,24 +48,17 @@ $bg-color: rgba(0, 0, 0, 20%);
   td, th {
     width: fit-content;
     &:first-child {
-      padding-left: $gap;
+      padding-left: $cell-gap;
+      min-width: 0;
+      white-space: nowrap;
     }
 
     &:last-child {
-      padding-right: 0;
-      min-width: fit-content;
+      padding-right: $cell-gap;
     }
   }
 
-  tr {
-    cursor: pointer;
-    &:hover {
-      background: color-mix(in srgb, values.$line-color 80%, transparent);
-    }
-  }
-  
   td {
-    padding: $gap;
     padding-right: $cell-gap;
     padding-left: 0;
     word-break: break-word;
@@ -76,13 +66,13 @@ $bg-color: rgba(0, 0, 0, 20%);
 }
 
 .actions {
-  height: 100%;
-  width: calc(75px + $gap);
   white-space: nowrap;
+  display: flex;
+  gap: 4px;
 
-  &>*{
+  .icon.sp1 {
+    font-size: 35px;
     padding: 5px;
-    display: inline-block;
 
     &:hover {
       background: rgba(255, 255, 255, 0.137);
@@ -94,7 +84,23 @@ $bg-color: rgba(0, 0, 0, 20%);
 }
 
 .wrapper-item {
+  cursor: pointer;
+  &:hover {
+    background: color-mix(in srgb, values.$line-color 80%, transparent);
+  }
   &.deleting {
     background: rgb(197, 51, 51);
   }
+
+  td {
+    padding-top: calc($cell-gap / 2);
+    padding-bottom: calc($cell-gap / 2);
+  }
+}
+
+.modal-container {
+  padding: 20px;
+  width: 600px;
+  min-width: 0;
+  max-width: 100%;
 }

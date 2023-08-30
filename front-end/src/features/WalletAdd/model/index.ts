@@ -1,1 +1,0 @@
-export { WalletAdd } from './WalletAdd'

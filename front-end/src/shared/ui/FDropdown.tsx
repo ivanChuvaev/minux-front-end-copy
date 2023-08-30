@@ -13,7 +13,7 @@ const omittedProps = [
   'value',
   'onChange',
   'getOptionLabel',
-  'getKey',
+  'getOptionValue',
   'placeholder',
   'loading',
   'disabled',
@@ -30,7 +30,7 @@ type FDropdownProps<T> = Omit<HTMLProps<HTMLDivElement>, typeof omittedProps[num
   /** sets text that is displayed per each option */
   getOptionLabel: (item: T) => string
   /** sets key for each option */
-  getKey: (item: T) => string
+  getOptionValue: (item: T) => string
   /** text that is displayed while value is null or empty array */
   placeholder?: string
   /** replaces dropdown icon with spinner and hides dropdown menu */
@@ -193,11 +193,11 @@ export const FDropdown = <T,>(props: FDropdownProps<T>) => {
           <Scrollbars renderThumbVertical={props => <div {...props} className={styles['scroll-thumb']} />} style={{ width: '100%'}} autoHide autoHeight>
             {props.options.map((option, index) => (
               <div
-                key={props.getKey(option)}
+                key={props.getOptionValue(option)}
                 className={
                   styles['option-item'] + ' ' +
-                  (!props.multiple && state.selectedSingle.value === option ? styles['active'] : '') + ' ' +
-                  (props.multiple && state.selectedMultiple.value.includes(option) ? styles['active-multiple'] : '')
+                  (!props.multiple && (state.selectedSingle.value !== null && props.getOptionValue(state.selectedSingle.value) === props.getOptionValue(option)) ? styles['active'] : '') + ' ' +
+                  (props.multiple && state.selectedMultiple.value.find(v => props.getOptionValue(v) === props.getOptionValue(option)) ? styles['active-multiple'] : '')
                 }
                 onClick={() => {
                   if (!props.multiple) {

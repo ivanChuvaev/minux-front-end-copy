@@ -1,6 +1,6 @@
 import { FButton, FContainer, FModal } from "@shared/ui";
 import { HTMLProps } from "react";
-import { WalletAdd } from "@features/WalletAdd";
+import { CreateWallet } from "@features/CreateWallet";
 import { WalletList } from "@widgets/WalletList";
 import { useQuery } from "react-query";
 import { getWalletList } from "../api";
@@ -19,7 +19,7 @@ export const Wallets = (props: HTMLProps<HTMLDivElement>) => {
       <FButton severity='good' className="self-end" onClick={isAddOpen.setTrue}>Add new</FButton>
       <FModal open={isAddOpen.value} onClose={isAddOpen.setFalse} title="Add Wallet">
         <FContainer className={styles['new-wallet-wrapper']} bodyProps={{ className: styles['new-wallet-body']}}>
-          <WalletAdd onAdd={isAddOpen.setFalse} />
+          <CreateWallet onAdd={isAddOpen.setFalse} />
         </FContainer>
       </FModal>
     </div>

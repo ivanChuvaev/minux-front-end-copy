@@ -2,8 +2,10 @@ import { TWalletFilled } from "@shared/types"
 import { HTMLProps } from "react"
 import { deleteWallet } from "../api"
 import { useBoolean } from "usehooks-ts"
-import editIcon from '@shared/images/edit-icon.svg'
-import deleteIcon from '@shared/images/delete-icon.svg'
+import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai"
+import { useBooleanUrl } from "@shared/lib/useBooleanUrl"
+import { FContainer, FModal } from "@shared/ui"
+import { UpdateWallet } from "@features/UpdateWallet"
 import styles from './WalletList.module.scss'
 import _ from 'lodash'
 
@@ -18,6 +20,7 @@ type WalletListItemProps = Omit<HTMLProps<HTMLTableRowElement>, typeof omittedPr
 
 export const WalletListItem = (props: WalletListItemProps) => {
   const isDeleting = useBoolean(false);
+  const isEditModalOpen = useBooleanUrl(props.item.id + 'edit')
 
   const action = {
     delete: () => {
@@ -32,6 +35,10 @@ export const WalletListItem = (props: WalletListItemProps) => {
           isDeleting.setFalse();
         })
       }
+    },
+    update: () => {
+      isEditModalOpen.setFalse();
+      if (props.onUpdate !== undefined) props.onUpdate();
     }
   }
   return (
@@ -40,10 +47,17 @@ export const WalletListItem = (props: WalletListItemProps) => {
       <td>{props.item.name}</td>
       <td>{props.item.source}</td>
       <td>{props.item.address}</td>
-      <td className={styles['actions']}>
-        <img src={editIcon} alt="edit" />
-        <img src={deleteIcon} alt="delete" onClick={action.delete} />
+      <td>
+        <div className={styles['actions']}>
+          <AiOutlineEdit className={styles['icon'] + ' ' + styles['sp1']} onClick={isEditModalOpen.setTrue} />
+          <AiOutlineDelete className={styles['icon'] + ' ' + styles['sp1']} onClick={action.delete} />
+        </div>
       </td>
+      <FModal title="Update wallet" open={isEditModalOpen.value} onClose={isEditModalOpen.setFalse}>
+        <FContainer bodyProps={{ className: styles['modal-container']}} visibility={{ tc: false }}>
+          <UpdateWallet item={props.item} onUpdate={action.update} />
+        </FContainer>
+      </FModal>
     </tr>
   )
 }

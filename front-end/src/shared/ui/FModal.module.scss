@@ -63,8 +63,10 @@ $header-body-gap: 15px;
     @mixin side-line {
       content: '';
       position: absolute;
-      top: -0.5px;
+      bottom: 0;
       height: 0;
+      transform: translateY(1.5px);
+      box-sizing: content-box;
       width: $header-icon-size;
       border-bottom: 3px solid currentColor;
     }
