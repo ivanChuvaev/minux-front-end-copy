@@ -1,20 +1,24 @@
 import { HTMLProps } from "react" 
 import { FContainer } from "@shared/ui"
 import { useMediaQuery } from 'usehooks-ts'
-import { GpuStatic } from "@shared/store"
 import { valueOrNA } from "@shared/utils"
+import { TStaticGPU } from "@shared/types"
 import gpuOneVentImage from '@shared/images/gpu-one-vent-image.png'
 import gpuTwoVentImage from '@shared/images/gpu-two-vent-image.png'
-import styles from './GPUItem.module.scss'
+import styles from './StaticGPU.module.scss'
 import _ from 'lodash'
 
-type GPUItemProps = HTMLProps<HTMLDivElement> & {
-  item: GpuStatic,
-  narrow?: boolean,
+const omittedProps = [
+  'item',
+  'imageType'
+] as const
+
+type StaticGPUProps = Omit<HTMLProps<HTMLDivElement>, typeof omittedProps[number]> & {
+  item: TStaticGPU,
   imageType?: 'one-vent' | 'two-vent'
 }
 
-export const GPUItem = (props: GPUItemProps) => {
+export const StaticGPU = (props: StaticGPUProps) => {
   const above1500px = useMediaQuery('(min-width: 1600px)');
   const above1300px = useMediaQuery('(min-width: 1300px)');
 
@@ -35,8 +39,12 @@ export const GPUItem = (props: GPUItemProps) => {
   const lastField = { label: 'GPU uuid', value: 'GPU-87111c58-594e-494c-a574-6c9b130a6170' }
 
   return (
-    <div {..._.omit(props, 'item', 'narrow', 'imageType')} className={(props.className ?? '') + ' ' + styles['wrapper']}>
-      <FContainer visibility={{ r: !above1500px, rc: false, tc: false, bc: false, lc: false }} className={styles['fields-grid-wrapper']} bodyProps={{ className: styles['fields-grid']}}>
+    <div {..._.omit(props, omittedProps)} className={(props.className ?? '') + ' ' + styles['wrapper']}>
+      <FContainer
+        bodyProps={{ className: styles['fields-grid']}}
+        visibility={{ r: !above1500px, rc: false, tc: false, bc: false, lc: false }}
+        className={styles['fields-grid-wrapper']}
+      >
         {_.map(_.chunk(fields, above1300px ? 5 : 6), (chunk, index) => (
           <div key={'chunk-' + index} className={styles['fields-chunk']}>
             {_.map(chunk, item => (

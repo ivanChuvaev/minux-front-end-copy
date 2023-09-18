@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import  {StaticData} from "./staticData"; 
+import { StaticData } from "./staticData"; 
 import { Support } from "../support";
 import { GpuStatic } from "../gpu";
 import { CpuStatic } from "../cpu";

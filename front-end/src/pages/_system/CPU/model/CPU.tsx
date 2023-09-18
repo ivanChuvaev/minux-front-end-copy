@@ -1,47 +1,42 @@
-import { FContainer, FTopic } from "@shared/ui"
-import { HTMLProps } from "react"
-import cpuImage from '@shared/images/cpu-image.svg'
-import styles from './CPU.module.scss' 
+import { HTMLProps, useMemo } from "react"
 import { useSelector } from "react-redux"
 import { RootState } from "@app/store" 
 import { valueOrNA } from "@shared/utils"
+import { useQuery } from "react-query"
+import { getStaticCPU } from "@shared/api"
+import { StaticCPU } from "@entities/StaticCPU/model/StaticCPU"
+import { Spin } from "antd"
+import { CPUImage } from "@shared/images/CPUImage"
+import styles from './CPU.module.scss' 
 
 type CPUProps = HTMLProps<HTMLDivElement>
 
 export const CPU = (props: CPUProps) => {
-  const data = useSelector((state: RootState) => state.staticData.data?.cpu) 
-
-  const fields: Array<{ label: string, value: string | number }> = [
-    { label: 'Manufacturer', value: valueOrNA(data?.information.manufacturer) },
-    { label: 'Model', value: valueOrNA(data?.information.modelName) },
-    { label: 'Architecture', value: valueOrNA(data?.information.architecture) },
-    { label: 'Operation', value: valueOrNA(data?.information.opModes) },
-    { label: 'CPUs', value: valueOrNA(data?.information.cores.cpus) },
-    { label: 'Threads per Core', value: valueOrNA(data?.information.cores.threadsPerCore) },
-    { label: 'Cores per Socket', value: valueOrNA(data?.information.cores.threadsPerSocket) },
-    { label: 'Max Clock', value: valueOrNA(data?.clocksMhz.max) },
-    { label: 'Min Clock', value: valueOrNA(data?.clocksMhz.min) },
-    { label: 'Cache L2', value: valueOrNA(data?.information.cacheL2) + 'Mb' },
-    { label: 'Cache L3', value: valueOrNA(data?.information.cacheL3) + 'Mb' }
-  ]
+  // const data = useSelector((state: RootState) => state.staticData.data?.cpu)
+  const staticCPUQuery = useQuery(['load static CPU'], () => getStaticCPU({}))
+  const cpuType: 'intel' | 'amd' | 'unknown' = useMemo(() => {
+    if (staticCPUQuery.data === undefined || staticCPUQuery.data.information.manufacturer === null) return 'unknown'
+    if (staticCPUQuery.data.information.manufacturer.search(/intel/i) !== -1) return 'intel'
+    if (staticCPUQuery.data.information.manufacturer.search(/amd/i) !== -1) return 'amd'
+    return 'unknown' 
+  }, [staticCPUQuery.data])
 
   return (
     <div {...props} className={(props.className ?? '') + ' ' + styles['wrapper']}>
-      <FContainer visibility={{ lc: false, rc: false }} className={styles['data']} bodyProps={{ className: styles['data-body']}}>
-        <FTopic className={styles['data-topic']} text="CPU" />
-        <div className={styles['fields']}>
-          {fields.map(field => (
-            <div key={field.label} className={styles['field-item']}>
-              <label>{field.label}</label>
-              <div>{field.value}</div>
+      {staticCPUQuery.isFetching && <Spin />}
+      {staticCPUQuery.data !== undefined && !staticCPUQuery.isFetching &&
+        <>
+          <StaticCPU item={staticCPUQuery.data} />
+          <div className={styles['cpu-image-wrapper']}>
+            <CPUImage className={styles['image'] + ' ' + (cpuType === 'intel' ? styles['cpu-intel'] : cpuType === 'amd' ? styles['cpu-amd'] : styles['cpu-unknown'])} />
+            <div className={styles['cpu-image-text']}>
+              {valueOrNA(staticCPUQuery.data?.information.manufacturer)}
+              <br />{
+              staticCPUQuery.data?.information.modelName}
             </div>
-          ))}
-        </div>
-      </FContainer>
-      <div className={styles['cpu-image-wrapper']}>
-        <img src={cpuImage} alt="cpu" className={styles['image']} />
-        <div className={styles['cpu-image-text']}>{valueOrNA(data?.information.manufacturer)}<br />{data?.information.modelName}</div>
-      </div>
+          </div>
+        </>
+      }
     </div>
   )
 }
